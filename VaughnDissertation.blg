@@ -1,0 +1,71 @@
+This is BibTeX, Version 0.99d (TeX Live 2022)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: VaughnDissertation.aux
+A level-1 auxiliary file: data/titlepage.aux
+A level-1 auxiliary file: data/abstract.aux
+A level-1 auxiliary file: data/dedication.aux
+A level-1 auxiliary file: data/acknowledgements.aux
+A level-1 auxiliary file: data/contributors.aux
+A level-1 auxiliary file: data/nomenclature.aux
+A level-1 auxiliary file: data/lists.aux
+A level-1 auxiliary file: data/section1.aux
+A level-1 auxiliary file: data/section2.aux
+A level-1 auxiliary file: data/section3.aux
+A level-1 auxiliary file: data/section4.aux
+The style file: ieeetr.bst
+A level-1 auxiliary file: data/appendices.aux
+Database file #1: data/myReference.bib
+Warning--empty chapter and pages in aiaa09
+Warning--empty publisher in aiaa09
+Warning--empty year in aiaa09
+Warning--empty chapter and pages in aiaa10
+Warning--empty publisher in aiaa10
+Warning--empty year in aiaa10
+Warning--empty chapter and pages in aiaa12
+Warning--empty publisher in aiaa12
+Warning--empty year in aiaa12
+Warning--empty chapter and pages in aiaa19
+Warning--empty publisher in aiaa19
+Warning--empty year in aiaa19
+You've used 9 entries,
+            1876 wiz_defined-function locations,
+            535 strings with 5432 characters,
+and the built_in function-call counts, 1839 in all, are:
+= -- 167
+> -- 79
+< -- 0
++ -- 31
+- -- 22
+* -- 128
+:= -- 270
+add.period$ -- 12
+call.type$ -- 9
+change.case$ -- 5
+chr.to.int$ -- 0
+cite$ -- 21
+duplicate$ -- 105
+empty$ -- 179
+format.name$ -- 22
+if$ -- 437
+int.to.chr$ -- 0
+int.to.str$ -- 9
+missing$ -- 10
+newline$ -- 33
+num.names$ -- 9
+pop$ -- 48
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 49
+stack$ -- 0
+substring$ -- 46
+swap$ -- 35
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 12
+while$ -- 12
+width$ -- 10
+write$ -- 78
+(There were 12 warnings)
