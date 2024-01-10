@@ -1,69 +1,33 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-%  New template code for TAMU Theses and Dissertations starting Spring 2021.  
+%  Author: Jacob Vaughn
 %
-%
-%  Last Updated: 1/13/2021
+%  Last Updated: 1/10/2024
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% THIS TEMPLATE IS THE MOST
-% CURRENT. SEE THE FILES README.TXT AND NEWCHANGES.TXT
-% FOR MORE INFORMATION.
 
 \documentclass[12pt]{report}
 
 \usepackage{tamuconfig}
 
-
-% Most of the packages that set the default settings
-% for the document have moved to the style file
-% tamuconfig.sty. This includes
-
-%These next lines change the font. Fixes for certain
-%fonts will be implemented in a future release.
-
-%Comment this line if you do not wish to use Times
-%New Roman. The font used will then be the LaTeX
-%default of Computer Modern.
+%Comment this line if you do not wish to use Times New Roman. The font used will then be the LaTeX default of Computer Modern.
 \usepackage{times}
 %\usepackage{cmbright}
 \usepackage[T1]{fontenc}
 
-% For natbib-style references, uncomment this.
-%\usepackage{natbib}
-
-%This package allows for the use of graphics in the
-%document.
+%This package allows for the use of graphics in the document.
 \usepackage{graphicx}
 
-%If you have JPEG format images, add .jpg as an
-%allowed file extension below. Same for Bitmaps (.bmp).
 \DeclareGraphicsExtensions{.png}
 
-%It is best practice to keep all your pictures in
-%one folder inside the main directory in which your
-%TeX file is kept. Here the folder is named "graphic."
-%Replace the name here with your folder's name, if needed.
-%The period is needed due to relative referencing.
-\graphicspath{ {./graphic/} }
+\graphicspath{ {./graphics/} }
 
 % For quick document navigation.
 \usepackage[hidelinks]{hyperref}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%Please place all your personal packages here. Check to
-%see if the packages you wish to use are not already
-%declared above. Placing all your personal packages
-%here allows me to determine if there are any package
-%issues in compilation, as well as any conflicts
-%that may arise by the order of loading.
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Begin student defined packages.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %End student defined packages.
@@ -74,10 +38,8 @@
 \begin{document}
 
 %The title of your document goes here.
-%Spacing may need to be adjusted if your title is long
-%and pushes the copyright off the page.
-\renewcommand{\tamumanuscripttitle}{Design, Manufacturing, and Calibration of a Low-Disturbance, Actively-Controlled, Mach 5 to 8 Wind Tunnel}
-
+%Spacing may need to be adjusted if your title is long and pushes the copyright off the page.
+\renewcommand{\tamumanuscripttitle}{Design, Fabrication, and Characterization of a Low-Disturbance, Actively-Controlled, Mach 5 to 8 Wind Tunnel}
 
 %Type only Thesis, Dissertation, or Record of Study.
 \renewcommand{\tamupapertype}{Dissertation}
@@ -89,9 +51,7 @@
 \renewcommand{\tamudegree}{Doctor of Philosophy}
 \renewcommand{\tamuchairone}{Edward White}
 
-
-% Uncomment out the next line if you have co-chairs.  You will also need to edit the titlepage.tex file.
-%\newcommand{\tamuchairtwo}{Additional Chair Name}
+%Committee members
 \renewcommand{\tamumemberone}{Rodney Bowersox}
 \newcommand{\tamumembertwo}{Nathan Tichenor}
 \newcommand{\tamumemberthree}{Je Han}
@@ -103,7 +63,6 @@
 %Your department name goes here.
 \renewcommand{\tamudepartment}{Aerospace Engineering}
 
-
 \include{data/titlepage} % This is simply a file that formats and adds your titlepage, please do not edit this unless you have a specific need. .
 
 \include{data/abstract}
@@ -114,16 +73,12 @@
 
 \include{data/lists}  % This is simply a file that formats and adds your toc, lof, and lot, please do not edit this unless you have a specific need.
 
-\include{data/section1}
-\include{data/section2}
-\include{data/section3}
-\include{data/section4}
-%The next line is the format for inserting new sections.
-%Replace the name "newsection"  with the name of your
-%new section file.
-%\include{data/newsection}
+\include{data/intro}
+\include{data/ace2}
+\include{data/experiment}
+\include{data/results}
+\include{data/conclude}
 
-%fix spacing in bibliography, if any...
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \let\oldbibitem\bibitem
 \renewcommand{\bibitem}{\setlength{\itemsep}{0pt}\oldbibitem}
@@ -141,21 +96,9 @@
 
 \renewcommand{\bibname}{{\normalsize\rm REFERENCES}}
 
-%This file is a .bib database that contains the sources.
-%This removes the dependency on the previous file
-%bibliography.tex.
 \bibliography{data/myReference}
 
-
-
-
-%This next line includes appendices. The file
-%appendix.tex contains commands pointing to
-%the appendix files; be sure to change these
-%pointers if you end up changing the filenames.
-%Leave this commented if you will not need
-%appendix material.
+% Appendices main file
 \include{data/appendices}
-
 
 \end{document}
