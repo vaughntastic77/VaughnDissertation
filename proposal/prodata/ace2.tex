@@ -2,7 +2,7 @@
 %
 %  Author: Jacob Vaughn
 %  
-%  Last Updated: 1/13/2024
+%  Last Updated: 3/8/2024
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -15,7 +15,7 @@
 
 \section{Background and Motivation}
 
-The existing ACE (Actively Controlled Expansion) tunnel was designed and manufactured between 2009 and 2010 and began operating in 2010 \cite{ace09,ace10_calibrate,tichenor_dis}. The ACE tunnel nozzle is 40 inches long from the throat to the test-section entrance. The test section is 14 inches wide and 9 inches tall. By varying throat height, the test-section Mach number can be varied from M = 5 to 8.
+The existing ACE (Actively Controlled Expansion) tunnel was designed and manufactured between 2009 and 2010 and began operating in 2010 \cite{ace09,ace10-calibrate,tichenor-dis}. The ACE tunnel nozzle is 40 inches long from the throat to the test-section entrance. The test section is 14 inches wide and 9 inches tall. By varying throat height, the test-section Mach number can be varied from M = 5 to 8.
 
 \subsection{ACE Turbulent Transition}
 
@@ -24,27 +24,27 @@ More stuff
 
 \subsubsection{ACE Nozzle Noise Surveys}
 
-Three recent pitot surveys have been conducted in the ACE tunnel. The first by Mai (2014) revealed transition occurring around a unit Reynolds number of $3 \times 10^6 m^{-1}$, as shown in Figure \ref{fig:mai_survey}. The same result was found by Neel (2019) shown in Figure \ref{fig:neel_survey} that transition occurs at this unit Reynolds number 6 inches upstream of the test section entrance. A final pitot survey in ACE by Wirth (2022) was conducted to determine whether the pressure fluctuation levels increase occurred at different Re/m values at positions farther upstream in the nozzle. He found pressure fluctuation levels increase at $Re' \approx 3 \times 10^6 m^{-1}$ at a measurement location 17 inches upstream of the test section entrance. His results in Figure \ref{fig:wirth_survey} align perfectly with Mai and Neel and clearly establish that the Reynolds number at which pressure fluctuation levels increase is not sensitive to location in the nozzle. This suggests that transition is not moving upstream through the nozzle as Reynolds number is increased.
+Three recent pitot surveys have been conducted in the ACE tunnel. The first by Mai (2014) revealed transition occurring around a unit Reynolds number of $3 \times 10^6 m^{-1}$, as shown in Figure \ref{fig:mai-survey}. The same result was found by Neel (2019) shown in Figure \ref{fig:neel-survey} that transition occurs at this unit Reynolds number 6 inches upstream of the test section entrance. A final pitot survey in ACE by Wirth (2022) was conducted to determine whether the pressure fluctuation levels increase occurred at different Re/m values at positions farther upstream in the nozzle. He found pressure fluctuation levels increase at $Re' \approx 3 \times 10^6 m^{-1}$ at a measurement location 17 inches upstream of the test section entrance. His results in Figure \ref{fig:wirth-survey} align perfectly with Mai and Neel and clearly establish that the Reynolds number at which pressure fluctuation levels increase is not sensitive to location in the nozzle. This suggests that transition is not moving upstream through the nozzle as Reynolds number is increased.
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=6in]{mai_survey}
-    \caption[ACE freestream pressure fluctuations at nozzle exit (2014)]{ACE freestream pressure fluctuations at nozzle exit (2014) \cite{mai_dis}}
-    \label{fig:mai_survey}
+    \includegraphics[width=6in]{mai-survey}
+    \caption[ACE freestream pressure fluctuations at nozzle exit (2014)]{ACE freestream pressure fluctuations at nozzle exit (2014) \cite{mai-dis}}
+    \label{fig:mai-survey}
 \end{figure}
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=6in]{neel_survey}
-    \caption[ACE freestream pressure fluctuations at various locations (2019)]{ACE freestream pressure fluctuations at various locations (2019) \cite{neel_dis}}
-    \label{fig:neel_survey}
+    \includegraphics[width=6in]{neel-survey}
+    \caption[ACE freestream pressure fluctuations at various locations (2019)]{ACE freestream pressure fluctuations at various locations (2019) \cite{neel-dis}}
+    \label{fig:neel-survey}
 \end{figure}
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=6in]{wirth_survey}
+    \includegraphics[width=6in]{wirth-survey}
     \caption{ACE freestream pressure fluctuations at 6 in. and 17 in. upstream of nozzle exit (2022)}
-    \label{fig:wirth_survey}
+    \label{fig:wirth-survey}
 \end{figure}
 
 \subsubsection{Evaluation of Suspect Transition Mechanisms}
@@ -67,6 +67,22 @@ The origin of the noise measured farthest upstream of the nozzle exit was determ
 
 \begin{figure}[ht]
     \centering
+    \includegraphics[width=6in]{mush24}
+    \includegraphics[width=6in]{mush0}
+    \caption{Mushroom vortex formation at sidewalls}
+    \label{fig:mushrooms}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=6in]{vertical28}
+    \includegraphics[width=6in]{vertical24}
+    \caption{Vertical velocity}
+    \label{fig:vertical-vel}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
     \includegraphics[width=6.5in]{side17}
     \includegraphics[width=6.5in]{top17}
     \caption{Mach lines for noise measured at 17" upstream on nozzle exit.}
@@ -75,7 +91,7 @@ The origin of the noise measured farthest upstream of the nozzle exit was determ
 
 The above results reveal the pressure fluctuation levels increase but not the transition mechanism. The two primary suspects that can be eliminated using the data above are the sidewall mushroom vortices and Görtler vortices.
 
-Sidewall mushroom vortices arise from the pressure distribution in the nozzle and the low momentum flow in the sidewall boundary layers. The flow at the centerline expands to the test section pressure ahead of the top and bottom curved walls. The flow at the top and bottom lags behind the centerline flow with a higher pressure to create a vertical pressure gradient that introduces a secondary vertical flow in the sidewall boundary layers that flows from the corners to the centerline \cite{sabnis}. CFD simulations show the sidewall mushroom vortices beginning to form approximately 24 inches upstream of the nozzle exit. Tracing the characteristics from 17 inches upstream of the test section entrance, Figure \ref{fig:machlines} shows the origin to be upstream of the throat where sidewall mushroom vortices are not relevant.
+Sidewall mushroom vortices arise from the pressure distribution in the nozzle and the low momentum flow in the sidewall boundary layers. The flow at the centerline expands to the test section pressure ahead of the top and bottom curved walls. The flow at the top and bottom lags behind the centerline flow with a higher pressure to create a vertical pressure gradient that introduces a secondary vertical flow in the sidewall boundary layers that flows from the corners to the centerline \cite{sabnis}. CFD simulations show the sidewall mushroom vortices beginning to form approximately 24 inches upstream of the nozzle exit shown in Figures \ref{fig:mushrooms} and \ref{fig:vertical-vel}. Tracing the characteristics from 17 inches upstream of the test section entrance, Figure \ref{fig:machlines} shows the origin to be upstream of the throat where sidewall mushroom vortices are not relevant.
 
 Görtler vortices are counter-rotating streamwise vortices that occur in boundary layers on concave surfaces \cite{saric}. To estimate where these may lead to transition, a CFD basic state simulation and N-factor analysis was performed by Kocian (2022). However, tracing the characteristics from 17 inches upstream of the test section entrance, Figure \ref{fig:machlines} shows the measured noise originates at the end of the straight section of the nozzle where Görtler is not relevant.
 
@@ -125,7 +141,6 @@ A settling chamber height of 6" was chosen ... 10 ft/s to 100 ft/s Pope \cite{po
 \begin{table}[h]
     \centering
     \label{tab:sc_vel}
-
     \begin{tabular}{|c|c|c|c|c|}
         \cline{2-5}
         \multicolumn{1}{c}{} & \multicolumn{4}{|c|}{\textbf{Mach Number}} \\ \hline
@@ -145,25 +160,61 @@ A settling chamber height of 6" was chosen ... 10 ft/s to 100 ft/s Pope \cite{po
 The method-of-characteristics Fortran script written by Bowersox that produced the ACE nozzle contour was used for the new nozzle contour. In order to achieve continuous first and second derivative coninuity, a section of the code was modified to produce a fourth-order expansion section instead of the original second-order curve. This allowed the expansion section to match the curvature of both the subsonic section and the straight section.
 
 \begin{singlespace}
-    \textit{xthetai = sqrt(tan(thetai)/k)}
+    \textbf{Before}:
 
-    \textit{k4 = -k/2./xthetai} 
+    \textit{do 10 i=1, nch}
 
-    \textit{pc = -9.*(k**2)/3./((4.*k4)**2)} 
+    \textit{\; theta(i) = dthetai + float(i-1)*dth}
 
-    \textit{qc = (2.*(3.*k)**3 - 27.*((4.*k4)**2)*tan(theta(i)))/27./((4.*k4)**3)} 
+    \textit{\; x(i) = tan(theta(i))/2./k}
 
-    \textit{npi = 2.*pi/3.} 
+    \textit{\; xw(i) = x(i)}
 
-    \textit{tc = 2.*sqrt(-pc/3.)*cos(acos((3.*qc/2./pc)*sqrt(-3./pc))/3. - npi)} 
+    \textit{\; y(i) = 1.0 + k*x(i)**2}
 
-    \textit{if((3.*qc/2./pc)*sqrt(-3./pc).lt.-1.) then} 
+    \textit{\; yw(i) = y(i)}
 
-    \textit{tc = 2.*sqrt(-pc/3.)*cos(acos(-1.)/3. - npi)} 
+    \textit{10 continue}
 
-    \textit{end if} 
+    \textit{ }
+    
+    \textbf{After}:
 
-    \textit{x(i) = tc - k/4./k4} 
+    \textit{do 10 i=1, nch }
+
+    \textit{\; theta(i) = dthetai + float(i-1)*dth}
+
+    \textit{\; xthetai = sqrt(tan(thetai)/k)}
+
+    \textit{\; k4 = -k/2./xthetai}
+
+    \textit{\; pc = -9.*(k**2)/3./((4.*k4)**2)}
+
+    \textit{\; qc = (2.*(3.*k)**3 - 27.*((4.*k4)**2)*tan(theta(i)))}
+
+    \textit{\& \quad /27./((4.*k4)**3)}
+
+    \textit{\; npi = 2.*pi/3.}
+
+    \textit{\; tc = 2.*sqrt(-pc/3.)}
+
+    \textit{\& \quad *cos(acos((3.*qc/2./pc)*sqrt(-3./pc))/3. - npi)}
+
+    \textit{\; if((3.*qc/2./pc)*sqrt(-3./pc).lt.-1.) then}
+
+    \textit{\; \qquad tc = 2.*sqrt(-pc/3.)*cos(acos(-1.)/3. - npi)}
+
+    \textit{\; end if}
+
+    \textit{\; x(i) = tc - k/4./k4}
+
+    \textit{\; xw(i) = x(i)}
+
+    \textit{\; y(i) = 1.0 + k*x(i)**3 + k4*x(i)**4}
+
+    \textit{\; yw(i) = y(i)}
+
+    \textit{10 continue}
 \end{singlespace}
 
 \begin{figure}[ht]
@@ -193,8 +244,8 @@ After creating a mesh for each, they were ran in US3D on the Texas A\&M supercom
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=6in]{ace_mesh}
-    \includegraphics[width=6in]{qace_mesh}
+    \includegraphics[width=6in]{ace-mesh}
+    \includegraphics[width=6in]{qace-mesh}
     \caption{Mesh in Pointwise for ACE (top) and ACE2.0 (bottom) nozzle contours}
     \label{fig:mesh}
 \end{figure}
@@ -234,9 +285,9 @@ Pictured below is the final overall ACE2.0 assembly.
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=6in]{cad_full}
+    \includegraphics[width=6in]{cad-full}
     \caption{Temporary full CAD design}
-    \label{fig:cad_full}
+    \label{fig:cad-full}
 \end{figure}
 
 \subsubsection{FEA}

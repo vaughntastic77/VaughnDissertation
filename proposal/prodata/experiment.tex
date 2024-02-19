@@ -2,11 +2,12 @@
 %
 %  Author: Jacob Vaughn
 %  
-%  Last Updated: 1/13/2024
+%  Last Updated: 3/8/2024
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%                       EXPERIMENTAL SETUP
+%%               EXPERIMENTAL APPROACH & OBJECTIVES
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \chapter{EXPERIMENTAL APPROACH \& OBJECTIVES}
@@ -25,7 +26,7 @@ Inputting Mach number into PLC to actively adjust to desired Mach number within 
 
 \subsection{Uncerntainty Quantification}
 
-Unsure how to proceed
+Unsure how to proceed; review \cite{stephens-hubbard}.
 
 \subsection{Reynolds Number Control Scheme}
 
@@ -76,11 +77,82 @@ Substiuting and solving for $\frac{dP_0}{dt}$:
     \frac{dP_0}{dt} = P_0 M F^{-1} \frac{dM}{dt} \left[ (\gamma-1) \left( \frac{T_0 F^{-1}}{T_0 F^{-1} + S_\mu} - \frac{3}{2} \right) + \frac{\gamma+1}{2} - \frac{1}{M^2 F^{-1}} \right]
 \end{equation}
 
+While this model is ..., the actual controls may not be physically implented by the author due to time constraints and the fact that the M6QT shares the air supply controls. Installing controllable valve would disrupt testing in both facilities.
+
 \section{Nozzle Noise and Uniformity Characterization with Hysteresis}
 
 In order to establish a baseline for future work within the ACE2.0 facility, a pitot survey was performed to measure and characterize the freestream noise and uniformity throuhgout the nozzle. Utilize pitot probe/rake and kulites mounted on traverse to characterize entire nozzle exit plane and centerline into nozzle up to 24??? inches upstream of nozzle exit.
 
 Sweep Re/m and Mach to explore hysteresis of noise and maybe uniformity. Begin with Re/m sweep up and back down in current ACE.
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}[b]{0.4\textwidth}
+            \includegraphics[width=\textwidth]{traverse-x}
+        \caption{X traverse}
+        \label{fig:traverse-x}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.22\textwidth}
+            \includegraphics[width=\textwidth]{traverse-explode}
+        \caption{Exploded assembly}
+        \label{fig:traverse-explode}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.35\textwidth}
+            \includegraphics[width=\textwidth]{traverse-y}
+        \caption{Y-traverse}
+        \label{fig:traverse-y}
+    \end{subfigure}
+    \caption{Traverse configurations}
+    \label{fig:traverse}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=6in]{pitot17}
+    \caption{Pitot probe measuring 17 in. upstream of nozzle exit.}
+    \label{fig:pitot17}
+\end{figure}
+
+\begin{table}[h]
+    \centering
+    \label{tab:ace-survey}
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+    \textbf{Run} & \textbf{X (in.)} & \textbf{Y (in.)} & \textbf{Z (in.)} & \textbf{Re/m ($\times10^6$)} \\ \hline
+        1 & 0 & 0 & 0 & 2$\to$7$\to$2 \\ \hline
+        2 & -17 & 0 & 0 & 2$\to$7$\to$2 \\ \hline
+        3 & -24 & 0 & 0 & 2$\to$7$\to$2 \\ \hline
+    \end{tabular}
+    \caption{Test matrix for preliminary noise hysteresis in ACE.}
+\end{table}
+
+\begin{table}[h]
+    \centering
+    \label{tab:ace2-survey}
+    \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
+        \textbf{Run} & \textbf{X (in.)} & \textbf{Y (in.)} & \textbf{Z (in.)} & \textbf{Mach} & \textbf{Re/m ($\times10^6$)} \\ \hline
+        1 & 0 & 0 & 0 & 6 & 2$\to$7$\to$2 \\ \hline
+        2 & 0 & 0 & 0 & 5$\to$8$\to$5 & 3 \\ \hline
+        3 & 0 & -3 & -3:1:3 & 6 & 3 \\ \hline
+        4 & 0 & -1.5 & -3:1:3 & 6 & 3 \\ \hline
+        5 & 0 & 0 & -3:1:3 & 6 & 3 \\ \hline
+        6 & 0 & 1.5 & -3:1:3 & 6 & 3 \\ \hline
+        7 & 0 & 3 & -3:1:3 & 6 & 3 \\ \hline
+        8 & -6 & 0 & 0 & 6 & 2$\to$7$\to$2 \\ \hline
+        9 & -6 & 0 & 0 & 5$\to$8$\to$5 & 3 \\ \hline
+        10 & -6 & -3 & -3:1:3 & 6 & 3 \\ \hline
+        11 & -6 & -1.5 & -3:1:3 & 6 & 3 \\ \hline
+        12 & -6 & 0 & -3:1:3 & 6 & 3 \\ \hline
+        13 & -6 & 1.5 & -3:1:3 & 6 & 3 \\ \hline
+        14 & -6 & 3 & -3:1:3 & 6 & 3 \\ \hline
+        15 & -17 & 0 & 0 & 6 & 2$\to$7$\to$2 \\ \hline
+        16 & -17 & 0 & 0 & 5$\to$8$\to$5 & 3 \\ \hline
+        17 & -24 & 0 & 0 & 6 & 2$\to$7$\to$2 \\ \hline
+        18 & -24 & 0 & 0 & 5$\to$8$\to$5 & 3 \\ \hline
+    \end{tabular}
+    \caption{Test matrix for ACE2.0 characterization and noise hysteresis study.}
+\end{table}
 
 \section{Model Flow Characteristics Hysteresis During Mach Trajectory and Oscillation}
 
@@ -88,12 +160,12 @@ This objective serves as a demonstration of capabilities for ACE2.0.
 
 Look into hysteresis of boundary layers, shock interactions, and subsequent surface heat flux. 
 
-Use AGARD-B or Fin Cone model for public and HARV for army and verbal?
+Use fin-cone model for public and HARV for army and verbal?
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=6.5in]{agard_b}
-    \caption{AGARD-B check model drawing}
-    \label{fig:agard_b}
+    \includegraphics[width=6.5in]{fin-cone}
+    \caption{Drawing of 7$\degree$ half-angle fin-cone model used for heat flux hysteresis study.}
+    \label{fig:fin-cone}
 \end{figure}
 
