@@ -16,15 +16,10 @@
 
 Stuff about ACE2.0 controls
 
-\subsection{Active Mach Number Control}
-
-Stuff
-
 \subsection{Feedback-Controlled Mach Number Selection}
 
 Inputting Mach number into PLC to actively adjust to desired Mach number within some tolerance. Result of above ACE2.0 development.
 
-\subsection{Uncerntainty Quantification}
 
 Unsure how to proceed; review \cite{stephens-hubbard}.
 
@@ -85,6 +80,8 @@ In order to establish a baseline for future work within the ACE2.0 facility, a p
 
 Sweep Re/m and Mach to explore hysteresis of noise and maybe uniformity. Begin with Re/m sweep up and back down in current ACE.
 
+The characterization test matrix is shown in Table \ref{tab:ace2-survey}. These runs are divided into a few distinct objectives: (1) uniformity, (2) uncerntainty, (3) pressure fluctiation transition, and (4) hysteresis. The last seven runs will be replicates of the first seven to quantify the uncerntainty in pressure fluctuations, Mach number, and uniformity.
+
 \begin{figure}[ht]
     \centering
     \begin{subfigure}[b]{0.4\textwidth}
@@ -113,7 +110,7 @@ Sweep Re/m and Mach to explore hysteresis of noise and maybe uniformity. Begin w
     \label{fig:pitot17}
 \end{figure}
 
-\begin{table}[h]
+\begin{table}[ht]
     \centering
     \label{tab:ace-survey}
     \begin{tabular}{|c|c|c|c|c|}
@@ -126,7 +123,7 @@ Sweep Re/m and Mach to explore hysteresis of noise and maybe uniformity. Begin w
     \caption{Test matrix for preliminary noise hysteresis in ACE.}
 \end{table}
 
-\begin{table}[h]
+\begin{table}[ht]
     \centering
     \label{tab:ace2-survey}
     \begin{tabular}{|c|c|c|c|c|c|}
@@ -150,9 +147,24 @@ Sweep Re/m and Mach to explore hysteresis of noise and maybe uniformity. Begin w
         16 & -17 & 0 & 0 & 5$\to$8$\to$5 & 3 \\ \hline
         17 & -24 & 0 & 0 & 6 & 2$\to$7$\to$2 \\ \hline
         18 & -24 & 0 & 0 & 5$\to$8$\to$5 & 3 \\ \hline
+        19 (1) & 0 & 0 & 0 & 6 & 2$\to$7$\to$2 \\ \hline
+        20 (2)& 0 & 0 & 0 & 5$\to$8$\to$5 & 3 \\ \hline
+        21 (3) & 0 & -3 & -3:1:3 & 6 & 3 \\ \hline
+        22 (4) & 0 & -1.5 & -3:1:3 & 6 & 3 \\ \hline
+        23 (5) & 0 & 0 & -3:1:3 & 6 & 3 \\ \hline
+        24 (6) & 0 & 1.5 & -3:1:3 & 6 & 3 \\ \hline
+        25 (7) & 0 & 3 & -3:1:3 & 6 & 3 \\ \hline
     \end{tabular}
     \caption{Test matrix for ACE2.0 characterization and noise hysteresis study.}
 \end{table}
+
+\subsection{Uncerntainty Quantification}
+
+Reference \cite{stephens-hubbard}
+
+\subsection{Hysteresis}
+
+Stuff
 
 \section{Model Flow Characteristics Hysteresis During Mach Trajectory and Oscillation}
 
