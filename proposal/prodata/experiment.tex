@@ -23,7 +23,7 @@ The overall objective here is establish and substantiate the mechanisms of ACE2.
 
 As stated, the primary design objective of ACE2.0 was to enable active control of the Mach number, but this capability will be taken one step further to accurately maintain the desired Mach number once set. During a typical tunnel run, the nozzle is under both pressure and thermal loads that cause the set throat height to vary and the gas dynamics in the nozzle are non-ideal, which both result in the set Mach number to vary by up to 5\%. The attempt of the implementation of feedback control is to minimize this error to less than 1\%.
 
-The general approach for this feedback control is straightforward by designing a PID controller with an input of the measured Mach number and output of actuator position or velocity. The measured Mach number is calculated from the measured stagnation pressure and static pressure by solving the following isentropic relation:
+The general approach for this feedback control is straightforward by designing a PID controller with an input of the measured Mach number and output of actuator position or velocity. The measured Mach number is calculated from the measured stagnation pressure and static pressure by solving the isentropic relation:
 
 \begin{equation} 
     M = \sqrt{\frac{2}{\gamma - 1} \left[\left(\frac{P_0}{P}\right)^{\frac{\gamma - 1}{\gamma}} - 1\right]}
@@ -108,6 +108,18 @@ Substiuting and solving for $\frac{dP_0}{dt}$:
     \frac{dP_0}{dt} = P_0 M F^{-1} \frac{dM}{dt} \left[ (\gamma-1) \left( \frac{T_0 F^{-1}}{T_0 F^{-1} + S_\mu} - \frac{3}{2} \right) + \frac{\gamma+1}{2} - \frac{1}{M^2 F^{-1}} \right]
 \end{equation}
 
+\begin{equation}
+    E(s) = Re_{set} - Re(s)
+\end{equation}
+
+\begin{equation}
+    G(s) = \frac{P_0(s)}{E(s)} = K_p \left(1 + \frac{1}{K_i s}\right)
+\end{equation}
+
+\begin{equation}
+    P_0(s) = K_p \left(1 + \frac{1}{K_i s}\right) \left(Re_{set} - Re(s)\right)
+\end{equation}
+
 Simulation results of the above model result in acceptable performance of the PID controller as shown in Figure .
 
 \section{Nozzle Noise and Uniformity Characterization}
@@ -150,7 +162,6 @@ The characterization test matrix for ACE2.0 is shown in Table \ref{tab:ace2-surv
 
 \begin{table}[ht]
     \centering
-    \label{tab:ace-survey}
     \begin{tabular}{|c|c|c|c|c|}
         \hline
     \textbf{Run} & \textbf{X (in.)} & \textbf{Y (in.)} & \textbf{Z (in.)} & \textbf{Re/m ($\times10^6$)} \\ \hline
@@ -159,56 +170,70 @@ The characterization test matrix for ACE2.0 is shown in Table \ref{tab:ace2-surv
         3 & -24 & 0 & 0 & 2$\to$7$\to$2 \\ \hline
     \end{tabular}
     \caption{Test matrix for preliminary noise hysteresis in ACE.}
+    \label{tab:ace-survey}
 \end{table}
 
+\setcounter{rownum}{0}
 \begin{table}[ht]
     \centering
-    \label{tab:ace2-survey}
-    \begin{tabular}{|c|c|c|c|c|c|}
+    \begin{tabular}{|>{\stepcounter{rownum}\therownum}c|c|c|c|c|c|}
         \hline
-        \textbf{Run} & \textbf{X (in.)} & \textbf{Y (in.)} & \textbf{Z (in.)} & \textbf{Mach} & \textbf{Re/m ($\times10^6$)} \\ \hline
-        1 & 0 & 0 & 0 & 6 & 2$\to$7$\to$2 \\ \hline
-        2 & 0 & 0 & 0 & 5$\to$8$\to$5 & 3 \\ \hline
-        3 & 0 & -3 & -3:1:3 & 6 & 3 \\ \hline
-        4 & 0 & -1.5 & -3:1:3 & 6 & 3 \\ \hline
-        5 & 0 & 0 & -3:1:3 & 6 & 3 \\ \hline
-        6 & 0 & 1.5 & -3:1:3 & 6 & 3 \\ \hline
-        7 & 0 & 3 & -3:1:3 & 6 & 3 \\ \hline
-        8 & -6 & 0 & 0 & 6 & 2$\to$7$\to$2 \\ \hline
-        9 & -6 & 0 & 0 & 5$\to$8$\to$5 & 3 \\ \hline
-        10 & -6 & -3 & -3:1:3 & 6 & 3 \\ \hline
-        11 & -6 & -1.5 & -3:1:3 & 6 & 3 \\ \hline
-        12 & -6 & 0 & -3:1:3 & 6 & 3 \\ \hline
-        13 & -6 & 1.5 & -3:1:3 & 6 & 3 \\ \hline
-        14 & -6 & 3 & -3:1:3 & 6 & 3 \\ \hline
-        15 & -17 & 0 & 0 & 6 & 2$\to$7$\to$2 \\ \hline
-        16 & -17 & 0 & 0 & 5$\to$8$\to$5 & 3 \\ \hline
-        17 & -24 & 0 & 0 & 6 & 2$\to$7$\to$2 \\ \hline
-        18 & -24 & 0 & 0 & 5$\to$8$\to$5 & 3 \\ \hline
-        19 (1) & 0 & 0 & 0 & 6 & 2$\to$7$\to$2 \\ \hline
-        20 (2)& 0 & 0 & 0 & 5$\to$8$\to$5 & 3 \\ \hline
-        21 (3) & 0 & -3 & -3:1:3 & 6 & 3 \\ \hline
-        22 (4) & 0 & -1.5 & -3:1:3 & 6 & 3 \\ \hline
-        23 (5) & 0 & 0 & -3:1:3 & 6 & 3 \\ \hline
-        24 (6) & 0 & 1.5 & -3:1:3 & 6 & 3 \\ \hline
-        25 (7) & 0 & 3 & -3:1:3 & 6 & 3 \\ \hline
+        \multicolumn{1}{|c|}{\textbf{Run}} & \textbf{X (in.)} & \textbf{Y (in.)} & \textbf{Z (in.)} & \textbf{Mach} & \textbf{Re/m ($10^6$)} \\ \hline
+        & 0 & 0 & 0 & 6$^*$ & 3$^*$ \\ \hline
+        & 0 & 0 & 0 & 6 & 2$\to$7$\to$2 \\ \hline
+        & 0 & 0 & 0 & 5$\to$8$\to$5 & 3 \\ \hline
+        & 0 & 0 & -3:1:3 & 6 & 3 \\ \hline
+        & 0 & -3 & -3:1:3 & 6 & 3 \\ \hline
+        & 0 & -1.5 & -3:1:3 & 6 & 3 \\ \hline
+        & 0 & 1.5 & -3:1:3 & 6 & 3 \\ \hline
+        & 0 & 3 & -3:1:3 & 6 & 3 \\ \hline
+        & -6 & 0 & 0 & 6 & 2$\to$7$\to$2 \\ \hline
+        & -6 & 0 & 0 & 5$\to$8$\to$5 & 3 \\ \hline
+        & -6 & 0 & -3:1:3 & 6 & 3 \\ \hline
+        & -6 & -3 & -3:1:3 & 6 & 3 \\ \hline
+        & -6 & -1.5 & -3:1:3 & 6 & 3 \\ \hline
+        & -6 & 1.5 & -3:1:3 & 6 & 3 \\ \hline
+        & -6 & 3 & -3:1:3 & 6 & 3 \\ \hline
+        & -17 & 0 & 0 & 6 & 2$\to$7$\to$2 \\ \hline
+        & -17 & 0 & 0 & 5$\to$8$\to$5 & 3 \\ \hline
+        & -24 & 0 & 0 & 6 & 2$\to$7$\to$2 \\ \hline
+        & -24 & 0 & 0 & 5$\to$8$\to$5 & 3 \\ \hline
+        (1) & 0 & 0 & 0 & 6$^*$ & 3$^*$ \\ \hline
+        (4) & 0 & 0 & -3:1:3 & 6 & 3 \\ \hline
+        (5) & 0 & -3 & -3:1:3 & 6 & 3 \\ \hline
+        (6) & 0 & -1.5 & -3:1:3 & 6 & 3 \\ \hline
+        (7) & 0 & 1.5 & -3:1:3 & 6 & 3 \\ \hline
+        (8) & 0 & 3 & -3:1:3 & 6 & 3 \\ \hline
     \end{tabular}
     \caption{Test matrix for ACE2.0 characterization and hysteresis study.}
+    \label{tab:ace2-survey}
 \end{table}
 
 \subsection{Uncerntainty Quantification}
 
 Reference \cite{stephens-hubbard} and \cite{curriston} for how to proceed. Both repeat and replicate data...
 
+The process to quantify the uncerntainty of the various parameters for this work will vary from Curriton's approach by simply focusing on establishing a baseline for the uncerntainty and making recommendations for improvement. The three steps to establish this baseline uncerntainty for ACE2.0 will be (1) gather/measure systematic elemental uncerntainties, (2) measure replicate data points through a few repeat experiments, and (3) input measurements and data reduction equations into a monte carlo code to calculate randome uncerntainties.
+
+First, the systematic elemental uncerntainties can be gathered and measured from the various sensors, which includes the static pressure transducer, stagantion pressure tansducer, stagnation temperature thermocouple, servo motor internal encoders, and any sensors utilized in each experiment. 
+
+Next, the replicate data points will be measured by repeatedly settling on and off the set condition for the parameter of interest. While data will be gathered throughout the entire characterization test matrix, runs 1 and 20 will be solely for replicate data measurements. 
+
+Finally, the data measured from these two runs will be run through a monte carlo code along with the specific data reduction equations for the facility. This output will provide the random uncerntainty component for each parameter of interest, which will be added to the systematic uncerntainty to give the total uncerntainty.
+
+In addition to this, a sensitivity analysis of the uncerntainty to the various input paramerters will be provided with recommendations if the final calculated uncerntainty is not sufficient.
+
 \subsection{Hysteresis}
 
-Dynamic sweeps of both Mach number and Reynolds number will be explored to determine any hysteresis effects in either the noise or the control parameters. Specifically, this will be accomplished in runs 1,2,8,9, and 15-20 in Table \ref{tab:ace2-survey}.
+Dynamic sweeps of both Mach number and Reynolds number will perfomed to explore any potential hysteresis effects in either the noise or the control parameters. Specifically, this will be accomplished in the dynamic runs in the characterization test matrix.
 
-\section{Model Flow Characteristics Hysteresis During Mach Trajectory and Oscillation}
+\section{Model Flow Characteristics Hysteresis During Mach Trajectory}
 
-This objective will primarily serve as a demonstration of the capabilities for ACE2.0, but it will also provide preliminary insight into the hysteretic behaviour of dynamic Mach number experiments. The various flow characteristics that will be explored include shock interactions, boundary layers, and subsequent surface heat flux using schleiren and IR thermography.
+This objective will primarily serve as a demonstration of the capabilities for ACE2.0, but it will also provide preliminary insight into the hysteretic behaviour of dynamic Mach number experiments. The flow characteristics that will be specifically explored in this research will be surface heat flux and shock interactions using IR thermography and schleiren.
 
-The experiments here will follow closely with the work of Wirth \cite{wirth} to compare measurents from the dynamic runs to his results with the fin-cone model. This model, shown in Figure \ref{fig:fin-cone}, consists of a 7$\degree$ half-angle cone body with a single fin at an angle of 8$\degree$ from the body surface. The specific model used by Wirth will be used for these experiments as well. This physical, shown in Figure , was 3D printed with a ceramic-like material using SLA... The entire model is 15 inches long with the fin beginning 4 inches from the nose tip. The nose tip for this model has a radius of 0.0025 inches. 
+The first experiment will follow closely with the work of Wirth \cite{wirth} to compare measurents from the dynamic runs to his results with the fin-cone model. This model, shown in Figure \ref{fig:fin-cone}, consists of a 7$\degree$ half-angle cone body with a single fin at an angle of 8$\degree$ from the body surface. The specific model used by Wirth will be used for these experiments as well. This physical, shown in Figure , was 3D printed with a ceramic-like material using SLA... The entire model is 15 inches long with the fin beginning 4 inches from the nose tip. The nose tip for this model has a radius of 0.0025 inches as this was the limit for the 3D printer. 
+
+The second experiment will be based on 
 
 Use fin-cone model for public and HARV for army and verbal?
 

@@ -15,16 +15,29 @@
 
 \section{Background and Motivation}
 
-The existing ACE (Actively Controlled Expansion) tunnel was designed and manufactured between 2009 and 2010 and began operating in 2010 \cite{ace09,ace10-calibrate,tichenor-dis}. The ACE tunnel nozzle is 40 inches long from the throat to the test-section entrance. The test section is 14 inches wide and 9 inches tall. By varying throat height, the test-section Mach number can be varied from M = 5 to 8.
+The existing ACE (Actively Controlled Expansion) tunnel was designed and manufactured between 2009 and 2010 and began operating in 2010 \cite{ace09,ace10-calibrate,tichenor-dis}. The nozzle is 40 inches long from the throat to the test-section entrance. The test section is 14 inches wide and 9 inches tall. The last 4 inches of the nozzle is a thin flexure portion that allows the the throat height to be varied from 0.04 to 0.36 inches, meaning the test-section Mach number can be varied from Mach 5 to 8.
 
 \subsection{ACE Turbulent Transition}
 
-Below a unit Reynolds number of $Re/m = U/\nu \approx 3 \times 10^6 m^{-1}$ the rms pressure fluctuations in the test section are low, less than 1\%. At higher Re/m values, pressure fluctuation levels increase when the unit Reynolds number increases above $Re/m \approx 3 \times 10^6 m^{-1}$ \cite{aceturb}. It is desired to increase the unit Reynolds number at which laminar flow can be maintained. This document summarizes the hypothesis and supporting data regarding the pressure fluctuation levels increase and how it might be delayed to higher unit Reynolds numbers.
-More stuff
+Below a unit Reynolds number of $Re/m = U/\nu \approx 3 \times 10^6 m^{-1}$ the RMS pressure fluctuations in the test section are less than 1\%, and above this unit Reynolds number the pressure fluctuation levels significanly increase. It was desired to increase the unit Reynolds number at which laminar flow can be maintained, so the mechanism causing this transiton had to be determined. The hypothesis and supporting data regarding the pressure fluctuation levels increase and how it might be delayed to higher unit Reynolds numbers is summarized below.
 
-\subsubsection{ACE Nozzle Noise Surveys}
+\subsubsection{Evaluation of Suspect Transition Mechanisms}
 
-Three recent pitot surveys have been conducted in the ACE tunnel. The first by Mai (2014) revealed transition occurring around a unit Reynolds number of $3 \times 10^6 m^{-1}$, as shown in Figure \ref{fig:mai-survey}. The same result was found by Neel (2019) shown in Figure \ref{fig:neel-survey} that transition occurs at this unit Reynolds number 6 inches upstream of the test section entrance. A final pitot survey in ACE by Wirth (2022) was conducted to determine whether the pressure fluctuation levels increase occurred at different Re/m values at positions farther upstream in the nozzle. He found pressure fluctuation levels increase at $Re' \approx 3 \times 10^6 m^{-1}$ at a measurement location 17 inches upstream of the test section entrance. His results in Figure \ref{fig:wirth-survey} align perfectly with Mai and Neel and clearly establish that the Reynolds number at which pressure fluctuation levels increase is not sensitive to location in the nozzle. This suggests that transition is not moving upstream through the nozzle as Reynolds number is increased.
+There are five primary suspects for this transition:
+
+\begin{enumerate}
+    \item A known manufacturing surface discontinuity at the throat
+    \item Sidewall mushroom vortices
+    \item Görtler vortices
+    \item Freestream turbulence in the incoming flow and/or upstream boundary layer
+    \item Wall roughness or waviness
+\end{enumerate}
+
+This following evaluates each of these possibilities and concludes that the primary culprit is the surface discontinuity at the throat. This conclusion is supported by pitot surveys, method-of-characteristics line tracing, and CFD simulations. Sidewall mushroom vortices and Görtler vortices would lead to transition too far downstream from the throat to be responsible for the pressure fluctuation levels increase. Items 4 and 5 are potential causes of poor flow quality in all supersonic tunnels and are included for completeness. The specific mechanism by which these would cause transition is not known. While they are not the primary suspects for the pressure fluctuation levels increase, improving these conditions will be addressed in the redesign intended to extend laminar flow to higher Reynolds numbers.
+
+\subsubsection*{ACE Nozzle Noise Surveys}
+
+Three recent pitot surveys have been conducted in the ACE tunnel. The first by Mai (2014) revealed transition occurring around a unit Reynolds number of $3 \times 10^6 m^{-1}$, as shown in Figure \ref{fig:mai-survey}. The same result was found by Neel (2019) shown in Figure \ref{fig:neel-survey} that transition occurs at this unit Reynolds number 6 inches upstream of the test section entrance. A final pitot survey in ACE by Wirth (2022) was conducted to determine whether the pressure fluctuation levels increase occurred at different Re/m values at positions farther upstream in the nozzle. He found pressure fluctuation levels increase at $Re' \approx 3 \times 10^6 m^{-1}$ at a measurement location 17 inches upstream of the test section entrance. His results in Figure \ref{fig:wirth-survey} align perfectly with Mai and Neel and clearly establish that the Reynolds number at which pressure fluctuation levels increase is unrelated to location in the nozzle. This suggests that transition is not moving upstream through the nozzle as Reynolds number is increased.
 
 \begin{figure}[ht]
     \centering
@@ -47,19 +60,6 @@ Three recent pitot surveys have been conducted in the ACE tunnel. The first by M
     \label{fig:wirth-survey}
 \end{figure}
 
-\subsubsection{Evaluation of Suspect Transition Mechanisms}
-
-There are five primary suspects for this transition:
-
-\begin{enumerate}
-    \item A known manufacturing surface discontinuity at the throat
-    \item Sidewall mushroom vortices
-    \item Görtler vortices
-    \item Freestream turbulence in the incoming flow and/or upstream boundary layer
-    \item Wall roughness or waviness
-\end{enumerate}
-
-This following evaluates each of these possibilities and concludes that the primary culprit is the surface discontinuity at the throat. This conclusion is supported by pitot surveys, method-of-characteristics line tracing, and CFD simulations. Sidewall mushroom vortices and Görtler vortices would lead to transition too far downstream from the throat to be responsible for the pressure fluctuation levels increase. Items 4 and 5 are potential causes of poor flow quality in all supersonic tunnels and are included for completeness. The specific mechanism by which these would cause transition is not known. While they are not the primary suspects for the pressure fluctuation levels increase, improving these conditions will be addressed in the redesign intended to extend laminar flow to higher Reynolds numbers.
 
 \subsubsection*{Mach Line Tracing}
 
@@ -88,6 +88,8 @@ The origin of the noise measured farthest upstream of the nozzle exit was determ
     \caption{Mach lines for noise measured at 17" upstream on nozzle exit.}
     \label{fig:machlines}
 \end{figure}
+
+\subsubsection*{Suspect Mechanism Conclusions}
 
 The above results reveal the pressure fluctuation levels increase but not the transition mechanism. The two primary suspects that can be eliminated using the data above are the sidewall mushroom vortices and Görtler vortices.
 
@@ -120,27 +122,24 @@ The rest of the chapter details the planned improvements to the ACE tunnel and s
 
 \subsection{Design Requirments}
 
-ACE2.0 shall maintain many characteristics while improving some, so many requirements are the same as the original ACE design. The new tunnel will still produce uniform Mach 5 to 8 flow in the 9 inches by 14 inches test section, withstand a 530 Kelvin total temperature, and maintain an engineering factor of safety of 4 when operating at a total pressure of 200 psi.
-
-The overall improvements and associated requirements will be a new frame that will support a new actuation system with an efficient means of repeatably adjusting throat height to achieve desired mach numbers with a displacement indicator to achieve a repeatable Mach number change by 2 students in 4 hours or less, straightforward settling chamber and nozzle access for inspection and maintenance, and a rigid assembly for actuation between the settling chamber and nozzle.
+ACE2.0 will maintain many characteristics while improving some, so many requirements are the same as the original ACE design. The new tunnel will still produce uniform Mach 5 to 8 flow in the 9 inches by 14 inches test section, withstand a total temperature of 530 Kelvin, and maintain a minimum engineering factor of safety of 1.5 when operating at a total pressure of 200 psia.
 
 \subsubsection*{Nozzle Requirements}
 
-The current ACE nozzle successfully produces uniform Mach 5 to 8 flow in its core. In order to maintain this good performance and not introduce unknown parameters, the new nozzle will retain a very similar contour with slight improvements. The requirements that remain the same are that the nozzle must produce uniform flow for the entire Mach range, achieve maximum height deflection without damage, and prevent leaks up to a pressure of 200 psi.
+The current ACE nozzle successfully produces uniform Mach 5 to 8 flow in its core. In order to maintain this good performance and not introduce unknown parameters, the new nozzle will retain a very similar contour with slight improvements. The requirements that remain the same are that the nozzle must produce uniform flow for the entire Mach range, achieve maximum height deflection without damage, and prevent leaks up to a pressure of 200 psia.
 
-The improvements to the nozzle and associated requirements will be a single-piece nozzle that eliminates any potential manufacturing discontinuities or steps, a contour with continuous 1st and 2nd derivatives that is specified by an analytical functions that will eliminate discontinuities and truncation error, and a maximum allowable stress less than or equal to that found in the current ACE flexure.
+The improvements to the nozzle and associated requirements will be a contour with continuous 1st and 2nd derivatives that is specified by analytical functions that will eliminate discontinuities and truncation error and a maximum allowable stress less than or equal to that found in the current ACE flexure at maximum deflection.
 
 \subsubsection*{Settling Chamber Requirements}
 
-The current ACE settling chamber design provides multiple opportunities to improve flow conditioning and ease of maintenance. The new settling chamber design will increase the length and height and allow for variable aerogrid/screen configurations. The requirements that remain the same are low freestream turbulence, thin stable wall boundary layers, maximum uniformity, and preventing leaks at a pressure of 200 psi. The implementation of these requirements will be improved in the new design to achieve improved incoming flow into the nozzle.
+The current ACE settling chamber design provides multiple opportunities to improve flow conditioning and ease of maintenance. The new settling chamber design will increase the length and height and allow for variable aerogrid/screen configurations. The requirements that remain the same are low freestream turbulence, thin stable wall boundary layers, maximum uniformity, and preventing leaks at a pressure of 200 psia. The implementation of these requirements will be improved in the new design to achieve improved incoming flow into the nozzle.
 
-Following Reshotko \cite{reshotko}, the length of the settling chamber shall accommodate a separation of 250 characteristic mesh sizes between screens allowing for adequate turbulence decay. The aerogrids will have a hexagonal perforation pattern to increase porosity and decrease pressure loss. The number of aerogrids and screens shall be variable to allow for future flow conditioning experiments. The inlet shall include a baffle system that will provide an acceptable initial distribution of air received from the high-pressure inlet piping. The overall design shall accommodate future boundary layer suction or bleed slots.
+Following Reshotko \cite{reshotko}, the length of the settling chamber shall accommodate a separation of 250 characteristic mesh sizes between screens allowing for adequate turbulence decay. The aerogrids will have a hexagonal perforation pattern to increase porosity and decrease pressure loss. The number of aerogrids and screens shall be variable to allow for future flow conditioning experiments. The inlet shall include a baffle system that will provide an acceptable initial distribution and mixing of the air received from the high-pressure inlet piping. The overall design will accommodate future boundary layer suction or bleed slots.
 
-A settling chamber height of 6" was chosen ... 10 ft/s to 100 ft/s Pope \cite{pope}:
+A settling chamber height of 6 inches was chosen to keep the velocity as slow as possible without going below 10 ft/s, according to Pope \cite{pope}, for the majority of the Mach number range. The reason for this minimum is to prevent thermal convection vortices from dominating the flow at the walls, but the interior of ACE2.0 will be heated prior to the start of the run to avoid this gradient. With this in mind, the height of 6 inches was chosen as a good comprimise as seen in Table \ref{tab:sc_vel}.
 
 \begin{table}[ht]
     \centering
-    \label{tab:sc_vel}
     \begin{tabular}{|c|c|c|c|c|}
         \cline{2-5}
         \multicolumn{1}{c}{} & \multicolumn{4}{|c|}{\textbf{Mach Number}} \\ \hline
@@ -153,6 +152,7 @@ A settling chamber height of 6" was chosen ... 10 ft/s to 100 ft/s Pope \cite{po
         9" & 32.66 & 15.35 & 7.84 & 4.29 \\ \hline
     \end{tabular}
     \caption{Settling chamber velocities (ft/s) for combinations of settling chamber heights and Mach numbers.}
+    \label{tab:sc_vel}
 \end{table}
     
 \subsection{Nozzle Contour Codes}
@@ -224,9 +224,7 @@ The method-of-characteristics Fortran script written by Bowersox that produced t
     \label{fig:throats}
 \end{figure}
 
-After the points were produced by the Fortran script, they were imported into a MATLAB script to fit with analytic functions. 
-
-Equations as follows:
+After the points were produced by the Fortran script, they were imported into a MATLAB script to fit with analytic functions. The subsonic curve is given by a fifth-order polynomial with six boundar conditions of $y(-L)=H$, $y'(-L)=0$, $y''(-L)=0$, $y(0)=h$, $y'(0)=0$, and $y''(0)=0$. The straightening section is given by a function found using the \textit{lsqcurvefit} function in MATLAB. The equations for each section are as follows:
 
 \textbf{Subsonic:} $-0.0002679752287799994x^5 - 0.0066993807195x^4 - 0.04466253813x^3 + 0.033746187$ \textit{for} $-10 < x < 0$
 
@@ -238,9 +236,9 @@ Equations as follows:
 
 \subsection{CFD}
 
-In order to verify the above nozzle contour performance compared to the original ACE contour, both contours were simulated in 2-D with CFD. First, a mesh was created in Pointwise for each contour with 400 equally spaced columns of cells in the x-direction. Each column had the spacing scaled to accurately capture the boundary layer with the smallest cell height around 1e-5 meters at the curved wall and the largest around 0.1 meters at the centerline as seen in Figure \ref{fig:mesh}.
+In order to verify the above nozzle contour performance compared to the original ACE contour, both contours were simulated in 2D with CFD. First, a mesh was created in Pointwise for each contour with 400 equally spaced columns of cells in the x-direction. Each column had the spacing scaled to accurately capture the boundary layer with the smallest cell height around 1e-5 meters at the curved wall and the largest around 0.1 meters at the centerline as seen in Figure \ref{fig:mesh}. The CFD analyisis was performed at a time when the settling chamber design was still at a height of 9 inches, so the analysis will be performed once more with the correct 6 inch height during future work.
 
-After creating a mesh for each, they were ran in US3D on the Texas A\&M supercomputer, GRACE. \textit{Stuff about inputs and convergence conditions}
+After creating a mesh for each, they were simulated using US3D on the Texas A\&M supercomputer, GRACE. \textit{Stuff about inputs and convergence conditions}
 
 \begin{figure}[ht]
     \centering
@@ -279,6 +277,8 @@ Originally planned to water jet bars from brace stock to save material cost and 
 
 Detailed specifics of actuation components
 
+The actuation system will comprises 20-ton linear actuators, 20:1 gearboxes, servo motors, and a PLC to receive feedback inputs and control the system.
+
 \subsubsection{Final Overall Design}
 
 Pictured below is the final overall ACE2.0 assembly.
@@ -298,6 +298,13 @@ Stress and FOS stuff with figures
 
 ACE2.0 is currently being fabricated. Most machining is completed. Pictures of machining and fabrication.
 
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=6in]{schedule}
+    \caption{Manufacturing schedule beginning from September 25, 2023.}
+    \label{fig:schedule}
+\end{figure}
+
 \subsection{Pressure Test}
 
 Check structral integrity at 200 psia and evaluate sealing.
@@ -308,7 +315,7 @@ Astro Pal polishing nozzles and sidewalls to 1 Ra.
 
 \section{Final Assembly, Installation, and Calibration}
 
-The final assembly will occur at NAL. Once nozzles and actuators are assembled in the frame, ACE2.0 will be rolled into the lab to replace ACE. All hoses, wires, and instrumentation attached to the nozzle and settling chamber will be removed and ACE will be rolled out of the lab. ACE2.0 will roll in and reconnect all hoses, wires, and instrumentation.
+The final assembly will occur at the NAHL. Once nozzles and actuators are assembled in the frame, ACE2.0 will be rolled into the lab to replace ACE. All hoses, wires, and instrumentation attached to the nozzle and settling chamber will be removed and ACE will be rolled out of the lab. ACE2.0 will roll in and reconnect all hoses, wires, and instrumentation.
 
 \subsection{Actuation Homing and Calibration}
 
