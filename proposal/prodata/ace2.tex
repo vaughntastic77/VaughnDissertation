@@ -19,7 +19,7 @@ The existing ACE (Actively Controlled Expansion) tunnel was designed and manufac
 
 \subsection{ACE Turbulent Transition}
 
-Below a unit Reynolds number of $Re/m = U/\nu \approx 3 \times 10^6 m^{-1}$ the RMS pressure fluctuations in the test section are less than 1\%, and above this unit Reynolds number the pressure fluctuation levels significanly increase. It was desired to increase the unit Reynolds number at which laminar flow can be maintained, so the mechanism causing this transiton had to be determined. The hypothesis and supporting data regarding the pressure fluctuation levels increase and how it might be delayed to higher unit Reynolds numbers is summarized below.
+Below a unit Reynolds number of Re/m = $\mathrm{U/\nu \approx 3 \times 10^6/\mathrm{m}}$ the RMS pressure fluctuations in the test section are less than 1\%, and above this unit Reynolds number the pressure fluctuation levels significanly increase. It was desired to increase the unit Reynolds number at which laminar flow can be maintained, so the mechanism causing this transiton had to be determined. The hypothesis and supporting data regarding the pressure fluctuation levels increase and how it might be delayed to higher unit Reynolds numbers is summarized below.
 
 \subsubsection{Evaluation of Suspect Transition Mechanisms}
 
@@ -37,23 +37,23 @@ This following evaluates each of these possibilities and concludes that the prim
 
 \subsubsection*{ACE Nozzle Noise Surveys}
 
-Three recent pitot surveys have been conducted in the ACE tunnel. The first by Mai (2014) revealed transition occurring around a unit Reynolds number of $3 \times 10^6 m^{-1}$, as shown in Figure \ref{fig:mai-survey}. The same result was found by Neel (2019) shown in Figure \ref{fig:neel-survey} that transition occurs at this unit Reynolds number 6 inches upstream of the test section entrance. A final pitot survey in ACE by Wirth (2022) was conducted to determine whether the pressure fluctuation levels increase occurred at different Re/m values at positions farther upstream in the nozzle. He found pressure fluctuation levels increase at $Re' \approx 3 \times 10^6 m^{-1}$ at a measurement location 17 inches upstream of the test section entrance. His results in Figure \ref{fig:wirth-survey} align perfectly with Mai and Neel and clearly establish that the Reynolds number at which pressure fluctuation levels increase is unrelated to location in the nozzle. This suggests that transition is not moving upstream through the nozzle as Reynolds number is increased.
+Three recent pitot surveys have been conducted in the ACE tunnel. The first by Mai (2014) revealed transition occurring around a unit Reynolds number of $3 \times 10^6/\mathrm{m}$, as shown in Figure \ref{fig:mai-survey}. The same result was found by Neel (2019) shown in Figure \ref{fig:neel-survey} that transition occurs at this unit Reynolds number 6 inches upstream of the test section entrance. A final pitot survey in ACE by Wirth (2022) was conducted to determine whether the pressure fluctuation levels increase occurred at different Re/m values at positions farther upstream in the nozzle. He found pressure fluctuation levels increase at $Re' \approx 3 \times 10^6/\mathrm{m}$ at a measurement location 17 inches upstream of the test section entrance. His results in Figure \ref{fig:wirth-survey} align perfectly with Mai and Neel and clearly establish that the Reynolds number at which pressure fluctuation levels increase is unrelated to location in the nozzle. This suggests that transition is not moving upstream through the nozzle as Reynolds number is increased.
 
-\begin{figure}[ht]
+\begin{figure}[ht!]
     \centering
     \includegraphics[width=6in]{mai-survey}
     \caption[ACE freestream pressure fluctuations at nozzle exit (2014)]{ACE freestream pressure fluctuations at nozzle exit (2014) \cite{mai-dis}}
     \label{fig:mai-survey}
 \end{figure}
 
-\begin{figure}[ht]
+\begin{figure}[ht!]
     \centering
     \includegraphics[width=6in]{neel-survey}
     \caption[ACE freestream pressure fluctuations at various locations (2019)]{ACE freestream pressure fluctuations at various locations (2019) \cite{neel-dis}}
     \label{fig:neel-survey}
 \end{figure}
 
-\begin{figure}[ht]
+\begin{figure}[ht!]
     \centering
     \includegraphics[width=6in]{wirth-survey}
     \caption{ACE freestream pressure fluctuations at 6 in. and 17 in. upstream of nozzle exit (2022)}
@@ -65,7 +65,7 @@ Three recent pitot surveys have been conducted in the ACE tunnel. The first by M
 
 The origin of the noise measured farthest upstream of the nozzle exit was determined by tracing characteristics from the measurement location at the centerline upstream to the wall. Both the side view and top view of this can be seen in Figure \ref{fig:machlines}.
 
-\begin{figure}[ht]
+\begin{figure}[ht!]
     \centering
     \includegraphics[width=6in]{mush24}
     \includegraphics[width=6in]{mush0}
@@ -73,7 +73,7 @@ The origin of the noise measured farthest upstream of the nozzle exit was determ
     \label{fig:mushrooms}
 \end{figure}
 
-\begin{figure}[ht]
+\begin{figure}[ht!]
     \centering
     \includegraphics[width=6in]{vertical28}
     \includegraphics[width=6in]{vertical24}
@@ -81,7 +81,7 @@ The origin of the noise measured farthest upstream of the nozzle exit was determ
     \label{fig:vertical-vel}
 \end{figure}
 
-\begin{figure}[ht]
+\begin{figure}[ht!]
     \centering
     \includegraphics[width=6.5in]{side17}
     \includegraphics[width=6.5in]{top17}
@@ -97,11 +97,11 @@ Sidewall mushroom vortices arise from the pressure distribution in the nozzle an
 
 Görtler vortices are counter-rotating streamwise vortices that occur in boundary layers on concave surfaces \cite{saric}. To estimate where these may lead to transition, a CFD basic state simulation and N-factor analysis was performed by Kocian (2022). However, tracing the characteristics from 17 inches upstream of the test section entrance, Figure \ref{fig:machlines} shows the measured noise originates at the end of the straight section of the nozzle where Görtler is not relevant.
 
-While both sidewall vortices and Görtler vortices can play some role in transition in planar nozzles, they are no longer considered suspects for the pressure fluctuation levels increase at unit Reynolds numbers above $3 \times 10^6 m^{-1}$.
+While both sidewall vortices and Görtler vortices can play some role in transition in planar nozzles, they are no longer considered suspects for the pressure fluctuation levels increase at unit Reynolds numbers above $3 \times 10^6/\mathrm{m}$.
 
 The combination of pitot surveys and characteristic tracing eliminates the possibility of sidewall mushroom vortices or Görlter vortices because these instabilities would lead to transition downstream of the characteristic wall origins found by tracing from the measurement location to the wall intersection. This leaves the surface discontinuity at the throat as the primary culprit for the pressure fluctuation levels increase. The remaining suspect mechanisms are still important to note and address in the redesign of the ACE tunnel.
 
-The following improvements are recommended to obtain laminar flow for some value above $Re' \approx 3 \times 10^6 m^{-1}$:
+The following improvements are recommended to obtain laminar flow for some value above Re/m $\approx 3 \times 10^6/\mathrm{m}$:
 \begin{enumerate}
     \item Second-derivative-smooth subsonic-to-supersonic throat transition (eliminate discontinuity)
     \item Continuous curvature with analytical functions (eliminate waviness and discontinuities)
@@ -138,7 +138,7 @@ Following Reshotko \cite{reshotko}, the length of the settling chamber shall acc
 
 A settling chamber height of 6 inches was chosen to keep the velocity as slow as possible without going below 10 ft/s, according to Pope \cite{pope}, for the majority of the Mach number range. The reason for this minimum is to prevent thermal convection vortices from dominating the flow at the walls, but the interior of ACE2.0 will be heated prior to the start of the run to avoid this gradient. With this in mind, the height of 6 inches was chosen as a good comprimise as seen in Table \ref{tab:sc_vel}.
 
-\begin{table}[ht]
+\begin{table}[ht!]
     \centering
     \begin{tabular}{|c|c|c|c|c|}
         \cline{2-5}
@@ -217,9 +217,9 @@ The method-of-characteristics Fortran script written by Bowersox that produced t
     \textit{10 continue}
 \end{singlespace}
 
-\begin{figure}[ht]
+\begin{figure}[ht!]
     \centering
-    \includegraphics[width=6in]{throats}
+    \includegraphics[trim={50 200 50 200},clip,width=6in]{throats.pdf}
     \caption{Comparison of ACE (quadratic) and ACE2.0 (quartic) expansion at throat}
     \label{fig:throats}
 \end{figure}
@@ -236,11 +236,11 @@ After the points were produced by the Fortran script, they were imported into a 
 
 \subsection{CFD}
 
-In order to verify the above nozzle contour performance compared to the original ACE contour, both contours were simulated in 2D with CFD. First, a mesh was created in Pointwise for each contour with 400 equally spaced columns of cells in the x-direction. Each column had the spacing scaled to accurately capture the boundary layer with the smallest cell height around 1e-5 meters at the curved wall and the largest around 0.1 meters at the centerline as seen in Figure \ref{fig:mesh}. The CFD analyisis was performed at a time when the settling chamber design was still at a height of 9 inches, so the analysis will be performed once more with the correct 6 inch height during future work.
+In order to verify the above nozzle contour performance compared to the original ACE contour, both contours were simulated in 2D with CFD. First, a mesh was created in Pointwise for each contour with 400 equally spaced columns of cells in the x-direction. Each column had the spacing scaled to accurately capture the boundary layer with the smallest cell height around 1e-5 meters at the curved wall and the largest around 0.1 meters at the centerline as seen in Figure \ref{fig:mesh}. The CFD analyisis was performed at a time when the settling chamber design was still at a height of 9 inches, so the analysis will be performed once more with the correct 6 inch height in future work.
 
 After creating a mesh for each, they were simulated using US3D on the Texas A\&M supercomputer, GRACE. \textit{Stuff about inputs and convergence conditions}
 
-\begin{figure}[ht]
+\begin{figure}[ht!]
     \centering
     \includegraphics[width=6in]{ace-mesh}
     \includegraphics[width=6in]{qace-mesh}
@@ -283,7 +283,7 @@ The actuation system will comprises 20-ton linear actuators, 20:1 gearboxes, ser
 
 Pictured below is the final overall ACE2.0 assembly.
 
-\begin{figure}[ht]
+\begin{figure}[ht!]
     \centering
     \includegraphics[width=6in]{cad-full}
     \caption{Temporary full CAD design}
@@ -298,7 +298,7 @@ Stress and FOS stuff with figures
 
 ACE2.0 is currently being fabricated. Most machining is completed. Pictures of machining and fabrication.
 
-\begin{figure}[ht]
+\begin{figure}[ht!]
     \centering
     \includegraphics[width=6in]{schedule}
     \caption{Manufacturing schedule beginning from September 25, 2023.}
@@ -311,7 +311,7 @@ Check structral integrity at 200 psia and evaluate sealing.
 
 \subsection{Polishing}
 
-Astro Pal polishing nozzles and sidewalls to 1 Ra.
+Astro Pak polishing nozzles and sidewalls to 1 Ra.
 
 \section{Final Assembly, Installation, and Calibration}
 

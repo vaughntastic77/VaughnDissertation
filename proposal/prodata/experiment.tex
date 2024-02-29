@@ -17,11 +17,11 @@ Following the completed installation discussed above, each of the three primary 
 
 \section{Experimental Control and Efficiency Improvements} 
 
-The overall objective here is establish and substantiate the mechanisms of ACE2.0 that allow greater control of the tunnel input paramters for both more efficent and dyanmic experiments. The primary objective design objective of ACE2.0 was to enable active Mach number control during a run, which alone provides many key experimental advantages. However, there is still much to be desired with the parameter control capabilities to achieve full aerodynamic similarity for any flight trajectory. Thus, more precise control methods for Mach number and Reynolds number will be explored.
+The overall objective here is to establish and substantiate the mechanisms of ACE2.0 that allow greater control of the tunnel input paramters for both more efficent and dyanmic experiments. The primary design objective of ACE2.0 was to enable active Mach number control during a run, which alone provides many key experimental advantages. However, there is still much to be desired with the parameter control capabilities to achieve full aerodynamic similarity for any flight trajectory. Thus, more precise control methods for Mach number and Reynolds number will be explored.
 
 \subsection{Feedback-Controlled Active Mach Number Selection}
 
-As stated, the primary design objective of ACE2.0 was to enable active control of the Mach number, but this capability will be taken one step further to accurately maintain the desired Mach number once set. During a typical tunnel run, the nozzle is under both pressure and thermal loads that cause the set throat height to vary and the gas dynamics in the nozzle are non-ideal, which both result in the set Mach number to vary by up to 5\%. The attempt of the implementation of feedback control is to minimize this error to less than 1\%.
+As stated, the primary design objective of ACE2.0 was to enable active control of the Mach number, but this capability will be taken one step further to accurately maintain the desired Mach number once set. During a typical tunnel run, the nozzle is under both pressure and thermal loads that cause the set throat height to vary and the gas dynamics in the nozzle are non-ideal due to the developing boundary layer, which both result in the set Mach number to vary by up to 5\%. The attempt of the implementation of feedback control is to minimize this error to less than 1\%.
 
 The general approach for this feedback control is straightforward by designing a PID controller with an input of the measured Mach number and output of actuator position or velocity. The measured Mach number is calculated from the measured stagnation pressure and static pressure by solving the isentropic relation:
 
@@ -49,24 +49,22 @@ This is then subtracted from the set throat height to get the error signal for t
     H(s) = K_p \left(1 + \frac{1}{K_i s}\right) \left(h_{set} - H(s)\right)
 \end{equation}
 
-This model is simulated in MATALB and results are shown in Figure .
-
-In practice, the Sysmac software used to write the logic for the PLC has a built-in PID function with gain autotuning capability. This will be explored in detail first in simulations in Sysmac followed by active tests in ACE2.0. 
+In practice, the Sysmac software used to write the logic for the PLC has a built-in PID function with gain autotuning capability. This will be explored in detail first in simulations in Sysmac followed by active tests in ACE2.0. This built-in PID loop will be utilized if the resulting Mach number control is sufficient, and the above PID controller will be fully developed and implemented otherwise.
 
 \subsection{Reynolds Number Control Scheme}
 
-In subscale model experiments, the Reynolds number plays an important role in maintaining similarity with real-world situations. Controlling the Reynolds number more effectively will enable more accurate and intentional experiments. The primary goal of this objective is to provide a model that allows the Reynolds to be both held constant and varied proportionally to some dynamic trajectory. For the purposes of this discussion, any mention of the Reynolds number will actually mean the unit Reynolds number, $Re/m$.
+In subscale model experiments, the Reynolds number plays an important role in maintaining similarity with real-world situations. Controlling the Reynolds number more effectively will enable more accurate and intentional experiments. The primary goal of this objective is to provide a model that allows the Reynolds to be both held constant and varied proportionally for some dynamic trajectory. For the purposes of this discussion, any mention of the Reynolds number will actually mean the unit Reynolds number, Re/m.
 
-This main control parameter for Reynolds number will be the settling chamber stagnation pressure. Shown below, the Reynolds number is coupled with respect to pressure, temperature, and Mach number. The goal will be to control the stagnation pressure to counteract changes in both temperature and Mach number. For reference, the settling chamber stagnation temperature typically increases during a run from an initial set point around 400 K to around 440 K, and of course the Mach number can vary anywhere between 5 and 8. The effect of temperature will be examined during both simulations and experiments to determine if a more adequate control system is required to maintain constant temperature or if this effect on the Reynolds number can be compensated by changing the pressure.
+The main control parameter for Reynolds number will be the settling chamber stagnation pressure. Shown below, the Reynolds number is coupled with respect to pressure, temperature, and Mach number. The goal will be to control the stagnation pressure to counteract changes in both temperature and Mach number. For reference, the settling chamber stagnation temperature typically increases during a run from an initial set point around 400 K to around 440 K, and of course the Mach number can vary anywhere between 5 and 8. The effect of temperature will be examined during both simulations and experiments to determine if a more adequate control system is required to maintain constant temperature or if this effect on the Reynolds number can be compensated by changing the pressure.
 
 A mathematical model will be developed to be implemented for future physical PID control of the pressure regulator and the Reynolds number as a result. The physical implementation of this controller in this work will be dependent on some constraints. The primary constraint here will be the ability to quickly replace the existing regulator manual valve control with a controlled valve. The M6QT utilizes the same air supply infrastructure, so any complications throughout the valve replacement process would result in both facilities being inoperable and a delay in all planned research for this work and others.
 
-One other factor to be considered in the stagnation pressure control is the time response delay due to the distance between the regulator and the tunnel. This distance is only around 7 meters, resulting in a maximum response time of 0.02 milliseconds with a sound speed of $a = \sqrt{\gamma R T_0} = \sqrt{(1.4)(287)(400)} = 400 \; \frac{m}{s}$.
+One other factor to be considered in the stagnation pressure control is the time response delay due to the distance between the regulator and the tunnel. This distance is around 7 meters, resulting in a maximum response time of 140 milliseconds with a minimum pipe flow velocity of $v_{pipe,min} = \dot{m}_{min}/\rho/A_{pipe} \approx 50 \; \frac{m}{s}$.
 
 The following derivation provides a starting point for the mathematical model.
 
 \begin{equation}
-    Re/m = \frac{\rho U}{\mu}
+    \Rem = \frac{\rho U}{\mu}
 \end{equation}
 \begin{equation}
     \frac{T_0}{T} = (1+\frac{\gamma-1}{2}M^2) = F
@@ -81,15 +79,15 @@ The following derivation provides a starting point for the mathematical model.
     U = M \sqrt{\gamma R T} = M F^{-\frac{1}{2}} \sqrt{\gamma R T_0}
 \end{equation}
 \begin{equation*}
-    Re/m = \frac{\rho U}{\mu} = \frac{1}{\mu} \frac{P_0}{R T_0 F^{\frac{1}{\gamma-1}}} M F^{-\frac{1}{2}} \sqrt{\gamma R T_0}
+    \Rem = \frac{\rho U}{\mu} = \frac{1}{\mu} \frac{P_0}{R T_0 F^{\frac{1}{\gamma-1}}} M F^{-\frac{1}{2}} \sqrt{\gamma R T_0}
 \end{equation*}
 \begin{equation}
-    Re/m = \sqrt{\frac{\gamma}{R T_0}} \frac{M P_0}{\mu} F^{-\frac{\gamma+1}{2(\gamma -1}}
+    \Rem = \sqrt{\frac{\gamma}{R T_0}} \frac{M P_0}{\mu} F^{-\frac{\gamma+1}{2(\gamma -1}}
 \end{equation}
 
-For constant Re/m assuming $\gamma, R, T_0 = const.$ and with $\frac{dF}{dt} = (\gamma-1)M \frac{dM}{dt}$:
+For constant $\Rem$ assuming $\gamma, R, T_0 = const.$ and with $\frac{dF}{dt} = (\gamma-1)M \frac{dM}{dt}$:
 \begin{equation}
-    \frac{d(Re/m)}{dt} = 0 = P_0 \frac{dM}{dt} + M \frac{dP_0}{dt} - \frac{M P_0}{\mu} \frac{d\mu}{dt} - \frac{\gamma+1}{2} M^2 P_0 F^{-1} \frac{dM}{dt}
+    \frac{d(\Rem)}{dt} = 0 = P_0 \frac{dM}{dt} + M \frac{dP_0}{dt} - \frac{M P_0}{\mu} \frac{d\mu}{dt} - \frac{\gamma+1}{2} M^2 P_0 F^{-1} \frac{dM}{dt}
 \end{equation}
 
 Sutherland's Law with $T_\mu = 273$, $S_\mu = 111$, and $\mu_0 = 1.716 \times 10^{-5}$:
@@ -109,7 +107,7 @@ Substiuting and solving for $\frac{dP_0}{dt}$:
 \end{equation}
 
 \begin{equation}
-    E(s) = Re_{set} - Re(s)
+    E(s) = \mathrm{Re_{set}} - \mathrm{Re}(s)
 \end{equation}
 
 \begin{equation}
@@ -117,7 +115,7 @@ Substiuting and solving for $\frac{dP_0}{dt}$:
 \end{equation}
 
 \begin{equation}
-    P_0(s) = K_p \left(1 + \frac{1}{K_i s}\right) \left(Re_{set} - Re(s)\right)
+    P_0(s) = K_p \left(1 + \frac{1}{K_i s}\right) \left(\mathrm{Re_{set}} - \mathrm{Re}(s)\right)
 \end{equation}
 
 Simulation results of the above model result in acceptable performance of the PID controller as shown in Figure .
@@ -126,13 +124,20 @@ Simulation results of the above model result in acceptable performance of the PI
 
 In order to establish a baseline of performance characteristics for future work within the ACE2.0 facility and validate the design and manufacturing, a pitot survey will be performed to measure and characterize the freestream pressure fluctiations (noise) and uniformity throuhgout the nozzle. The survey will utilize both a single pitot probe and a pitot rake with kulites mounted on traverse to characterize entire nozzle exit plane and centerline into nozzle up to 24 inches upstream of nozzle exit.
 
-A final noise survey was performed in ACE to establish a control for comparison with ACE2.0 as well as provide a preliminary exploration of noise hysteresis. The three runs for this survey are shown in Table \ref{tab:ace-survey}. The survey utilized a single pitot probe to measure the noise along the centerline at different axial locations. For each run, the Reynolds number was increased above the transition value ($3 \times 10^6 \, m^{-1}$) discused in the previous chapter and then decreased back down to the inital value below the transition value. This process provided a preliminary look at the hysteresis of the pressure fluctation levels.
+A final noise survey was performed in ACE to establish a control for comparison with ACE2.0 as well as provide a preliminary exploration of noise hysteresis. The three runs for this survey are shown in Table \ref{tab:ace-survey}. The survey utilized a single pitot probe to measure the noise along the centerline at different axial locations. For each run, the Reynolds number was increased above the transition value $\left(3 \times 10^6/\mathrm{m}\right)$ discused in the previous chapter and then decreased back down to the inital value below the transition value. This process provided a preliminary look at the hysteresis of the pressure fluctation levels.
 
-The results are shown in Figure . As seen, ...
+The results are shown in Figure \ref{fig:ace-survey}. As seen, ...
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=6in]{tamulogo}
+    \caption{ACE freestream pressure fluctuations...}
+    \label{fig:ace-survey}
+\end{figure}
 
 The characterization test matrix for ACE2.0 is shown in Table \ref{tab:ace2-survey}. These runs are divided into a few distinct objectives: (1) uniformity, (2) uncerntainty, (3) pressure fluctiation transition, and (4) hysteresis. The last seven runs will be replicates of the first seven to quantify the uncerntainty in pressure fluctuations, Mach number, and uniformity.
 
-\begin{figure}[ht]
+\begin{figure}[ht!]
     \centering
     \begin{subfigure}[b]{0.4\textwidth}
             \includegraphics[width=\textwidth]{traverse-x}
@@ -153,19 +158,19 @@ The characterization test matrix for ACE2.0 is shown in Table \ref{tab:ace2-surv
     \label{fig:traverse}
 \end{figure}
 
-\begin{figure}[ht]
+\begin{figure}[ht!]
     \centering
     \includegraphics[width=6in]{pitot17}
     \caption{Pitot probe measuring 17 in. upstream of nozzle exit.}
     \label{fig:pitot17}
 \end{figure}
 
-\begin{table}[ht]
+\begin{table}[ht!]
     \centering
     \begin{tabular}{|c|c|c|c|c|}
         \hline
     \textbf{Run} & \textbf{X (in.)} & \textbf{Y (in.)} & \textbf{Z (in.)} & \textbf{Re/m ($\times10^6$)} \\ \hline
-        1 & 0 & 0 & 0 & 2$\to$7$\to$2 \\ \hline
+        1 & -6 & 0 & 0 & 2$\to$7$\to$2 \\ \hline
         2 & -17 & 0 & 0 & 2$\to$7$\to$2 \\ \hline
         3 & -24 & 0 & 0 & 2$\to$7$\to$2 \\ \hline
     \end{tabular}
@@ -174,7 +179,7 @@ The characterization test matrix for ACE2.0 is shown in Table \ref{tab:ace2-surv
 \end{table}
 
 \setcounter{rownum}{0}
-\begin{table}[ht]
+\begin{table}[ht!]
     \centering
     \begin{tabular}{|>{\stepcounter{rownum}\therownum}c|c|c|c|c|c|}
         \hline
@@ -187,7 +192,10 @@ The characterization test matrix for ACE2.0 is shown in Table \ref{tab:ace2-surv
         & 0 & -1.5 & -3:1:3 & 6 & 3 \\ \hline
         & 0 & 1.5 & -3:1:3 & 6 & 3 \\ \hline
         & 0 & 3 & -3:1:3 & 6 & 3 \\ \hline
+        & -6 & 0 & 0 & 8 & 2$\to$7$\to$2 \\ \hline
+        & -6 & 0 & 0 & 7 & 2$\to$7$\to$2 \\ \hline
         & -6 & 0 & 0 & 6 & 2$\to$7$\to$2 \\ \hline
+        & -6 & 0 & 0 & 5 & 2$\to$7$\to$2 \\ \hline
         & -6 & 0 & 0 & 5$\to$8$\to$5 & 3 \\ \hline
         & -6 & 0 & -3:1:3 & 6 & 3 \\ \hline
         & -6 & -3 & -3:1:3 & 6 & 3 \\ \hline
@@ -213,34 +221,136 @@ The characterization test matrix for ACE2.0 is shown in Table \ref{tab:ace2-surv
 
 Reference \cite{stephens-hubbard} and \cite{curriston} for how to proceed. Both repeat and replicate data...
 
-The process to quantify the uncerntainty of the various parameters for this work will vary from Curriton's approach by simply focusing on establishing a baseline for the uncerntainty and making recommendations for improvement. The three steps to establish this baseline uncerntainty for ACE2.0 will be (1) gather/measure systematic elemental uncerntainties, (2) measure replicate data points through a few repeat experiments, and (3) input measurements and data reduction equations into a monte carlo code to calculate randome uncerntainties.
+The process to quantify the uncerntainty of the various parameters for this work will closely follow Hubbard's and Curriton's approaches by simply focusing on establishing a baseline for the uncerntainty and making recommendations for improvement if necessary. The three steps to establish this baseline uncerntainty for ACE2.0 will be (1) gather/measure systematic elemental uncerntainties, (2) measure repeat data points through a few replicate experiments, and (3) input measurements and data reduction equations into a monte carlo code to calculate random uncerntainties.
 
 First, the systematic elemental uncerntainties can be gathered and measured from the various sensors, which includes the static pressure transducer, stagantion pressure tansducer, stagnation temperature thermocouple, servo motor internal encoders, and any sensors utilized in each experiment. 
 
-Next, the replicate data points will be measured by repeatedly settling on and off the set condition for the parameter of interest. While data will be gathered throughout the entire characterization test matrix, runs 1 and 20 will be solely for replicate data measurements. 
+Next, the repeat data points will be measured by repeatedly settling on and off the set condition for the parameter of interest. While data will be gathered throughout the entire characterization test matrix, runs 1 and 20 will be solely for repeat data measurements. 
 
-Finally, the data measured from these two runs will be run through a monte carlo code along with the specific data reduction equations for the facility. This output will provide the random uncerntainty component for each parameter of interest, which will be added to the systematic uncerntainty to give the total uncerntainty.
+Finally, the data measured from these two runs will be run through a monte carlo simulation along with the specific data reduction equations for the facility. This output will provide the random uncerntainty component for each parameter of interest, which will be added to the systematic uncerntainty to give the total uncerntainty.
 
 In addition to this, a sensitivity analysis of the uncerntainty to the various input paramerters will be provided with recommendations if the final calculated uncerntainty is not sufficient.
 
 \subsection{Hysteresis}
 
-Dynamic sweeps of both Mach number and Reynolds number will perfomed to explore any potential hysteresis effects in either the noise or the control parameters. Specifically, this will be accomplished in the dynamic runs in the characterization test matrix.
+Dynamic sweeps of both Mach number and Reynolds number will perfomed to explore any potential hysteresis effects in either the noise or the control parameters. Specifically, this will be accomplished in the dynamic runs in the characterization test matrix. The goal is simply to identify the existence of any hysteresis effects.
 
 \section{Model Flow Characteristics Hysteresis During Mach Trajectory}
 
-This objective will primarily serve as a demonstration of the capabilities for ACE2.0, but it will also provide preliminary insight into the hysteretic behaviour of dynamic Mach number experiments. The flow characteristics that will be specifically explored in this research will be surface heat flux and shock interactions using IR thermography and schleiren.
+This objective will primarily serve as a demonstration of the capabilities for ACE2.0, but it will also provide preliminary insight into the hysteretic behaviour of dynamic Mach number experiments in the facility. The flow characteristic that will be specifically explored in this research will be shock interactions using schleiren.
 
-The first experiment will follow closely with the work of Wirth \cite{wirth} to compare measurents from the dynamic runs to his results with the fin-cone model. This model, shown in Figure \ref{fig:fin-cone}, consists of a 7$\degree$ half-angle cone body with a single fin at an angle of 8$\degree$ from the body surface. The specific model used by Wirth will be used for these experiments as well. This physical, shown in Figure , was 3D printed with a ceramic-like material using SLA... The entire model is 15 inches long with the fin beginning 4 inches from the nose tip. The nose tip for this model has a radius of 0.0025 inches as this was the limit for the 3D printer. 
+The goal will be to reproduce hysteresis in the transition from regular reflection to Mach reflection by varying the Mach number, despite ACE2.0 being a closed test section and potentially not a low-noise facility. 
 
-The second experiment will be based on 
+The experiments will be based on the methodologies and results from Durand \cite{durand} and Tao \cite{tao} in addition to the experimental setup of Mai \cite{mai-dis}. The Mach number will be varied across either the Von Neumann condition or the detachments criteria to force the transition from regular reflection to Mach reflection or vice versa. In order to choose the wedge angle and Mach number range for each experiment, Figure \ref{fig:dual} was created following the processes shown by Mouton \cite{mouton} for each condition. The basic parameters across an oblique shock shown in Figure \ref{fig:oblique} are given as a function of the Mach number in region x $\left(M_x\right)$, the shock angle ($\alpha$), and the ratio of specific heats ($\gamma$). The pressure ratio is 
 
-Use fin-cone model for public and HARV for army and verbal?
+\begin{equation}
+    \xi \left(M_x,\alpha\right) = \frac{P}{P_x} = \frac{2 \gamma M_x^2 \sin^2{\alpha} - (\gamma-1)}{\gamma+1}
+\end{equation}
 
-\begin{figure}[ht]
+\noindent The flow deflection angle (wedge angle) and Mach number are given as
+\begin{equation}
+    \theta \left(M_x,\alpha\right) = \cot^{-1}{\left[ \left(\frac{(\gamma+1) M_x^2}{2\left(M_x^2 \sin^2{\alpha} - 1\right)}\right) \tan{\alpha} \right]}
+\end{equation}
+\begin{equation}
+    M \left(M_x,\alpha\right) = \sqrt{\frac{(\gamma+1)^2 M_x^4 \sin^2{\alpha} - 4\left(M_x^2 \sin^2{\alpha} - 1\right)\left(\gamma M_x^2 \sin^2{\alpha} + 1\right)}{\left[2 \gamma M_x^2 \sin^2{\alpha} - (\gamma-1)\right]\left[(\gamma-1) M_x^2 \sin^2{\alpha} + 2\right]}}
+\end{equation}
+
+The shock angle when the flow deflection angle is maximum is given by setting $\frac{\partial \theta}{\partial \alpha} = 0$, resulting in
+\begin{equation}
+    \alpha^{\theta_{max}}(M_x) = \sin^{-1}{\sqrt{(\gamma+1)\frac{M_x^2 - \frac{4}{\gamma+1} + \sqrt{M_x^4 + 8\frac{\gamma-1}{\gamma+1}M_x^2 + \frac{16}{\gamma+1}}}{4 \gamma M_x^2}}}
+\end{equation}
+
+For the detachment condition shown in Figure \ref{fig:detachment}
+\begin{equation}
+    M_{1,D} = M(M_{\infty},\alpha_D)
+\end{equation}
+\begin{equation}
+    \theta(M_{\infty},\alpha_D) = \theta\left(M_{1,D},\alpha^{\theta_{max}}(M_{1,D})\right)
+\end{equation}
+
+Solving this for $\alpha_D$ results in a fifth-order polynomial in $\sin^2{\alpha_D}$
+\begin{equation}
+    D_0 + D_1 \sin^2{\alpha_D} + D_2 \sin^4{\alpha_D} + D_3 \sin^6{\alpha_D} + D_4 \sin^8{\alpha_D} + D_5 \sin^{10}{\alpha_D} = 0
+\end{equation}
+
+where
+\begin{align*}
+    D_0 =& -16 \\
+    D_1 =& \; 32M_{\infty}^2 - 4M_{\infty}^4 - 48M_{\infty}^2\gamma - 16M_{\infty}^4\gamma + 16\gamma^2 - 16M_{\infty}^4\gamma^2 \\
+         & + 16M_{\infty}^2\gamma^3 + 4M_{\infty}^4\gamma^4 \\
+    D_2 =& - 16M_{\infty}^4 + 4M_{\infty}^6 - M_{\infty}^8 + 104M_{\infty}^4\gamma + 16M_{\infty}^6\gamma - 4M_{\infty}^8\gamma \\
+         & - 64M_{\infty}^2\gamma^2 - 32M_{\infty}^4\gamma^2 + 8M_{\infty}^6\gamma^2 - 6M_{\infty}^8\gamma^2 -56M_{\infty}^4\gamma^3 \\
+         & - 16M_{\infty}^6\gamma^3 - 4M_{\infty}^8\gamma^3 - 12M_{\infty}^6\gamma^4 - M_{\infty}^8\gamma^4 \\
+    D_3 =& \; M_{\infty}^8 - 64M_{\infty}^6\gamma + 4M_{\infty}^8\gamma + 96M_{\infty}^4\gamma^2 +64M_{\infty}^6\gamma^2 + 14M_{\infty}^8\gamma^2 \\
+         & + 64M_{\infty}^6\gamma^3 +20M_{\infty}^8\gamma^3 + 9M_{\infty}^8\gamma^4 \\
+    D_4 =& \; 8M_{\infty}^8\gamma - 64M_{\infty}^6\gamma^2 - 32M_{\infty}^8\gamma^2 - 24M_{\infty}^8\gamma^3 \\
+    D_5 =& \; 16M_{\infty}^8\gamma^2 \\
+\end{align*}
+
+This equation is solved numerically for Mach numbers greater than unity, and only one solution for each $\sin^{2}{\alpha_D}$ exists that is real and bounded between zero and one. The values of $\theta_D(M) = \theta\left(M_{\infty},\alpha_D\right)$ solved for freestream Mach numbers from 2 to 9 yields the upper curve in Figure \ref{fig:dual}.
+
+For the Von Neumann condition shown in Figure \ref{fig:von-neumann}
+\begin{equation}
+    M_{1,V} = M(M_{\infty},\alpha_V)
+\end{equation}
+\begin{equation}
+    \xi\left(M_{\infty},\frac{\pi}{2}\right) = \xi\left(M_{\infty},\alpha_V\right) \xi\left(M_{1,V},\alpha_{1,V}\right)
+\end{equation}
+\begin{equation}
+    \frac{2 \gamma M_{1,V}^2 \sin^2{\alpha_{1,V}} - (\gamma-1)}{\gamma+1} = \frac{\xi\left(M_{\infty},\frac{\pi}{2}\right)}{\xi\left(M_{\infty},\alpha_V\right)}
+\end{equation}
+\begin{equation}
+    \alpha_{1,V} = \sin^{-1}{\sqrt{\frac{(\gamma-1)+(\gamma+1)\frac{\xi\left(M_{\infty},\frac{\pi}{2}\right)}{\xi\left(M_{\infty},\alpha_V\right)}}{2 \gamma M_{1,V}^2}}}
+\end{equation}
+
+The solution for $\alpha_{1,V}$ is found numerically by solving the equation
+\begin{equation}
+    \theta\left(M_{\infty},\alpha_V\right) = \theta\left(M_{1,V},\alpha_{1,V}\right) 
+\end{equation}
+
+The values of $\theta_V(M) = \theta\left(M_{\infty},\alpha_V\right)$ solved for freestream Mach numbers from 2.2 to 9 yields the lower curve in Figure \ref{fig:dual}.
+
+\begin{figure}[ht!]
     \centering
-    \includegraphics[width=6.5in]{fin-cone}
-    \caption{Drawing of 7$\degree$ half-angle fin-cone model used for heat flux hysteresis study.}
-    \label{fig:fin-cone}
+    \includegraphics[width=5in]{detachment}
+    \caption[Flow over wedge resulting in regular reflection of shock]{Flow over wedge resulting in regular reflection of shock \cite{mouton}}
+    \label{fig:detachment}
 \end{figure}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=5in]{von-neumann}
+    \caption[Flow over wedge resulting in Mach reflection of shock]{Flow over wedge resulting in Mach reflection of shock \cite{mouton}}
+    \label{fig:von-neumann}
+\end{figure}
+
+The two experimental setups are shown as A and B. For A, the wedge angle is 29.4$\degree$ and the Mach number range is 6 to 7. For B, the wedge angle is 20.4$\degree$ and the Mach number range is 5.5 to 7.5. For both paths, the Mach number will start at the point in the dual solution domain, decrease across either the detachment condition or the Von Neumann condition, and then increase back into the dual solution domain (i.e. AA'A, BB'B). The reverse of these will be explored if hysteresis is not observed initially.
+
+The physical model for these experiments will be very similar to the double wedge setup used by Mai in ACE as shown in Figure \ref{fig:wedges}. If 3D printing with Rigid 10K produces acceptable wedges, then a pair will be printed for each angle needed. If future research will utilize this double wedge setup, then a hinged mechanism will be designed and fabricated to use a single pair of wedges for any desired angle.
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=6in]{wedges}
+    \caption[Double wedge setup]{Double wedge setup \cite{mai-dis}}
+    \label{fig:wedges}
+\end{figure}
+
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[trim={70 200 70 200},clip,width=6in]{dual.pdf}
+    \caption{Shock wave reflection configuration domains for Mach number and wedge angle.}
+    \label{fig:dual}
+\end{figure}
+
+The expected results should appear similar to the numerical results by Ben-Dor shown in Figure \ref{fig:shock-hysteresis}. 
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=6in]{shock-hysteresis}
+    \caption[Mach-number-varitation-induced hysteresis for 27$\degree$ wedge]{Mach-number-varitation-induced hysteresis for 27$\degree$ wedge \cite{ben-dor-1}}
+    \label{fig:shock-hysteresis}
+\end{figure}
+
+
 
