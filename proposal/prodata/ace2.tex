@@ -19,12 +19,12 @@ The existing ACE tunnel was designed and manufactured between 2009 and 2010 and 
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=6in]{tamulogo}
-    \caption{ACE nozzle}
+    \includegraphics[trim={40 220 40 220},clip,width=6in]{ace-nozzle.pdf}
+    \caption{ACE nozzle and settling chamber}
     \label{fig:ace-nozzle}
 \end{figure}
 
-\textcolor{red}{The original motivation for the redesign was to...}
+The original motivation for the redesign was to remanufacture the nozzle to remedy the premature laminar-to-turbulent transition, which is discussed in the next section. However, as the redesign progressed, it became apparent that this was the best opportunity to completely redesign the nozzle and settling chamber to enable active control. This progression and the redesign process is detailed throughout this chapter.
 
 \subsection{ACE Turbulent Transition}
 
@@ -40,7 +40,15 @@ Five primary suspects for transition were identified:
     \item Wall roughness or waviness
 \end{enumerate}
 
-\textcolor{red}{Paragraphs about 1,2,3. How did lip occur, how big, and where?}
+\textcolor{red}{How did lip occur, how big, and where?} The throat discontinuity (1) is the result of a decimal truncation error when connecting the subsonic curve to the supersonic MOC contour in Solidworks. The resulting discontinuity can be seen in Figure \ref{fig:ace-throat}, and it has a height of around 0.0003 inches. 
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=6in]{ace-throat}
+    \caption{ACE throat discontinuity}
+    \label{fig:ace-throat}
+\end{figure}
+
 
 The sections below evaluate each of these possibilities and support the conclusion that the throat discontinuity is the most likely reason for the increased pressure fluctuations above $Re' \approx 3 \times 10^6/\mathrm{m}$. This conclusion is supported by pitot surveys, method-of-characteristics line tracing, and CFD simulations. Sidewall mushroom vortices (2) and Görtler vortices (3) would lead to transition too far downstream from the throat to be responsible for the pressure fluctuation levels increase. Incoming freestream turbulence (4) and wall surface quality (5) are potential causes of poor flow quality in all supersonic tunnels and are included for completeness. The specific mechanism by which these would cause transition is not known. While item 4 and 5 are not the primary suspects for the pressure fluctuation levels increase, improving these conditions will be addressed in the redesign intended to extend laminar flow to higher unit Reynolds numbers.
 
@@ -88,7 +96,21 @@ The pressure fluctuation levels revealed the $Re'$ value at which transition occ
     \label{fig:vertical-vel}
 \end{figure}
 
-Görtler vortices are counter-rotating streamwise vortices that occur in boundary layers on concave surfaces \cite{saric}. To estimate where these may lead to transition, a CFD basic state simulation and N-factor analysis was performed by Kocian in 2022 (unpublished). \textcolor{red}{Elaborate on findings with n-factor plot}
+Görtler vortices are counter-rotating streamwise vortices that occur in boundary layers on concave surfaces \cite{saric}. To estimate where these may lead to transition, a CFD basic state simulation and N-factor analysis was performed by Kocian in 2022 (unpublished). The results, shown in Figures \ref{} and \ref{}, indicate that Görtler vortices could induce transition around 8 inches from the nozzle throat. \textcolor{red}{Elaborate on findings with plots}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=5in]{gortler}
+    \caption{Görtler number from ACE nozzle CFD}
+    \label{fig:gortler}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=5in]{n-factor}
+    \caption{N-factors for Görtler number in ACE nozzle}
+    \label{fig:n-factor}
+\end{figure}
 
 \textcolor{red}{Starting here discuss characteristic tracing how plus results and conclusion re: noise, mushroom, Görtler}
 
@@ -110,6 +132,8 @@ While both sidewall vortices and Görtler vortices can play some role in transit
 
 \textcolor{red}{Rewrite. The combination of pitot surveys and characteristic tracing eliminates the possibility of sidewall mushroom vortices or Görtler vortices because these instabilities would lead to transition downstream of the characteristic wall origins found by tracing from the measurement location to the wall intersection. This leaves the surface discontinuity at the throat as the primary culprit for the pressure fluctuation levels increase. The remaining suspect mechanisms are still important to note and address in the redesign of the ACE tunnel.}
 
+Following the above conclusions and recommendations, the most likely reason the pressure fluctuations increase is laminar-to-turbulent transition due to a surface discontinuity at the throat. This conclusion is supported by pitot surveys, CFD, and method of characteristics line tracing described above. 
+
 \subsubsection*{Design Recommendations}
 
 The following improvements are recommended to maintain laminar flow above $Re'$ $\approx 3 \times 10^6/\mathrm{m}$:
@@ -124,7 +148,7 @@ The following improvements are recommended to maintain laminar flow above $Re'$ 
 
 \section{ACE2.0 Design}
 
-Following the above conclusions and recommendations, the most likely reason the pressure fluctuations increase is laminar-to-turbulent transition due to a surface discontinuity at the throat. This conclusion is supported by pitot surveys, CFD, and method of characteristics line tracing described above. To correct this, the nozzle will be redesigned and remanufactured to meet specific requirements that will ensure the best performance and potentially expand the laminar Reynolds number range. The decision to remanufacture the nozzle presents an opportunity to revise the nozzle and settling chamber design to achieve true active controllability, properly embodying the "ACE" name.
+Following these recommendations, the nozzle will be redesigned and remanufactured to meet specific requirements that will ensure the best performance and potentially expand the laminar Reynolds number range. The decision to remanufacture the nozzle presents an opportunity to revise the nozzle and settling chamber design to achieve true active controllability, properly embodying the "ACE" name.
 
 The rest of the chapter details the planned improvements to the ACE tunnel and specific design requirements that will achieve those improvements. In addition to a new nozzle, the settling chamber will also be redesigned to ensure the uniformity and reduce the turbulence of the flow into the nozzle. These improvements are to achieve the goal of increasing the unit Reynolds number at which laminar nozzle flow is maintained.
 
@@ -182,8 +206,6 @@ After the MOC points were produced by the Fortran script, they were imported int
 
 In order to verify the above nozzle contour performance compared to the original ACE contour, both contours were simulated in 2D CFD. First, a mesh was created in Pointwise for each contour with 400 equally spaced columns of cells in the x-direction. Each column had the spacing scaled to accurately capture the boundary layer with the smallest cell height around $4 \times 10^{-6}$ inches at the curved wall and the largest around 0.2 inches at the centerline as seen in Figure \ref{fig:mesh}. The CFD analysis was performed at a time when the settling chamber design was still at a height of 9 inches, so the analysis will be performed again to validate the 6 inch.
 
-After creating a mesh for each, they were simulated using US3D on the Texas A\&M supercomputer, Grace. \textcolor{red}{Stuff about inputs and convergence conditions followed by results}
-
 \begin{figure}[ht!]
     \centering
     \includegraphics[width=6in]{ace-mesh}
@@ -192,28 +214,33 @@ After creating a mesh for each, they were simulated using US3D on the Texas A\&M
     \label{fig:mesh}
 \end{figure}
 
-The full ACE2.0 CFD results compared to ACE is given in Appendix \ref{appendix:cfd}.
+After creating a mesh for each, they were simulated using US3D on the Texas A\&M supercomputer, Grace. \textcolor{red}{Stuff about inputs and convergence conditions followed by some results} 
 
-\subsection{Nozzle and Settling Chamber Design}
-
-\textcolor{red}{The updated ACE design follows the requirements above and is shown in the following figures. The new design exhibits an improved nozzle contour, settling chamber, and actuation design: fix items} 
-
-The overall length of the settling chamber was increased by 16 inches to accommodate additional flow conditioning features.
-
-The settling chamber includes inlet flow spreaders and an adaptable flow conditioner design.
-
-The nozzle and settling chamber are combined to accommodate active control.
-
-The flow conditioners will be enclosed in a standalone box that can be modified or replaced easily.
+A sample of the results is shown in Figure \ref{fig:ace2-cfd}. The full ACE2.0 CFD results compared to ACE is given in Appendix \ref{appendix:cfd}.
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[trim={40 100 40 190},clip,width=6in]{nozzles.pdf}
+    \includegraphics[width=6in]{ace2-cfd}
+    \caption{ACE2.0 CFD Mach number plot}
+    \label{fig:ace2-cfd}
+\end{figure}
+
+\subsection{Nozzle and Settling Chamber Design}
+
+The resulting contour from above was imported into Solidworks using the analytic equations given in Appendix \ref{appendix:contour}, and the new ACE2.0 nozzle and settling chamber were designed following the above requirements. In order to accommodate the active control, the nozzle and settling chamber were combined into single rigid upper and lower pieces.Similar to ACE, the last 4 inches of the nozzle is a separate flexure piece to enable the variable Mach number capability. The overall length of the nozzle and settling chamber was increased by 19 inches with most of the added length contributed to the settling chamber. 
+
+The settling chamber is 1.7 inches taller and has a few considerable improvements. The flow conditioners are enclosed in a standalone box that allows for easy maintenance and future modifications of screen configurations. The initial configuration provides 3 inches between each aerogrid and screen for adequate turbulence decay. Inlet flow spreaders are added as well to allow uniform mixing of the incoming air before flowing through the aerogrids. 
+
+The ACE design had the relative motion interface between nozzle and settling chamber with a large rubber seal that struggled to properly seal at higher Mach numbers. For ACE2.0, the end of the settling chamber is split into two pieces to allow the rotation of the nozzle blocks. This moves the potential sealing issue upstream of the flow conditioners where minor leaks are much less of a concern. The final ACE2.0 nozzle and settling chamber design compared to ACE is shown in Figure \ref{fig:nozzles}. 
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[trim={12 100 40 162},clip,width=6in]{nozzles.pdf}
     \caption{Comparison of ACE (top) and ACE2.0 (bottom) nozzle and settling chamber designs}
     \label{fig:nozzles}
 \end{figure}
 
-The nozzle blocks will be made from 304 stainless steel, and the flexures will be made from 17-4 PH stainless steel.
+All of the nozzle and settling chamber parts will be made from 304 stainless steel except for the flexures, which will be made from Condition A 17-4 PH stainless steel for maximum strength while maintaining flexibility.
 
 \subsection{Mechanical Design Iterations}
 
@@ -254,7 +281,7 @@ The final iteration...
 
 \subsubsection{Frame Design}
 
-\textcolor{red}{Stuff and figures}
+\textcolor{red}{Description and figures}
 
 Originally planned to water jet bars from brace stock to save material cost and reduce excess. Later discovered that the cost of time and tooling on water jet to cut all pieces from 3 inch 4140 allot steel exceeds the cost of ordering bar stock.
 
@@ -282,6 +309,8 @@ The entire design will integrate with the existing ACE test section and other in
 \textcolor{red}{Stress and FOS stuff with figures}
 
 \section{Fabrication Plans}
+
+\textcolor{red}{How much to detail? Pictures of stock? What parts to show final machined?}
 
 \textcolor{red}{ACE2.0 is currently being fabricated. Most machining is completed. Pictures of machining and fabrication.}
 
