@@ -12,7 +12,7 @@
 
 \chapter{EXPERIMENTAL APPROACH \& OBJECTIVES}
 
-Following the completed installation and calibration discussed above, each of the three primary objectives will be accomplished or demonstrated sequentially. First, the improved experimental control and efficiency as a result of the above ACE2.0 design will be demonstrated by establishing and verifying the feedback-controlled active Mach variation and selection capability as well as the Reynolds number control scheme, if implemented. Second, the freestream flow produced by the calibrated nozzle will be characterized in terms of freestream flow uniformity and pressure fluctuation levels with uncertainty quantification and an exploration hysteresis. Third, the flow parameter control capabilities will be demonstrated in a proof of concept experiment of shock interactions during a Mach trajectory and any potential hysteresis exhibited. As a result of this work, the foundation will be set for future researchers to explore dynamic hypersonic aerodynamic in a more sophisticated and efficient manner with the control capabilities of ACE2.0.
+Following the completed installation and calibration discussed above, each of the three primary objectives will be accomplished or demonstrated sequentially. First, the improved experimental control and efficiency as a result of the above ACE2.0 design will be demonstrated by establishing and verifying the feedback-controlled active Mach variation and selection capability as well as the Reynolds number control scheme, if implemented. Second, the freestream flow produced by the calibrated nozzle will be characterized in terms of freestream flow uniformity and disturbance levels with uncertainty quantification and an exploration hysteresis. Third, the flow parameter control capabilities will be demonstrated in a proof of concept experiment of shock interactions during a Mach trajectory and any potential hysteresis exhibited. As a result of this work, the foundation will be set for future researchers to explore dynamic hypersonic aerodynamic in a more sophisticated and efficient manner with the control capabilities of ACE2.0.
 
 \section{Improved Experimental Control and Efficiency} 
 
@@ -29,7 +29,7 @@ The general approach for this feedback control is straightforward by designing a
 
 \noindent The relationship between the throat height and the Mach number is given by:
 \begin{equation}
-    \frac{A_*}{A} = M \left[ \left( \frac{2}{\gamma+1}  \right) \left( 1 + \frac{\gamma-1}{2} M^2  \right) \right]^{-\frac{\gamma+1}{2(\gamma-1)} }
+    \frac{A^*}{A} = \frac{h^*}{h_{\mathrm{exit}}} = M \left[ \left( \frac{2}{\gamma+1}  \right) \left( 1 + \frac{\gamma-1}{2} M^2  \right) \right]^{-\frac{\gamma+1}{2(\gamma-1)} }
 \end{equation}
 
 \noindent This is then subtracted from the set throat height to get the error signal for the PID transfer function:
@@ -57,6 +57,8 @@ The main control parameter for Reynolds number will be the settling chamber stag
 A mathematical model will be developed to be implemented for future physical PID control of the pressure regulator and the Reynolds number as a result. The physical implementation of this controller in this work will be dependent on budget and schedule constraints. The primary constraint here will be the ability to quickly replace the existing regulator manual valve control with a controlled valve. The M6QT utilizes the same air supply infrastructure, so any complications throughout the valve replacement process would result in both facilities being inoperable and a delay in all planned research for this work and others.
 
 One other factor to be considered in the stagnation pressure control is the time response delay due to both the distance between the regulator and the tunnel and the maximum operating speed of the regulator. The distance from the regulator to the settling chamber inlet is around 7 meters, resulting in a maximum response time of \textcolor{red}{140 milliseconds with a minimum pipe flow velocity of $v_{pipe,min} = \dot{m}_{min}/\rho/A_{pipe} \approx 50 \; \frac{m}{s}$. The maximum regulator operating speed is...}
+
+\textcolor{red}{I originally had given the sound speed and a much shorter time delay, but I changed it to this after talking with Drew about it. We can discuss when we meet.}
 
 The following derivation provides a starting point for the mathematical model.
 
@@ -124,25 +126,25 @@ Following the same logic as before, either a PI, PID, or PID with high frequency
 
 At the very least, this model will be fully developed and simulated to ensure minimal future work for implementation. The physical control mechanism will also be explored and potentially purchased to allow install at the earliest convenience between the ACE2.0 and M6QT schedules.
 
-\section{Freestream Pressure Fluctuation Levels and Uniformity Characterization}
+\section{Freestream Flow Uniformity and Disturbance Levels Characterization}
 
-In order to establish a baseline of performance characteristics for future work within the ACE2.0 facility, a pitot survey will be performed to measure and characterize the freestream flow uniformity and pressure fluctuation levels (noise) throughout the nozzle. The survey will utilize both a single pitot probe and a pitot rake with Kulite pressure transducers mounted on a traverse to characterize the entire nozzle exit plane and centerline up to 24 inches upstream of the nozzle exit.
+In order to establish a baseline of performance characteristics for future work within the ACE2.0 facility, a pitot and hot-wire survey will be performed to measure and characterize the freestream flow uniformity and disturbance levels (noise) throughout the nozzle. The survey will utilize both a pitot rake and a single pitot probe with Kulite pressure transducers mounted on a traverse to characterize the pressure fluctuations and uniformity and a hot-wire anemometer to measure mass flux fluctuation levels.
 
-A final noise survey was performed in ACE to establish a control for comparison with ACE2.0 as well as provide a preliminary exploration of noise hysteresis. The survey utilized a single pitot probe to measure the noise along the centerline at four different axial locations: 0, 6, 17, and 24 inches upstream of the nozzle exit. For each run, the Reynolds number was increased above the transition value $\left(Re' = 3 \times 10^6/\mathrm{m}\right)$ discussed in the previous chapter and then decreased back down to the initial value below the transition value. This process provided baseline data for pressure fluctuation hysteresis. The results are shown in Figure \ref{fig:ace-survey}. As seen, there is no discernible hysteresis in the freestream pressure fluctuation levels as the Reynolds number is swept up and back down. 
+A final noise survey was performed in ACE to establish a control for comparison with ACE2.0 as well as provide a preliminary exploration of noise hysteresis. The survey utilized a single pitot probe to measure the noise along the centerline at 6 and 24 inches upstream of the nozzle exit as shown in Figure \ref{fig:pitot17}. For each run, the Reynolds number was increased above the transition value $\left(Re' = 3 \times 10^6/\mathrm{m}\right)$ discussed in the previous chapter and then decreased back down to the initial value below the transition value. These measurements provided baseline data for pressure fluctuation hysteresis. The results are shown in Figure \ref{fig:ace-survey}. As seen, there is no discernible hysteresis in the freestream pressure fluctuation levels as the Reynolds number is swept up and back down. This survey will be repeated using a hot-wire anemometer to measure mass flux fluctuation levels if the remaining schedule for ACE permits.
 
 \begin{figure}[ht!]
     \centering
-    \includegraphics[width=6in]{tamulogo}
+    \includegraphics[width=6in]{ace-noise-2024}
     \caption{ACE freestream pressure fluctuations...}
     \label{fig:ace-survey}
 \end{figure}
 
-The anticipated characterization test matrix options for ACE2.0 are shown in Tables \ref{tab:ace2-survey-norake} and \ref{tab:ace2-survey-rake}. These test matrix options are for the unavailability and availability of a pitot rake, respectively. The functionality of the pitot rake is currently unknown, but it would provide simultaneous measurements across the y-axis and allow Mach number to be efficiently added as an extra dimension of uniformity. The runs in each test matrix are divided into a few distinct objectives: (1) uniformity, (2) uncertainty quantification, (3) pressure fluctuation levels transition, and (4) hysteresis. The last set of runs will be replicates of the first set to quantify the uncertainty in Mach number, Reynolds number, and flow uniformity.
+The anticipated characterization test matrix for ACE2.0 is shown in Table \ref{tab:ace2-survey}. The pitot rake will be used to characterize the freestream flow uniformity in the nozzle exit plane and a plane 6 inches upstream. The single pitot probe and hot-wire anemometer will be used to measure the freestream pressure fluctuation and mass flux fluctuation levels, respectively, along the centerline up to 24 inches upstream of the nozzle exit. The runs in each test matrix are divided into a few distinct objectives: (1) uniformity, (2) uncertainty quantification, (3) disturbance levels transition, and (4) hysteresis. The last five runs will be replicates of the first five to better quantify the uncertainty in Mach number, Reynolds number, and flow uniformity. This entire process will be documented so that flow-quality verification tests can be repeated as part of ongoing lab operations.
 
 \begin{figure}[ht!]
     \centering
     \includegraphics[width=6in]{pitot17}
-    \caption{Pitot probe measuring 17 inches upstream of nozzle exit.}
+    \caption{Pitot probe measuring 24 inches upstream of nozzle exit.}
     \label{fig:pitot17}
 \end{figure}
 
@@ -232,10 +234,10 @@ The anticipated characterization test matrix options for ACE2.0 are shown in Tab
         -\stepcounter{rownum}\stepcounter{rownum}\stepcounter{rownum}\stepcounter{rownum}\therownum & \multicolumn{6}{|c|}{\textbf{Replicate runs 1-5}} \\ \hline
     \end{tabular}
     \caption{Test matrix for ACE2.0 freestream characterization.}
-    \label{tab:ace2-survey-rake}
+    \label{tab:ace2-survey}
 \end{table}
 
-\subsection{\textcolor{red}{Freestream} Uncertainty Quantification}
+\subsection{Freestream Uncertainty Quantification}
 
 The process to quantify the uncertainty of the various parameters for this work will closely follow Stephens's et al. \cite{stephens-hubbard} and Curriston's \cite{curriston-dis} approaches by simply focusing on establishing a baseline for the uncertainty and making recommendations for improvement if necessary. The three steps to establish this baseline uncertainty for ACE2.0 will be (1) gather/measure systematic elemental uncertainties, (2) input into a Monte Carlo code along with data reduction equations to simulate systematic uncertainties, and (3) measure repeat data points through a few replicate experiments and calculate random uncertainties.
 
@@ -245,17 +247,17 @@ Next, these systematic elemental uncertainties will be propagated through a Mont
 
 Finally, repeat data points will be measured by repeatedly settling on and off the set condition for the parameter of interest. While data will be gathered throughout the entire characterization test matrix, runs 1 and 20 will be solely for repeat data measurements. These two runs will provide a direct comparison of replicates that will account for any correlations that were not considered or unquantifiable. The standard deviation of this data will be added in quadrature to the systematic uncertainty to calculate the total uncertainty for each parameter of interest for the freestream flow.
 
-\subsection{\textcolor{red}{Freestream} Hysteresis}
+\subsection{Freestream Disturbance Hysteresis}
 
-Dynamic sweeps of both Mach number and Reynolds number will be performed to explore any potential hysteresis effects in either the noise or the control parameters. Specifically, this will be accomplished during the dynamic runs in the characterization test matrix in Table \ref{tab:ace2-survey-rake}. The goal is simply to identify the existence of any hysteresis effects to inform future work within ACE2.0. The Reynolds number sweep runs are necessary to determine the value at which transition occurs, so sweeping the Reynolds number back down will not add any additional work and will be ensure that there is no hysteresis. For the Mach number however, there is no past data to determine the existence of hysteresis, so these runs will establish a baseline. The noise level is known to decrease with an increase in Mach number, so identifying an hysteresis in this will be necessary to inform future experiments.
+Dynamic sweeps of both Mach number and Reynolds number will be performed to explore any potential hysteresis effects in either the noise or the control parameters. Specifically, this will be accomplished during the dynamic runs in the characterization test matrix in Table \ref{tab:ace2-survey}. The goal is simply to identify the existence of any hysteresis effects to inform future work within ACE2.0. The Reynolds number sweep runs are necessary to determine the value at which transition occurs, so sweeping the Reynolds number back down will not add any additional work and will be ensure that there is no hysteresis. For the Mach number however, there is no past data to determine the existence of hysteresis, so these runs will establish a baseline. The noise level is known to decrease with an increase in Mach number, so identifying any hysteresis in this will be necessary to inform future experiments.
 
 \section{\textcolor{red}{Mach Trajectory and Potential Hysteresis} Proof of Concept Experiment}
 
-This objective will primarily serve as a demonstration of the capabilities for ACE2.0 and will also provide preliminary insight into the hysteretic behavior of dynamic Mach number experiments. The flow characteristic that will be specifically explored in this research will be shock interactions using schlieren. The goal will be to observe hysteresis in the transition from regular reflection to Mach reflection by varying the Mach number. The challenge of this is that the only facilities that have successfully produced this hysteresis were low-noise with an open, free-jet test section, while ACE2.0 has a closed test section and is not expected to be a low-noise facility.
+This objective will primarily serve as a demonstration of the capabilities for ACE2.0 and will also provide preliminary insight into the hysteretic behavior of dynamic Mach number experiments. The flow characteristic that will be specifically explored in this research will be shock interactions using schlieren. The goal will be to observe hysteresis in the transition from regular reflection to Mach reflection by varying the Mach number. The challenge of this is that the only facilities that have successfully produced this hysteresis had low freestream disturbance levels and an open-jet test section, while ACE2.0 has a closed test section and is not considered a "quiet" facility. In order to provide the best conditions for hysteresis to be observed, these experiments will be performed at higher Mach numbers and a lower unit Reynolds number where freestream disturbance levels are lowest.
 
 The experiments will be based on the methodologies and results from Durand et al. \cite{durand} and Tao et al. \cite{tao} in addition to the experimental setup of Mai \cite{mai-dis}. The Mach number will be varied across either the Von Neumann condition or the detachments criteria to force the transition from regular reflection to Mach reflection or vice versa. In order to choose the wedge angle and Mach number range for each experiment, Figure \ref{fig:dual} was created following the processes shown by Mouton \cite{mouton} for each condition. The basic parameters across an oblique shock shown in Figure \ref{fig:detachment} are given as a function of the Mach number in region x $\left(M_x\right)$, the shock angle ($\alpha$), and the ratio of specific heats ($\gamma$). 
 
-\textcolor{red}{Too much in the weeds. Reword as just process? without all the equations}
+\textcolor{red}{Too much in the weeds. Reword as just process without all the equations}
 
 The pressure ratio is 
 
@@ -340,9 +342,9 @@ The values of $\theta_V(M) = \theta\left(M_{\infty},\alpha_V\right)$ solved for 
     \label{fig:von-neumann}
 \end{figure}
 
-The two experimental setups are shown as A and B. For A, the wedge angle is 29.4$\degree$ and the Mach number range is 6 to 7. For B, the wedge angle is 20.4$\degree$ and the Mach number range is 5.5 to 7.5. For both paths, the Mach number will start at the point in the dual solution domain, decrease across either the detachment condition or the Von Neumann condition, and then increase back into the dual solution domain (i.e. AA'A, BB'B). The reverse of these will also be explored if hysteresis is not observed initially.
+The two experimental setups are shown as A and B. For A, the wedge angle is 30$\degree$ and the Mach number range is 7 to 8. For B, the wedge angle is 20.3$\degree$ and the Mach number range is 6 to 8. For both paths, the Mach number will start at the point in the dual solution domain, decrease across either the detachment condition or the Von Neumann condition, and then increase back into the dual solution domain (i.e. AA'A, BB'B). The reverse of these will also be explored if hysteresis is not observed initially.
 
-The physical model for these experiments will be very similar to the double wedge setup used by Mai \cite{mai-dis} in ACE as shown in Figure \ref{fig:wedges}. If 3D printing with Rigid 10K produces acceptable wedges, then a pair will be printed for each angle needed. If future research will utilize this double wedge setup, then a hinged mechanism will be designed and fabricated to use a single pair of wedges for any desired angle.
+The physical model for these experiments will be very similar to the double wedge setup used by Mai \cite{mai-dis} in ACE as shown in Figure \ref{fig:wedges}. If 3D printing with Rigid 10K produces an acceptable leading edge, then a pair will be printed for each angle needed. If future research will utilize this double wedge setup, then a hinged mechanism will be designed and fabricated to use a single pair of wedges for any desired angle.
 
 \begin{figure}[ht!]
     \centering
@@ -359,7 +361,7 @@ The physical model for these experiments will be very similar to the double wedg
     \label{fig:dual}
 \end{figure}
 
-The expected results should appear similar to the numerical results by Ben-Dor et al. \cite{ben-dor-1} shown in Figure \ref{fig:shock-hysteresis}. Although the Mach number range is different, the hysteresis should be the same for the chosen paths in this experiment. This path in this simulation is representative of path AA'A, which crosses the detachment condition. There have not been any simulations published that cross the Von Neumann condition by varying the Mach number, so path B will be explored secondary to path A.
+The expected results should appear similar to the numerical results from Ben-Dor et al. \cite{ben-dor-1}, Durand et al. \cite{durand}, and Tao et al. \cite{tao} with an example shown in Figure \ref{fig:shock-hysteresis}. Although the Mach number range and wedge angle are different, the hysteresis should be the same for the chosen paths in this experiment. The path in Figure \ref{fig:shock-hysteresis} is representative of path AA'A, which crosses the detachment condition. There have not been any simulations published that cross the Von Neumann condition by varying the Mach number, so path B will be explored secondary to path A.
 
 In either case, the final objective will be to guide future experiments by determining if ACE2.0 is capable of reproducing the hysteresis in shock interactions or incapable due to freestream noise. 
 
