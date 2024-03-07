@@ -62,13 +62,8 @@ One other factor to be considered in the stagnation pressure control is the time
 
 \textcolor{red}{I originally had given the sound speed and a much shorter time delay, but I changed it to this after talking with Drew about it. We can discuss when we meet.}
 
-The following derivation provides a starting point for the mathematical model.
+The following derivation provides a starting point for the mathematical model. \textcolor{red}{We can discuss these when we meet.}
 
-\textcolor{red}{begin\{fix equations\}}
-
-\begin{equation}
-    Re' = \frac{\rho U}{\mu}
-\end{equation}
 \begin{equation}
     \frac{T_0}{T} = (1+\frac{\gamma-1}{2}M^2) = F
 \end{equation}
@@ -91,26 +86,16 @@ The following derivation provides a starting point for the mathematical model.
 
 \noindent Differentiating $Re'$ assuming $\gamma$ and $R$ are constant and with $\frac{dF}{dt} = (\gamma-1)M \frac{dM}{dt}$ gives:
 \begin{equation}
-    \frac{d(Re')}{dt} = P_0 \frac{dM}{dt} + M \frac{dP_0}{dt} - \frac{M P_0}{\mu} \frac{d\mu}{dt} - \frac{\gamma+1}{2} M^2 P_0 F^{-1} \frac{dM}{dt}
+    \frac{d(Re')}{dt} = \sqrt{\frac{\gamma}{R T_0}} \frac{M P_0}{\mu} F^{-\frac{\gamma+1}{2(\gamma -1}} \left[ \frac{\frac{dM}{dt}}{M} + \frac{\frac{dP_0}{dt}}{P_0} - \frac{\frac{dT_0}{dt}}{2T_0} - \frac{\frac{d\mu}{dt}}{\mu} - \frac{\gamma+1}{2} M F^{-1} \frac{dM}{dt} \right]
 \end{equation}
 
-\noindent Sutherland's Law with $T_\mu = 273$, $S_\mu = 111$, and $\mu_0 = 1.716 \times 10^{-5}$:
+\noindent With $\mu$ defined from Sutherland's Law with $T_\mu = 273$, $S_\mu = 111$, and $\mu_0 = 1.716 \times 10^{-5}$:
 \begin{equation}
     \mu = \mu_0 \frac{T_\mu+S_\mu}{T+S_\mu} \left( \frac{T}{T_\mu} \right)^{\frac{3}{2}}
 \end{equation}
 \begin{equation}
     \mu = \frac{\mu_0(T_\mu+S_\mu)}{T_\mu^{\frac{3}{2}}} \frac{T_0^{\frac{3}{2}} F^{-\frac{3}{2}}}{T_0 F^{-1}+S_\mu}
 \end{equation}
-\begin{equation}
-    \frac{\frac{d\mu}{dt}}{\mu} = (\gamma-1) M F^{-1} \frac{dM}{dt} \left( \frac{T_0 F^{-1}}{T_0 F^{-1} + S_\mu}-\frac{3}{2} \right)
-\end{equation}
-
-\noindent Substituting and solving for $\frac{dP_0}{dt}$:
-\begin{equation}
-    \frac{dP_0}{dt} = P_0 M F^{-1} \frac{dM}{dt} \left[ (\gamma-1) \left( \frac{T_0 F^{-1}}{T_0 F^{-1} + S_\mu} - \frac{3}{2} \right) + \frac{\gamma+1}{2} - \frac{1}{M^2 F^{-1}} \right]
-\end{equation}
-
-\textcolor{red}{end\{fix equations\}}
 
 Following the same logic as before, either a PI, PID, or PID with high frequency noise filtering will be implemented based on experimental results of Reynolds number control. However, in this case the calculated Reynolds number will be subtracted from the set condition to get the error signal and the controlled parameter will either be the stagnation pressure or the respective regulator position.
 \begin{equation}
@@ -125,6 +110,11 @@ Following the same logic as before, either a PI, PID, or PID with high frequency
                                  &= K \left(1 + \frac{1}{T_i s} + \frac{T_d s}{1+\frac{T_d s}{N}}\right), \; N=2\textrm{ to }20 \label{eq:Re-PID-filter}
     \end{align}
 \end{subequations}
+
+Transforming the PI transfer function gives:
+\begin{equation}
+    \frac{dx}{dt} = \frac{K}{T_i} \left(Re'_{\mathrm{set}} - Re'(t)\right) - K \frac{d(Re')}{dt}
+\end{equation}
 
 At the very least, this model will be fully developed and simulated to ensure minimal future work for implementation. The physical control mechanism will also be explored and potentially purchased to allow install at the earliest convenience between the ACE2.0 and M6QT schedules.
 
@@ -259,10 +249,9 @@ This objective will primarily serve as a demonstration of the capabilities for A
 
 The experiments will be based on the methodologies and results from Durand et al. \cite{durand} and Tao et al. \cite{tao} in addition to the experimental setup of Mai \cite{mai-dis}. The Mach number will be varied across either the Von Neumann condition or the detachments criteria to force the transition from regular reflection to Mach reflection or vice versa. In order to choose the wedge angle and Mach number range for each experiment, Figure \ref{fig:dual} was created following the processes shown by Mouton \cite{mouton} for each condition. The basic parameters across an oblique shock shown in Figure \ref{fig:detachment} are given as a function of the Mach number in region x $\left(M_x\right)$, the shock angle ($\alpha$), and the ratio of specific heats ($\gamma$). 
 
-\textcolor{red}{Too much in the weeds. Reword as just process without all the equations}
+\textcolor{red}{Too much in the weeds. Reword as just process without all the equations. We can discuss when we meet.}
 
 The pressure ratio is 
-
 \begin{equation}
     \xi \left(M_x,\alpha\right) = \frac{P}{P_x} = \frac{2 \gamma M_x^2 \sin^2{\alpha} - (\gamma-1)}{\gamma+1}
 \end{equation}

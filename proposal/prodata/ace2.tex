@@ -40,7 +40,7 @@ Five primary suspects for transition were identified:
     \item Wall roughness or waviness
 \end{enumerate}
 
-The throat discontinuity (1) is the result of a decimal truncation error when connecting the subsonic curve to the supersonic MOC contour in Solidworks. The resulting discontinuity can be seen in Figure \ref{fig:ace-throat}, and it has a height of around 0.0003 inches. The artifact carried forward through the CNC machining and is present on the physical nozzle throat.
+The throat discontinuity (1) is the result of a decimal truncation error when connecting the subsonic curve to the supersonic MOC contour in Solidworks. The resulting discontinuity can be seen in Figure \ref{fig:ace-throat}, and it has a height of around 0.0003 inches. The artifact carried forward through the CNC machining and is present on the physical nozzle throat. \textcolor{red}{Is this a sufficient description?}
 
 \begin{figure}[ht!]
     \centering
@@ -58,7 +58,7 @@ Three recent pitot surveys have been conducted in the ACE tunnel. The first by M
 
 \begin{figure}[ht!]
     \centering
-    \includegraphics[width=6in]{mai-survey}
+    \includegraphics[width=5.5in]{mai-survey}
     \caption[ACE freestream pressure fluctuations in the nozzle exit plane as measured in 2014]{ACE freestream pressure fluctuations in the nozzle exit plane as measured in 2014 \cite{mai-dis}}
     \label{fig:mai-survey}
 \end{figure}
@@ -72,7 +72,7 @@ Three recent pitot surveys have been conducted in the ACE tunnel. The first by M
 
 \begin{figure}[ht!]
     \centering
-    \includegraphics[width=6in]{wirth-survey}
+    \includegraphics[width=5.5in]{wirth-survey}
     \caption{ACE freestream pressure fluctuations at 6 inches and 17 inches upstream of nozzle exit as measured in 2022}
     \label{fig:wirth-survey}
 \end{figure}
@@ -196,7 +196,7 @@ In order to verify the above nozzle contour performance compared to the original
     \label{fig:mesh}
 \end{figure}
 
-After creating a mesh for each, they were simulated using US3D on the Texas A\&M supercomputer, Grace. \textcolor{red}{Stuff about inputs and convergence conditions...} A sample of the results is shown in Figure \ref{fig:ace2-cfd}. The full ACE2.0 CFD results compared to ACE is given in Appendix \ref{appendix:cfd}.
+After creating a mesh for each, they were simulated using US3D on the Texas A\&M supercomputer, Grace. \textcolor{red}{Stuff about inputs and convergence conditions...} A sample of the results is shown in Figure \ref{fig:ace2-cfd}. The full ACE2.0 CFD input conditions and results compared to ACE is given in Appendix \ref{appendix:cfd}.
 
 \begin{figure}[ht!]
     \centering
@@ -226,7 +226,7 @@ All of the nozzle and settling chamber parts will be made from 304 stainless ste
 
 There were a few distinct iterations throughout the design process of ACE2.0 that are worth mentioning briefly. As mentioned, enabling active control was not the original intent of the ACE redesign, so the initial mechanical design was limited. One major difference to note between all of the past iterations and the final iteration is that the nozzle and settling chamber upper and lower pieces are not single rigid parts in the past iterations. The plan was to have either a bolted or welded interface between the nozzle blocks and the settling chamber piece to save cost in stock material, but it was decided to accept the higher cost of material for maximum strength and rigidity with a single piece.
 
-A preface to the mechanical designs is that the actual load on the settling chamber and nozzle at a maximum pressure of 200 psia is around 90,000 pounds per top and bottom. This is the result of the increased surface area of the settling chamber and subsonic portion of the nozzle, which is 14 inches wide by 36 inches long.
+A preface to the mechanical designs is that the actual load on the settling chamber and nozzle at a maximum pressure of 200 psia is around 90,000 pounds per top and bottom. This is the result of the increased surface area of the settling chamber and subsonic portion of the nozzle, which together is 14 inches wide by 36 inches long.
 
 The first iteration, shown in Figure \ref{fig:i1}, had a system of worm gears and lead screws to simultaneously adjust both nozzle blocks, and it required a jam nut on each lead screw and large wedges on the settling chamber to lock the position during a run. This design was not intended to be active, so it could not dynamically support the loads during a run. This design revealed that active control was not far from reach, so the next iteration began with the intention to enable it.
 
@@ -273,7 +273,7 @@ The final design of ACE2.0 utilizes two 20-ton ball screw linear actuators on bo
 
 Using linear actuators does present the challenges of introducing stress concentrations at the attachment location and not providing support along the length of the nozzle and settling chamber. These were overcome by making the mating clevis on the settling chamber a 16 inch bar to distribute the load and adding a 5 inch by 2.5 inch beam along the length of the nozzle and settling chamber to provide rigidity, as seen in Figure \ref{fig:cad-nozzle-actuators}.
 
-The sidewalls are 1.5 inches thick and made from 304 stainless steel. They are handled and suspended from the frame by two brackets each, and a series of custom bar clamps will provide the support against the load under pressure. One sidewall has all of the ports and sensors, which allows the other to be the main access for maintenance. \textcolor{red}{Figure?}
+The sidewalls are 1.5 inches thick and made from 304 stainless steel. They are handled and suspended from the frame by two brackets each, and a series of custom bar clamps will provide the support against the load under pressure. One sidewall has all of the ports and sensors, which allows the other to be the main access for maintenance. \textcolor{red}{Go into details of ports with figures?}
 
 The flow conditioner box is made from four 0.75 inch thick 304 stainless steel plates. This assembly floats between the nozzles and is secured by the sidewalls in a slot. The overall height doubles as a safety limit so the nozzles will hit each side of the box before hitting each other. Housed inside the box is two aerogrids and four screens in the current configuration, but any configuration can easily be designed and swapped in the future. \textcolor{red}{Figure? And go into further detail on aerogrids and screens?}
 
@@ -410,17 +410,15 @@ Following the completion of the pressure test, the nozzles and sidewalls will be
 
 The final assembly will occur at the NAHL once the nozzle and sidewalls are delivered from polishing. Once nozzles and actuators are assembled in the frame, ACE2.0 will be rolled into the lab to replace ACE. All hoses, wires, and instrumentation attached to the nozzle and settling chamber will be removed and ACE will be rolled out of the lab. ACE2.0 will roll in and reconnect all hoses, wires, and instrumentation.
 
-\textcolor{red}{How to show assembly process?}
+\textcolor{red}{How to show assembly process? Discuss when we meet}
 
-\subsubsection{Nozzle Alignment}
+\subsubsection{Nozzle Alignment and Actuation Homing}
 
 \textcolor{red}{How to properly align and level nozzle?}
 
-\subsection{Actuation Homing and Calibration}
+Before the sidewalls are installed, the nozzles will be aligned and leveled and then actuated for homing the servo motors with the limit switches. At this point shims will be used to make fine adjustments to limit switch positions to ensure a minimum Mach number of \textcolor{red}{4.9?} and a maximum Mach number of \textcolor{red}{8.5?}.
 
-Before the sidewalls are installed, the nozzles will be actuated for homing the servo motors with the limit switches. At this point shims will be used to make fine adjustments to limit switch positions to ensure a minimum Mach number of \textcolor{red}{4.9} and a maximum Mach number of \textcolor{red}{8.5}.
+\subsection{Shakedown and Calibration}
 
-\subsection{Shakedown and First Runs}
-
-\textcolor{red}{Decide what the first runs and measurements should be to properly calibrate.}
+\textcolor{red}{Decide what the first runs and measurements should be to properly calibrate following relevant literature.}
 
