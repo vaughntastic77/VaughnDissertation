@@ -15,7 +15,7 @@
 
 \section{Background and Motivation}
 
-As described above, the existing ACE tunnel was designed and manufactured between 2009 and 2010 and began operating in 2010 \cite{ace09,ace10-calibrate,tichenor-dis}. The variable Mach number capability is provided by a thin flexure portion near the end of the nozzle that allows the throat height to be varied from approximately 0.04 to 0.36 inches, which enables the test-section Mach number to be varied from Mach 5 to 8. 
+As described above, the existing ACE tunnel was designed and manufactured between 2009 and 2010 and began operating in 2010 \cite{ace09,ace10-calibrate,tichenor-dis}. The variable Mach number capability is provided by a thin flexure portion near the end of the nozzle that allows the throat height to be varied from approximately 0.04 to 0.36 inches, which enables the test-section Mach number to be varied from Mach 5 to 8. Schematic of the full tunnel and the nozzle and settling chamber are shown in Figures \ref{fig:ace-full-tunnel} and \ref{fig:ace-nozzle}.
 
 % \textcolor{red}{The ranges of flow conditions are given in Table \ref{tab:flow}.}
 % \begin{table}[ht!]
@@ -33,16 +33,16 @@ As described above, the existing ACE tunnel was designed and manufactured betwee
 
 \begin{figure}[ht!]
     \centering
-    \includegraphics[trim={40 220 40 220},clip,width=6in]{ace-nozzle.pdf}
-    \caption{ACE nozzle and settling chamber}
-    \label{fig:ace-nozzle}
+    \includegraphics[trim={40 250 60 250},clip,width=6in]{ace-full-tunnel.pdf}
+    \caption{ACE tunnel schematic}
+    \label{fig:ace-full-tunnel}
 \end{figure}
 
 \begin{figure}[ht!]
     \centering
-    \includegraphics[trim={40 250 60 250},clip,width=6in]{ace-full-tunnel.pdf}
-    \caption{ACE tunnel schematic}
-    \label{fig:ace-full-tunnel}
+    \includegraphics[trim={40 220 40 220},clip,width=6in]{ace-nozzle.pdf}
+    \caption{ACE nozzle and settling chamber}
+    \label{fig:ace-nozzle}
 \end{figure}
 
 The original motivation for the present redesign was to remanufacture the nozzle to remedy the premature laminar-to-turbulent transition, which is discussed in the next section. However, as the work progressed, it became apparent that this redesign was the best opportunity to improve the nozzle and settling chamber to also enable active control. This progression and the redesign process is detailed throughout this chapter.
@@ -89,13 +89,15 @@ Three recent pitot surveys have been conducted in the ACE tunnel. The first by M
 \begin{figure}[ht!]
     \centering
     \includegraphics[width=6in]{neel-survey}
-    \caption[ACE freestream pressure fluctuations at various locations as measured ii 2019]{ACE freestream pressure fluctuations at various locations as measured in 2019 \cite{neel-dis}}
+    \caption[ACE freestream pressure fluctuations at various locations as measured in 2019]{ACE freestream pressure fluctuations at various locations as measured in 2019 \cite{neel-dis}}
     \label{fig:neel-survey}
 \end{figure}
 
+\clearpage
+
 \begin{figure}[ht!]
     \centering
-    \includegraphics[width=6in]{ace-survey-2024}
+    \includegraphics[width=5.5in]{ace-survey-2024}
     \caption{ACE freestream pressure fluctuations at 6 inches and 24 inches upstream of nozzle exit as measured in 2024}
     \label{fig:ace-survey-2024}
 \end{figure}
@@ -103,11 +105,12 @@ Three recent pitot surveys have been conducted in the ACE tunnel. The first by M
 \subsubsection*{Suspect Mechanism Conclusions}
 
 The pressure fluctuation levels revealed the $Re'$ value at which transition occurs but not the transition mechanism. The two mechanisms that were extensively investigated at the start of this work were sidewall mushroom vortices and Görtler vortices. Sidewall mushroom vortices arise from the pressure distribution in the low momentum flow in the sidewall boundary layers. The flow at the centerline expands to the test section pressure ahead of the top and bottom curved walls. The flow at the top and bottom lags behind the centerline flow with a higher pressure to create a vertical pressure gradient that introduces a secondary vertical flow in the sidewall boundary layers that flows from the corners to the centerline \cite{sabnis}. CFD simulations by Kocian (unpublished) show the sidewall mushroom vortices beginning to form approximately 24 inches upstream of the nozzle exit shown in Figure \ref{fig:mushrooms}. 
+
 \begin{figure}[ht!]
     \centering
-    \includegraphics[width=5in]{mush24}
-    \includegraphics[width=5in]{mush0}
-    \caption{Sidewall mushroom vortex formation (upper \textcolor{red}{quadrant/quarter}) at 24 inches upstream of nozzle exit (top) and at nozzle exit (bottom) }
+    \includegraphics[width=4in]{mush24}
+    \includegraphics[width=4in]{mush0}
+    \caption{Sidewall mushroom vortex formation (upper quarter) at 24 inches upstream of nozzle exit (top) and at nozzle exit (bottom) }
     \label{fig:mushrooms}
 \end{figure}
 
@@ -115,25 +118,25 @@ Görtler vortices are counter-rotating streamwise vortices that occur in boundar
 
 \begin{figure}[ht!]
     \centering
-    \includegraphics[width=5in]{gortler}
+    \includegraphics[width=4.2in]{gortler}
     \caption{Görtler number from ACE nozzle CFD}
     \label{fig:gortler}
 \end{figure}
 
 \begin{figure}[ht!]
     \centering
-    \includegraphics[width=5in]{n-factor}
-    \caption{N-factors for Görtler number in ACE nozzle}
+    \includegraphics[width=4.2in]{n-factor}
+    \caption{N-factors for Görtler in ACE nozzle}
     \label{fig:n-factor}
 \end{figure}
 
-The origin of the noise measured farthest upstream of the nozzle exit was determined by tracing characteristic lines from the measurement location at the centerline upstream to the wall. Both the side view and top view of this are shown in Figure \ref{fig:machlines}. This was accomplished by choosing the characteristic output by the MOC code that intersects the centerline closest to the measurement point of 24 inches and tracing it back to its origin at the wall. \textcolor{red}{The origin of the measured noise from the top view is upstream of the throat where sidewall mushroom vortices are not relevant, and the origin of the noise from the side view is on the straight section of the nozzle where Görtler is not relevant.} While both sidewall vortices and Görtler vortices can play some role in transition in planar nozzles, they are no longer considered suspects for the pressure fluctuation levels increase at unit Reynolds numbers above $3 \times 10^6/\mathrm{m}$.
+The origin of the noise measured farthest upstream of the nozzle exit was determined by tracing characteristic lines from the measurement location at the centerline upstream to the wall. Both the side view and top view of this are shown in Figure \ref{fig:machlines}. This was accomplished by choosing the characteristic output by the MOC code that intersects the centerline closest to the measurement point of 24 inches and tracing it back to its origin at the wall. The origin of the measured noise from the top view is upstream of the throat where sidewall mushroom vortices are not relevant, and the origin of the noise from the side view is on the straight section of the nozzle where Görtler is not relevant. While both sidewall vortices and Görtler vortices can play some role in transition in planar nozzles, they are no longer considered suspects for the pressure fluctuation levels increase at unit Reynolds numbers above $3 \times 10^6/\mathrm{m}$.
 
 \begin{figure}[ht!]
     \centering
     \includegraphics[width=6.5in]{side24}
     \includegraphics[width=6.5in]{top24}
-    \caption{Mach lines for noise measured at 17" upstream on nozzle exit.}
+    \caption{Mach lines for noise measured at 17" upstream on nozzle exit}
     \label{fig:machlines}
 \end{figure}
 
@@ -163,7 +166,7 @@ ACE2.0 will maintain many characteristics while improving some, so many requirem
 
 \subsubsection*{Nozzle Requirements}
 
-The current ACE nozzle successfully produces uniform Mach 5 to 8 flow in its core. In order to maintain this good performance and not introduce unknown parameters, the new nozzle will retain a very similar contour with slight improvements. The requirements that remain the same are that the nozzle must produce uniform flow for the entire Mach range, achieve maximum height deflection without exceeding a FOS of 1.5, and prevent leaks up to \textcolor{red}{200 psia}.
+The current ACE nozzle successfully produces uniform Mach 5 to 8 flow in its core. In order to maintain this good performance and not introduce unknown parameters, the new nozzle will retain a very similar contour with slight improvements. The requirements that remain the same are that the nozzle must produce uniform flow for the entire Mach range, achieve maximum height deflection with a minimum FOS of 1.5, and prevent leaks up to 200 psia.
 
 The improvements to the nozzle and associated requirements will be a contour with continuous 1st and 2nd derivatives that is specified by analytical functions that will eliminate discontinuities and truncation error and a maximum allowable stress less than or equal to that found in the current ACE flexure at maximum deflection.
 
@@ -200,14 +203,15 @@ In order to verify the above nozzle contour performance compared to the original
     \label{fig:mesh}
 \end{figure}
 
-After creating a mesh for each, they were simulated using US3D on the Texas A\&M supercomputer, Grace. A sample of the results is shown in Figure \ref{fig:ace2-cfd}. The full ACE2.0 CFD input conditions and results compared to ACE is given in Appendix \ref{appendix:cfd}.
+After creating a mesh for each, they were simulated using US3D on the Texas A\&M supercomputer, Grace. A sample of the results is shown in Figure \ref{fig:ace2-cfd}. The full ACE2.0 CFD input conditions and results compared to ACE will be provided in a future appendix after performing the revised simulations in future work.
+%is given in Appendix \ref{appendix:cfd}.
 
 % \textcolor{red}{Stuff about inputs and convergence conditions...} 
 
 \begin{figure}[ht!]
     \centering
-    \includegraphics[width=6in]{ace2-cfd}
-    \caption{\textcolor{red}{ACE2.0 CFD Mach number plot}}
+    \includegraphics[width=5.5in]{ace2-cfd}
+    \caption{ACE2.0 CFD Mach number distribution at exit plane}
     \label{fig:ace2-cfd}
 \end{figure}
 
@@ -269,7 +273,7 @@ The final design of ACE2.0 utilizes two 20-ton ball screw linear actuators on bo
 \begin{figure}[ht!]
     \centering
     \includegraphics[trim={80 30 80 30},clip,width=5in]{cad-nozzle-actuators.pdf}
-    \caption{ACE2.0 final nozzle and settling chamber with actuators.}
+    \caption{ACE2.0 final nozzle and settling chamber with actuators}
     \label{fig:cad-nozzle-actuators}
 \end{figure}
 
@@ -279,22 +283,24 @@ Using linear actuators does present the challenges of introducing stress concent
 
 The sidewalls are 1.5 inches thick and made from 304 stainless steel. They are suspended from the frame by two brackets each, and a series of custom bar clamps will provide the support against the load under pressure. One sidewall has all of the ports and sensors, which allows the other to be the main access for maintenance.
 
-The settling chamber consists of four inlet flow spreaders and a standalone box where the flow conditioners enclosed that allows for easy maintenance and future modifications of screen configurations. The inlet flow spreaders were added to allow uniform mixing of the incoming air before flowing through the aerogrids, and they will be made from 304 stainless steel. The flow conditioner box is made from four 0.75-inch thick 304 stainless steel plates. This assembly floats between the nozzles and is secured by the sidewalls in a slot. The overall height doubles as a safety limit so the nozzles will contact each side of the box before contacting each other. Housed inside the box are two aerogrids and four screens in the current configuration, but any configuration can easily be designed and swapped in the future. The initial configuration provides 3 inches between each aerogrid and screen for adequate turbulence decay. 
+The settling chamber consists of four inlet flow spreading cones and a standalone box where the flow conditioners enclosed that allows for easy maintenance and future modifications of screen configurations. The inlet flow spreading cones were added to allow uniform mixing of the incoming air before flowing through the aerogrids, and they will be made from 304 stainless steel. The flow conditioner box is made from four 0.75-inch thick 304 stainless steel plates. This assembly floats between the nozzles and is secured by the sidewalls in a slot. The overall height doubles as a safety limit so the nozzles will contact each side of the box before contacting each other. Housed inside the box are two aerogrids and four screens in the current configuration, but any configuration can easily be designed and swapped in the future. The initial configuration provides 3 inches between each aerogrid and screen for adequate turbulence decay. The flow conditioner box is shown in Figure \ref{fig:conditioners}. 
 
-\textcolor{red}{The aerogrids ... open area and $\Delta p$ ... and the screens ... open area and $\Delta p$}
+The aerogrids are made from 0.5-inch thick 304 stainless steel. As shown in Figure \ref{fig:aerogrid}, they each have around 2750 0.125-inch diameter holes for an open area of 40\%. The resulting maximum pressure drop across each aerogrid is approximately 18 times the dynamic pressure, which is 0.3 psia at a 200 psia inlet stagnation pressure. The initial choices of wire mesh for the screens will be explored prior to installation. The first screen will likely have a wire diameter of 0.0035 inches, an opening size of 0.0085 inches, and an open area of 50\%. The last screen will likely have a wire diameter of 0.0023 inches, an opening size of 0.0033 inches, and an open area of 34\%. The maximum pressure drop across these screens will be approximately 5 and 15 times the dynamic pressure, respectively. 
 
-\begin{figure}[ht!]
-    \centering
-    \includegraphics[trim={50 150 50 150},clip,width=5.5in]{aerogrid.pdf}
-    \caption{CAD model of aerogrid}
-    \label{fig:aerogrid}
-\end{figure}
+The variable flow conditioner box will allow future optimization for the best incoming flow quality. The objective in this work is to maintain the flow quality of ACE, so some optimization of the flow conditioners will be performed depending on results during the characterization of ACE2.0.
 
 \begin{figure}[ht!]
     \centering
     \includegraphics[trim={50 80 50 80},clip,width=5.5in]{conditioners.pdf}
     \caption{CAD model of flow conditioner box}
     \label{fig:conditioners}
+\end{figure}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[trim={50 150 50 150},clip,width=5.5in]{aerogrid.pdf}
+    \caption{CAD model of aerogrid}
+    \label{fig:aerogrid}
 \end{figure}
 
 \subsubsection*{Frame Design}
@@ -305,14 +311,15 @@ The frame will have four 5000-pound capacity steel swivel casters for easy maneu
 
 \begin{figure}[ht!]
     \centering
-    \includegraphics[trim={160 30 160 70},clip,width=6in]{cad-frame.pdf}
-    \caption{CAD of frame}
+    \includegraphics[trim={160 30 160 70},clip,width=5in]{cad-frame.pdf}
+    \caption{CAD model of full frame assembly}
     \label{fig:cad-frame}
 \end{figure}
 
 \subsubsection*{Actuation System Design}
 
-The actuation system for ACE2.0 is comprised of many components that enable the active  feedback-back control of the Mach number. Only a high level overview will be provided here for sake of brevity, but a full detailed description of the entire system will be provided in Appendix \ref{appendix:actuation}. 
+The actuation system for ACE2.0 is comprised of many components that enable the active  feedback-back control of the Mach number. Only a high level overview will be provided here for sake of brevity, but a full detailed description of the entire system will be provided in a future appendix.
+%Appendix \ref{appendix:actuation}. 
 
 The linear actuators are each rated for 40,000 pounds with a minimum FOS of 7. They have a double clevis design to rotate freely and have a custom motor mount for the selected gear box and servo motor, as shown in Figure \ref{fig:actuators}. The actuators are comprised of a 24:1 worm gear reducer that turns a ball nut to drive a 0.5 inch lead ball screw. The ball nut has a long service life that will allow over 400,000 full throat deflections before maintenance is required. Another 20:1 gear box will be mounted to each actuator for an overall travel of approximately 0.001 inch per servo motor turn.
 
@@ -330,13 +337,15 @@ In order to minimize the backlash in the actuators, two inverted stacks of Belle
 \begin{figure}[ht!]
     \centering
     \includegraphics[width=5in]{springs}
-    \caption{Inverted disc springs stacks at the end of the settling chamber.}
+    \caption{Inverted disc springs stacks at the end of the settling chamber}
     \label{fig:springs}
 \end{figure}
 
 The four servo motors are each driven by individual servo drives powered by 240 VAC 3-phase. These four drives and servo motors are controlled synchronously by a programmable logic controller (PLC) through EtherCAT, the fastest industrial Ethernet communication protocol. The PLC logic programs are written its associated software, Sysmac Studio. This software is a graphical ladder logic environment designed to integrate many automation devices across EtherCAT.
 
-The specific program to control the Mach number will be created in future work. This program will initially be designed with four control objectives: (1) precise set Mach number, (2) Mach number sweep with specified start, stop, and time, (3) Mach number schedule, and (4) feedback-control for Mach number. The completed Mach number control program will be provided in Appendix \ref{appendix:actuation}. Additionally, three analog modules were added to the PLC to input the static pressure, stagnation pressure, and temperature measured by the corresponding sensors to enable feedback-control. 
+The specific program to control the Mach number will be created in future work. This program will initially be designed with four control objectives: (1) precise set Mach number, (2) Mach number sweep with specified start, stop, and time, (3) Mach number schedule, and (4) feedback-control for Mach number. The completed Mach number control program will be provided in a future appendix.
+%Appendix \ref{appendix:actuation}. 
+Additionally, three analog modules were added to the PLC to input the static pressure, stagnation pressure, and temperature measured by the corresponding sensors to enable feedback-control. 
 
 Additional components of the system include two safety limit switches for each actuator, an external encoder for each actuator for additional physical feedback, various power supplies and relays, an emergency stop button, and a 7" human machine interface (HMI) for a simple control interface that can be updated and expanded for any desired controls.
 
@@ -358,45 +367,50 @@ The final design with all modeled components is shown in Figures \ref{fig:cad-si
     \label{fig:cad-full}
 \end{figure}
 
+\clearpage
+
 \subsubsection*{FEA}
 
 The structural integrity of the final design was simulated using finite element analysis (FEA) in Solidworks. There were four primary simulations conducted: (1) lower nozzle and settling chamber at 200 psia with gravity, (2) upper nozzle and settling chamber at full vacuum with gravity, (3) sidewall with clamps at 200 psia, (4) and flexure fatigue at maximum deflection. Other simulations were also conducted for a many of the individual components such as the flow spreaders, aerogrids, and various hardware.
 
-From all of these simulations, the minimum FOS achieved was 1.8. \textcolor{red}{Flexure fatigue results...} 
+From all of these simulations, the minimum FOS for any component was 1.8. The displacement of the nozzle due to maximum load is shown in Figure \ref{fig:fea-full}. The maximum stress in the flexure shown in Figure \ref{fig:fea-flexure} is much less than the fatigue limit of 17-4 PH stainless steel.
 
-\textcolor{red}{What figures to show? Show displacement plots? Can show setup with pressure and fixtures. Resulting stress plots are not great to show.}
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[trim={140 150 150 150},clip,width=6in]{fea-full.pdf}
+    \caption{Displacement with 200 psia in settling chamber, 15 psia on exterior, gravity acting up, and bolted interfaces}
+    \label{fig:fea-full}
+\end{figure}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[trim={110 200 180 200},clip,width=4.5in]{fea-flexure.pdf}
+    \caption{Flexure stress at maximum deflection of 0.25 inches}
+    \label{fig:fea-flexure}
+\end{figure}
 
 \section{Fabrication Plans}
-
-\textcolor{red}{How much to detail? Pictures of stock? What parts to show final machined?}
 
 At present, all of the ACE2.0 parts are finished machining besides the nozzles and sidewalls. The fabrication is following the schedule shown in Figure \ref{fig:schedule}, which shows the completed tasks in gray, the current tasks in green, orange, or red depending on status, and future tasks in white. The frame pieces were machined at the Texas A\&M Fischer Engineering Design Center (FEDC). An image of the brace after being cut out on the water jet is shown in Figure \ref{fig:fab-brace-jet}. The pallet of finished frame parts is shown in Figure \ref{fig:fab-frame-parts}.
 
 \begin{figure}[ht!]
     \centering
     \includegraphics[width=6in]{schedule}
-    \caption{Manufacturing schedule beginning from September 25, 2023.}
+    \caption{Manufacturing schedule beginning from September 25, 2023}
     \label{fig:schedule}
 \end{figure}
 
 \begin{figure}[ht!]
     \centering
     \includegraphics[width=5in]{fab-brace-jet}
-    \caption{Rough cut brace on water jet.}
+    \caption{Rough cut brace on water jet}
     \label{fig:fab-brace-jet}
 \end{figure}
 
 \begin{figure}[ht!]
     \centering
-    \includegraphics[width=5in]{cad-water-jet}
-    \caption{Planned water jet layout for frame parts.}
-    \label{fig:cad-water-jet}
-\end{figure}
-
-\begin{figure}[ht!]
-    \centering
     \includegraphics[width=5in]{fab-frame-parts}
-    \caption{Pallet of finished frame parts from FEDC.}
+    \caption{Pallet of finished frame parts from FEDC}
     \label{fig:fab-frame-parts}
 \end{figure}
 
@@ -405,11 +419,34 @@ The nozzles and sidewalls are currently being machined at Machine Works Inc. in 
 \begin{figure}[ht!]
     \centering
     \includegraphics[width=5in]{fab-nozzle-saw}
-    \caption{Nozzle block saw cut to rough profile.}
+    \caption{Nozzle block saw cut to rough profile}
     \label{fig:fab-nozzle-saw}
 \end{figure}
 
-The rest of the parts were machined at the Texas A\&M Bush Combat Development Complex (BCDC). All of these parts are finished, but only the parts necessary for the pressure test have been picked up. BCDC will be the primary machine shop for any future fabrication throughout this work.
+The rest of the parts were machined at the Texas A\&M Bush Combat Development Complex (BCDC). All of these parts are finished, but only the parts necessary for the pressure test have been picked up. Figures \ref{fig:fab-flow-box}, \ref{fig:fab-aerogrid}, and \ref{fig:fab-cone} show the flow conditioner box, an aerogrid, and a flow spreading cone. BCDC will be the primary machine shop for any future fabrication throughout this work.
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=6in]{fab-flow-box}
+    \caption{Machined flow conditioner box}
+    \label{fig:fab-flow-box}
+\end{figure}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=6in]{fab-aerogrid}
+    \caption{Machined aerogrid}
+    \label{fig:fab-aerogrid}
+\end{figure}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=4in]{fab-cone}
+    \caption{Machined flow spreading cone}
+    \label{fig:fab-cone}
+\end{figure}
+
+\clearpage
 
 \subsection{Pressure Test}
 
@@ -422,7 +459,7 @@ Following the completion of the pressure test, the nozzles and sidewalls will be
 \begin{figure}[ht!]
     \centering
     \includegraphics[trim={30 170 30 170},clip,width=5in]{polish-assembly.pdf}
-    \caption{Nozzle assembly for shipping to polishing vendor.}
+    \caption{Nozzle assembly for shipping to polishing vendor}
     \label{fig:polish-assembly}
 \end{figure}
 
@@ -430,7 +467,7 @@ Following the completion of the pressure test, the nozzles and sidewalls will be
 
 The final assembly will occur at the NAHL once the nozzle and sidewalls are delivered from polishing. Once nozzles and actuators are assembled in the frame, ACE2.0 will be rolled into the lab to replace ACE. All hoses, wires, and instrumentation attached to the nozzle and settling chamber will be removed and ACE will be rolled out of the lab. ACE2.0 will roll in and reconnect all hoses, wires, and instrumentation.
 
-\textcolor{red}{How to show assembly process? Discuss when we meet}
+The nozzles will be leveled and aligned and then the servos will homed with the limit switches to calibrate the actuation system. The pressure and temperature instrumentation will be calibrated prior to reconnecting to the new facility. The sidewalls will then be mounted for the shakedown run, which will include a pitot rake at the nozzle exit to ensure uniformity in the test section.
 
 % \subsection{Nozzle Alignment and Actuation Homing}
 
