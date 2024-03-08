@@ -15,7 +15,21 @@
 
 \section{Background and Motivation}
 
-\textcolor{red}{Should this paragraph be here or in lit review or both?} The existing ACE tunnel was designed and manufactured between 2009 and 2010 and began operating in 2010 \cite{ace09,ace10-calibrate,tichenor-dis}. The nozzle is 40 inches long from the throat to the test section entrance. The test section is 14 inches wide and 9 inches tall. The last 4 inches of the nozzle is a thin flexure portion that allows the throat height to be varied from approximately 0.04 to 0.36 inches, which enables the test-section Mach number to be varied from Mach 5 to 8.
+As described above, the existing ACE tunnel was designed and manufactured between 2009 and 2010 and began operating in 2010 \cite{ace09,ace10-calibrate,tichenor-dis}. The variable Mach number capability is provided by a thin flexure portion near the end of the nozzle that allows the throat height to be varied from approximately 0.04 to 0.36 inches, which enables the test-section Mach number to be varied from Mach 5 to 8. 
+
+% \textcolor{red}{The ranges of flow conditions are given in Table \ref{tab:flow}.}
+% \begin{table}[ht!]
+%     \centering
+%     \begin{tabular}{ccccc}
+%         \hline
+%         \hline
+%     \textbf{Mach} & \textbf{Total Pressure} & \textbf{Total Temperature} & \textbf{Run Time} & \textbf{Test Section} \\ 
+%     \textbf{Number} & \textbf{(psia)} & \textbf{(K)} & \textbf{(sec)} & \textbf{(sq-in.)} \\ \hline
+%         5-8 & 30-200 & 300-530 & 50 & 9 $\times$ 14\\ \hline \hline
+%     \end{tabular}
+%     \caption{ACE operating conditions.}
+%     \label{tab:flow}
+% \end{table}
 
 \begin{figure}[ht!]
     \centering
@@ -24,11 +38,18 @@
     \label{fig:ace-nozzle}
 \end{figure}
 
-The original motivation for the redesign was to remanufacture the nozzle to remedy the premature laminar-to-turbulent transition, which is discussed in the next section. However, as the redesign progressed, it became apparent that this was the best opportunity to completely redesign the nozzle and settling chamber to enable active control. This progression and the redesign process is detailed throughout this chapter.
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[trim={40 250 60 250},clip,width=6in]{ace-full-tunnel.pdf}
+    \caption{ACE tunnel schematic}
+    \label{fig:ace-full-tunnel}
+\end{figure}
+
+The original motivation for the present redesign was to remanufacture the nozzle to remedy the premature laminar-to-turbulent transition, which is discussed in the next section. However, as the work progressed, it became apparent that this redesign was the best opportunity to improve the nozzle and settling chamber to also enable active control. This progression and the redesign process is detailed throughout this chapter.
 
 \subsection{ACE Turbulent Transition}
 
-ACE performance data \cite{aceturb,mai-dis,neel-dis,leidy-dis} shows that below a unit Reynolds number of $Re'$ = $\frac{\rho U}{\mu} \approx 3 \times 10^6/\mathrm{m}$ the RMS pressure fluctuations in the test section are less than 1\%, and that above this unit Reynolds number the pressure fluctuation levels significantly increase. It was desired to increase the unit Reynolds number at which laminar flow can be maintained, so the mechanism causing laminar-to-turbulent transition of the nozzle boundary layers had to be determined. The hypothesis and supporting data regarding the pressure fluctuation levels increase and how it might be delayed to higher unit Reynolds numbers is summarized below.
+ACE performance data \cite{aceturb,mai-dis,neel-dis,leidy-dis} shows that below a unit Reynolds number of $Re'$ = $\rho U/\mu \approx 3 \times 10^6/\mathrm{m}$ the RMS pressure fluctuations in the test section are less than 1\%, and that above this unit Reynolds number the pressure fluctuation levels significantly increase. It was desired to increase the unit Reynolds number at which laminar flow can be maintained, so the mechanism causing laminar-to-turbulent transition of the nozzle boundary layers had to be determined. The hypothesis and supporting data regarding the pressure fluctuation levels increase and how it might be delayed to higher unit Reynolds numbers is summarized below.
 
 Five primary suspects for transition were identified:
 
@@ -40,7 +61,9 @@ Five primary suspects for transition were identified:
     \item Wall roughness or waviness
 \end{enumerate}
 
-The throat discontinuity (1) is the result of a decimal truncation error when connecting the subsonic curve to the supersonic MOC contour in Solidworks. The resulting discontinuity can be seen in Figure \ref{fig:ace-throat}, and it has a height of around 0.0003 inches. The artifact carried forward through the CNC machining and is present on the physical nozzle throat. \textcolor{red}{Is this a sufficient description?}
+The sections below evaluate each of these possibilities and support the conclusion that the throat discontinuity (1) is the most likely reason for the increased pressure fluctuations above $Re' \approx 3 \times 10^6/\mathrm{m}$. This conclusion is supported by pitot surveys, method-of-characteristics line tracing, and CFD simulations. 
+
+The throat discontinuity is the result of a decimal truncation error of about 0.0003 inches at the interface connecting the subsonic curve to the supersonic MOC contour in the original design files. The resulting discontinuity is shown in Figure \ref{fig:ace-throat}. The artifact carried forward through the CNC machining and is present on the physical nozzle throat.
 
 \begin{figure}[ht!]
     \centering
@@ -50,11 +73,11 @@ The throat discontinuity (1) is the result of a decimal truncation error when co
 \end{figure}
 
 
-The sections below evaluate each of these possibilities and support the conclusion that the throat discontinuity is the most likely reason for the increased pressure fluctuations above $Re' \approx 3 \times 10^6/\mathrm{m}$. This conclusion is supported by pitot surveys, method-of-characteristics line tracing, and CFD simulations. Sidewall mushroom vortices (2) and Görtler vortices (3) would lead to transition too far downstream from the throat to be responsible for the pressure fluctuation levels increase. Incoming freestream turbulence (4) and wall surface quality (5) are potential causes of poor flow quality in all supersonic tunnels and are included for completeness. The specific mechanism by which these would cause transition is not known. While item 4 and 5 are not the primary suspects for the pressure fluctuation levels increase, improving these conditions will be addressed in the redesign intended to extend laminar flow to higher unit Reynolds numbers.
+Sidewall mushroom vortices (2) and Görtler vortices (3) would lead to transition too far downstream from the throat to be responsible for the pressure fluctuation levels increase. Incoming freestream turbulence (4) and wall surface quality (5) are potential causes of poor flow quality in all supersonic tunnels and are included for completeness. The specific mechanism by which these would cause transition is not known. While item 4 and 5 are not the primary suspects for the pressure fluctuation levels increase, improving these conditions will be addressed in the redesign intended to extend laminar flow to higher unit Reynolds numbers.
 
 \subsubsection*{ACE Nozzle Noise Surveys}
 
-Three recent pitot surveys have been conducted in the ACE tunnel. The first by Mai in 2014 \cite{mai-dis} revealed transition occurring around $Re' \approx 3 \times 10^6/\mathrm{m}$, as shown in Figure \ref{fig:mai-survey}. The same result was found by Neel in 2019 \cite{neel-dis} shown in Figure \ref{fig:neel-survey} that transition occurs at this $Re'$ value at a location 6 inches upstream of the nozzle exit. A final pitot survey in ACE by Wirth in 2022 (unpublished) was conducted to determine whether the pressure fluctuation levels increase occurred at different $Re'$ values at positions farther upstream in the nozzle. He found pressure fluctuation levels increase at $Re' \approx 3 \times 10^6/\mathrm{m}$ at a measurement location 17 inches upstream of the nozzle exit. His results in Figure \ref{fig:wirth-survey} align perfectly with Mai's and Neel's data and clearly establish that the Reynolds number at which pressure fluctuation levels increase is the same at all locations in the nozzle. This suggests that transition is not moving upstream through the nozzle as Reynolds number is increased.
+Three recent pitot surveys have been conducted in the ACE tunnel. The first by Mai in 2014 \cite{mai-dis} revealed transition occurring around $Re' \approx 3 \times 10^6/\mathrm{m}$, as shown in Figure \ref{fig:mai-survey}. The same result was found by Neel in 2019 \cite{neel-dis} shown in Figure \ref{fig:neel-survey} that transition occurs at this $Re'$ value at a location 6 inches upstream of the nozzle exit. As part of this work, a final pitot survey in ACE was conducted to determine whether the pressure fluctuation levels increase occurred at different $Re'$ values at positions farther upstream in the nozzle. It was found that pressure fluctuation levels increase at the same $Re' \approx 3 \times 10^6/\mathrm{m}$ at a measurement location 24 inches upstream of the nozzle exit. These results in Figure \ref{fig:ace-survey-2024} align with Mai's and Neel's data and clearly establish that the Reynolds number at which pressure fluctuation levels increase is the same at all locations in the nozzle. This suggests that transition is not moving upstream through the nozzle as Reynolds number is increased, as might be expected for typical boundary-layer instability processes.
 
 \begin{figure}[ht!]
     \centering
@@ -72,9 +95,9 @@ Three recent pitot surveys have been conducted in the ACE tunnel. The first by M
 
 \begin{figure}[ht!]
     \centering
-    \includegraphics[width=5.5in]{wirth-survey}
-    \caption{ACE freestream pressure fluctuations at 6 inches and 17 inches upstream of nozzle exit as measured in 2022}
-    \label{fig:wirth-survey}
+    \includegraphics[width=6in]{ace-survey-2024}
+    \caption{ACE freestream pressure fluctuations at 6 inches and 24 inches upstream of nozzle exit as measured in 2024}
+    \label{fig:ace-survey-2024}
 \end{figure}
 
 \subsubsection*{Suspect Mechanism Conclusions}
@@ -104,12 +127,12 @@ Görtler vortices are counter-rotating streamwise vortices that occur in boundar
     \label{fig:n-factor}
 \end{figure}
 
-The origin of the noise measured farthest upstream of the nozzle exit was determined by tracing characteristic lines from the measurement location at the centerline upstream to the wall. Both the side view and top view of this can be seen in Figure \ref{fig:machlines}. This was accomplished by choosing the characteristic output by the MOC code that intersects the centerline closest to the measurement point of 17 inches and tracing it back to its origin at the wall. The measured noise origin from the top view is upstream of the throat where sidewall mushroom vortices are not relevant, and the origin is near the end of the straight section of the nozzle where Görtler has not had sufficient time to induce transition. While both sidewall vortices and Görtler vortices can play some role in transition in planar nozzles, they are no longer considered suspects for the pressure fluctuation levels increase at unit Reynolds numbers above $3 \times 10^6/\mathrm{m}$.
+The origin of the noise measured farthest upstream of the nozzle exit was determined by tracing characteristic lines from the measurement location at the centerline upstream to the wall. Both the side view and top view of this are shown in Figure \ref{fig:machlines}. This was accomplished by choosing the characteristic output by the MOC code that intersects the centerline closest to the measurement point of 24 inches and tracing it back to its origin at the wall. \textcolor{red}{The origin of the measured noise from the top view is upstream of the throat where sidewall mushroom vortices are not relevant, and the origin of the noise from the side view is on the straight section of the nozzle where Görtler is not relevant.} While both sidewall vortices and Görtler vortices can play some role in transition in planar nozzles, they are no longer considered suspects for the pressure fluctuation levels increase at unit Reynolds numbers above $3 \times 10^6/\mathrm{m}$.
 
 \begin{figure}[ht!]
     \centering
-    \includegraphics[width=6.5in]{side17}
-    \includegraphics[width=6.5in]{top17}
+    \includegraphics[width=6.5in]{side24}
+    \includegraphics[width=6.5in]{top24}
     \caption{Mach lines for noise measured at 17" upstream on nozzle exit.}
     \label{fig:machlines}
 \end{figure}
@@ -140,7 +163,7 @@ ACE2.0 will maintain many characteristics while improving some, so many requirem
 
 \subsubsection*{Nozzle Requirements}
 
-The current ACE nozzle successfully produces uniform Mach 5 to 8 flow in its core. In order to maintain this good performance and not introduce unknown parameters, the new nozzle will retain a very similar contour with slight improvements. The requirements that remain the same are that the nozzle must produce uniform flow for the entire Mach range, achieve maximum height deflection without exceeding a FOS of 1.5, and prevent leaks up to 200 psia.
+The current ACE nozzle successfully produces uniform Mach 5 to 8 flow in its core. In order to maintain this good performance and not introduce unknown parameters, the new nozzle will retain a very similar contour with slight improvements. The requirements that remain the same are that the nozzle must produce uniform flow for the entire Mach range, achieve maximum height deflection without exceeding a FOS of 1.5, and prevent leaks up to \textcolor{red}{200 psia}.
 
 The improvements to the nozzle and associated requirements will be a contour with continuous 1st and 2nd derivatives that is specified by analytical functions that will eliminate discontinuities and truncation error and a maximum allowable stress less than or equal to that found in the current ACE flexure at maximum deflection.
 
@@ -150,30 +173,11 @@ The current ACE settling chamber design provides multiple opportunities to impro
 
 Following Reshotko et al. \cite{reshotko}, the length of the settling chamber shall accommodate a separation of 250 characteristic mesh sizes between screens allowing for adequate turbulence decay. The aerogrids will have a hexagonal perforation pattern to increase porosity and decrease pressure loss. The number of aerogrids and screens shall be variable to allow for future flow conditioning experiments. The inlet shall include a baffle system that will provide an acceptable initial distribution and mixing of the air received from the high-pressure inlet piping. The overall design will accommodate the option for future boundary layer suction slots.
 
-A settling chamber height of 6 inches was chosen to keep the velocity as slow as possible without going below 10 ft/s for the majority of the Mach number range, according to Pope and Goin \cite{pope}. The reason for this minimum is to prevent thermal convection vortices from dominating the flow at the walls. The interior of ACE2.0 will also be heated prior to the start of the run to help avoid thermal gradients. 
+A settling chamber height of 6 inches was chosen to keep the velocity as slow as possible without going below 10 ft/s for the majority of the Mach number range. Pope and Goin \cite{pope} describe that this minimum prevents thermal convection vortices from dominating the flow at the walls. The interior of ACE2.0 will also be heated prior to the start of the run to help avoid thermal gradients. 
 
-% With this in mind, the height of 6 inches was chosen as a good compromise as seen in Table \ref{tab:sc_vel}.
-
-% \begin{table}[ht!]
-%     \centering
-%     \begin{tabular}{|c|c|c|c|c|}
-%         \cline{2-5}
-%         \multicolumn{1}{c}{} & \multicolumn{4}{|c|}{\textbf{Mach Number}} \\ \hline
-%         \textbf{Height} & 5 & 6 & 7 & 8 \\ \hline
-%         4" & 73.57 & 34.55 & 17.64 & 9.66 \\ \hline
-%         5" & 58.83 & 27.64 & 14.11 & 7.73 \\ \hline \hline
-%         6" & 49.01 & 23.03 & 11.76 & 6.44 \\ \hline \hline
-%         7" & 42.00 & 19.74 & 10.08 & 5.52 \\ \hline
-%         8" & 36.75 & 17.27 & 8.82 & 4.83 \\ \hline
-%         9" & 32.66 & 15.35 & 7.84 & 4.29 \\ \hline
-%     \end{tabular}
-%     \caption{Settling chamber velocities (ft/s) for combinations of settling chamber heights and Mach numbers.}
-%     \label{tab:sc_vel}
-% \end{table}
-    
 \subsection{Nozzle Contour Codes}
 
-The multiple reflections method-of-characteristics (MOC) Fortran script written by Bowersox that produced the ACE nozzle contour was used for the new nozzle contour. In order to achieve continuous first and second derivative continuity, a section of the code was modified to produce a fourth-order expansion section instead of the original second-order curve. This allowed the expansion section to match the curvature of both the subsonic section and the straight section. The code modification is included in Appendix \ref{appendix:contour}, and a comparison of the original quadratic and the new quartic expansion sections is shown in Figure \ref{fig:throats}. In this figure, the ACE contour is directly from the MOC points and the ACE2.0 contour is specified by an analytic fourth-order polynomial. The waviness of the MOC points can be seen here, emphasizing the need to define the entire nozzle with analytic functions.
+The multiple reflections method-of-characteristics (MOC) Fortran script by Bowersox that produced the ACE nozzle contour was used for the new nozzle contour. In order to achieve continuous first and second derivative continuity, a section of the code was modified to produce a fourth-order expansion section instead of the original second-order curve. This allowed the expansion section to match the curvature of both the subsonic section and the straight section. The code modification is included in Appendix \ref{appendix:contour}, and a comparison of the original quadratic and the new quartic expansion sections is shown in Figure \ref{fig:throats}. In this figure, the ACE contour is directly from the MOC points and the ACE2.0 contour is specified by an analytic fourth-order polynomial. The waviness of the MOC points can be seen here, emphasizing the need to define the entire nozzle with analytic functions.
 
 \begin{figure}[ht!]
     \centering
@@ -196,20 +200,20 @@ In order to verify the above nozzle contour performance compared to the original
     \label{fig:mesh}
 \end{figure}
 
-After creating a mesh for each, they were simulated using US3D on the Texas A\&M supercomputer, Grace. \textcolor{red}{Stuff about inputs and convergence conditions...} A sample of the results is shown in Figure \ref{fig:ace2-cfd}. The full ACE2.0 CFD input conditions and results compared to ACE is given in Appendix \ref{appendix:cfd}.
+After creating a mesh for each, they were simulated using US3D on the Texas A\&M supercomputer, Grace. A sample of the results is shown in Figure \ref{fig:ace2-cfd}. The full ACE2.0 CFD input conditions and results compared to ACE is given in Appendix \ref{appendix:cfd}.
+
+% \textcolor{red}{Stuff about inputs and convergence conditions...} 
 
 \begin{figure}[ht!]
     \centering
     \includegraphics[width=6in]{ace2-cfd}
-    \caption{ACE2.0 CFD Mach number plot}
+    \caption{\textcolor{red}{ACE2.0 CFD Mach number plot}}
     \label{fig:ace2-cfd}
 \end{figure}
 
 \subsection{General Nozzle and Settling Chamber Design}
 
-The resulting contour from above was imported into Solidworks using the analytic equations given in Appendix \ref{appendix:contour}, and the new ACE2.0 nozzle and settling chamber were designed following the above requirements. In order to accommodate the active control, the nozzle and settling chamber were combined into single rigid upper and lower pieces. Similar to ACE, the last 4 inches of the nozzle is a separate flexure piece to enable the variable Mach number capability. The overall length of the nozzle and settling chamber was increased by 19 inches with most of the added length contributed to the settling chamber. 
-
-The settling chamber is 1.7 inches taller and has a few considerable improvements. The flow conditioners are enclosed in a standalone box that allows for easy maintenance and future modifications of screen configurations. The initial configuration provides 3 inches between each aerogrid and screen for adequate turbulence decay. Inlet flow spreaders are added as well to allow uniform mixing of the incoming air before flowing through the aerogrids. 
+The resulting contour from above was imported into Solidworks using the analytic equations given in Appendix \ref{appendix:contour}, and the new ACE2.0 nozzle and settling chamber were designed following the above requirements. In order to accommodate the active control, the nozzle and settling chamber were combined into single rigid upper and lower pieces. Similar to ACE, the last 4 inches of the nozzle is a separate flexure piece to enable the variable Mach number capability. The overall length of the nozzle and settling chamber was increased by 19 inches with most of the added length contributed to the settling chamber. The settling chamber is 1.7 inches taller and has a few considerable improvements described in a later section. 
 
 The ACE design had the relative motion interface between nozzle and settling chamber with a large rubber seal that struggled to properly seal at higher Mach numbers. For ACE2.0, the end of the settling chamber is split into two pieces to allow the rotation of the nozzle blocks. This moves the potential sealing issue upstream of the flow conditioners where minor leaks are much less of a concern. The final ACE2.0 nozzle and settling chamber design compared to ACE is shown in Figure \ref{fig:nozzles}. 
 
@@ -238,7 +242,7 @@ The first iteration, shown in Figure \ref{fig:i1}, had a system of worm gears an
     \label{fig:i1}
 \end{figure}
 
-The second iteration, shown in Figure \ref{fig:i2}, built off from the idea of the wedges on the settling chamber to fully support against the loads during a run. This design relied on specially contoured oi-impregnated bronze sliding plates that were actuated by a similar system of worm gears and lead screws. The purpose of the contours instead of a simple flat wedge was to (1) provide a constant rate of change for the Mach number given a constant lead screw translation rate input and (2) maintain all points of contact as the nozzle rotated. The primary concern with this design was the expected wear and required actuation force due to friction, which would be around 20,000 pounds assuming a friction coefficient of 0.2 between the stainless steel and oil-impregnated bronze. This design also had the introduction of the disc spring stacks at the settling chamber end to hold the nozzles apart at the set position while not under load. 
+The second iteration, shown in Figure \ref{fig:i2}, built off from the idea of the wedges on the settling chamber to fully support against the loads during a run. This design relied on specially contoured oil-impregnated bronze sliding plates that were actuated by a similar system of worm gears and lead screws. The purpose of the contours instead of a simple flat wedge was to (1) provide a constant rate of change for the Mach number given a constant lead screw translation rate input and (2) maintain all points of contact as the nozzle rotated. The primary concern with this design was the expected wear and required actuation force due to friction, which would be around 20,000 pounds assuming a friction coefficient of 0.2 between the stainless steel and oil-impregnated bronze. This design also had the introduction of the disc spring stacks at the settling chamber end to hold the nozzles apart at the set position while not under load. 
 
 \begin{figure}[ht!]
     \centering
@@ -269,15 +273,31 @@ The final design of ACE2.0 utilizes two 20-ton ball screw linear actuators on bo
     \label{fig:cad-nozzle-actuators}
 \end{figure}
 
-\subsubsection{Nozzle and Settling Chamber Design}
+\subsubsection*{Nozzle and Settling Chamber Design}
 
 Using linear actuators does present the challenges of introducing stress concentrations at the attachment location and not providing support along the length of the nozzle and settling chamber. These were overcome by making the mating clevis on the settling chamber a 16 inch bar to distribute the load and adding a 5 inch by 2.5 inch beam along the length of the nozzle and settling chamber to provide rigidity, as seen in Figure \ref{fig:cad-nozzle-actuators}.
 
-The sidewalls are 1.5 inches thick and made from 304 stainless steel. They are handled and suspended from the frame by two brackets each, and a series of custom bar clamps will provide the support against the load under pressure. One sidewall has all of the ports and sensors, which allows the other to be the main access for maintenance. \textcolor{red}{Go into details of ports with figures?}
+The sidewalls are 1.5 inches thick and made from 304 stainless steel. They are suspended from the frame by two brackets each, and a series of custom bar clamps will provide the support against the load under pressure. One sidewall has all of the ports and sensors, which allows the other to be the main access for maintenance.
 
-The flow conditioner box is made from four 0.75 inch thick 304 stainless steel plates. This assembly floats between the nozzles and is secured by the sidewalls in a slot. The overall height doubles as a safety limit so the nozzles will hit each side of the box before hitting each other. Housed inside the box is two aerogrids and four screens in the current configuration, but any configuration can easily be designed and swapped in the future. \textcolor{red}{Figure? And go into further detail on aerogrids and screens?}
+The settling chamber consists of four inlet flow spreaders and a standalone box where the flow conditioners enclosed that allows for easy maintenance and future modifications of screen configurations. The inlet flow spreaders were added to allow uniform mixing of the incoming air before flowing through the aerogrids, and they will be made from 304 stainless steel. The flow conditioner box is made from four 0.75-inch thick 304 stainless steel plates. This assembly floats between the nozzles and is secured by the sidewalls in a slot. The overall height doubles as a safety limit so the nozzles will contact each side of the box before contacting each other. Housed inside the box are two aerogrids and four screens in the current configuration, but any configuration can easily be designed and swapped in the future. The initial configuration provides 3 inches between each aerogrid and screen for adequate turbulence decay. 
 
-\subsubsection{Frame Design}
+\textcolor{red}{The aerogrids ... open area and $\Delta p$ ... and the screens ... open area and $\Delta p$}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[trim={50 150 50 150},clip,width=5.5in]{aerogrid.pdf}
+    \caption{CAD model of aerogrid}
+    \label{fig:aerogrid}
+\end{figure}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[trim={50 80 50 80},clip,width=5.5in]{conditioners.pdf}
+    \caption{CAD model of flow conditioner box}
+    \label{fig:conditioners}
+\end{figure}
+
+\subsubsection*{Frame Design}
 
 The frame was designed around the linear actuators to best support the extreme loads. In order to maximize strength, a single piece brace was designed to symmetrically bear the loads from the actuators. The rest of the frame was designed between the brace and the nozzle-test-section flange to support the sidewalls. The entire frame will be made from 3 inch thick 4140 alloy steel plates and bars, and it all bolts together instead of welding. All exposed faces will be powder coated in order avoid rust and wear over time. 
 
@@ -290,7 +310,7 @@ The frame will have four 5000-pound capacity steel swivel casters for easy maneu
     \label{fig:cad-frame}
 \end{figure}
 
-\subsubsection{Actuation System Design}
+\subsubsection*{Actuation System Design}
 
 The actuation system for ACE2.0 is comprised of many components that enable the active  feedback-back control of the Mach number. Only a high level overview will be provided here for sake of brevity, but a full detailed description of the entire system will be provided in Appendix \ref{appendix:actuation}. 
 
@@ -320,16 +340,9 @@ The specific program to control the Mach number will be created in future work. 
 
 Additional components of the system include two safety limit switches for each actuator, an external encoder for each actuator for additional physical feedback, various power supplies and relays, an emergency stop button, and a 7" human machine interface (HMI) for a simple control interface that can be updated and expanded for any desired controls.
 
-\subsubsection{Final Overall Design}
+\subsubsection*{Final Overall Design}
 
-The final design with all modeled components is shown in Figure \ref{fig:cad-full}. The entire design will integrate with the existing ACE test section and other infrastructure. The overall length from the nozzle-test-section flange to the inlet of the 4-way manifold is 94 inches, shown in Figure \ref{fig:cad-side}, which is only around 12 inches longer than ACE.
-
-\begin{figure}[ht!]
-    \centering
-    \includegraphics[trim={180 30 135 70},clip,width=6in]{cad-full.pdf}
-    \caption{Full CAD model of ACE2.0 in Solidworks}
-    \label{fig:cad-full}
-\end{figure}
+The final design with all modeled components is shown in Figures \ref{fig:cad-side} and \ref{fig:cad-full}. The entire design will integrate with the existing ACE test section and other infrastructure. The overall length from the nozzle-test-section flange to the inlet of the 4-way manifold is 94 inches, about 12 inches longer than the existing system.
 
 \begin{figure}[ht!]
     \centering
@@ -338,9 +351,16 @@ The final design with all modeled components is shown in Figure \ref{fig:cad-ful
     \label{fig:cad-side}
 \end{figure}
 
-\subsubsection{FEA}
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[trim={180 30 135 70},clip,width=6in]{cad-full.pdf}
+    \caption{Full CAD model of ACE2.0 in Solidworks}
+    \label{fig:cad-full}
+\end{figure}
 
-The structural integrity of the final design was simulated using finite element analysis (FEA) in Solidworks. There were four primary simulations conducted: (1) lower nozzle and settling chamber at 200 psia with gravity, (2) upper nozzle and settling chamber at full vacuum with gravity, (3) sidewall with clamps at 200 psia, (4) and flexure fatigue at maximum deflection.
+\subsubsection*{FEA}
+
+The structural integrity of the final design was simulated using finite element analysis (FEA) in Solidworks. There were four primary simulations conducted: (1) lower nozzle and settling chamber at 200 psia with gravity, (2) upper nozzle and settling chamber at full vacuum with gravity, (3) sidewall with clamps at 200 psia, (4) and flexure fatigue at maximum deflection. Other simulations were also conducted for a many of the individual components such as the flow spreaders, aerogrids, and various hardware.
 
 From all of these simulations, the minimum FOS achieved was 1.8. \textcolor{red}{Flexure fatigue results...} 
 
@@ -350,7 +370,7 @@ From all of these simulations, the minimum FOS achieved was 1.8. \textcolor{red}
 
 \textcolor{red}{How much to detail? Pictures of stock? What parts to show final machined?}
 
-All of the ACE2.0 parts are finished machining besides the nozzles, sidewalls, and brace. The fabrication is following the schedule shown in Figure \ref{fig:schedule}, which shows the completed tasks in gray, the current tasks in green, orange, or red depending on status, and future tasks in white. The frame pieces were machined at the Texas A\&M Fischer Engineering Design Center (FEDC) to utilize their water jet to cut the brace. An image of the brace after being cut out on the water jet is shown in Figure \ref{fig:fab-brace-jet}. The frame parts were originally planned to be water jet from the brace stock as well to save material cost and reduce excess as shown in Figure \ref{fig:cad-water-jet}. It was later discovered that the cost of time and tooling on the water jet to cut all pieces from the 3 inch 4140 alloy steel is about the same as the cost of ordering 60 feet of bar stock. The decision to order the bar stock was made to allow the water jet to be used for other parts while the bar stock shipped and delivered. The pallet of finished frame parts is shown in Figure \ref{fig:fab-frame-parts}.
+At present, all of the ACE2.0 parts are finished machining besides the nozzles and sidewalls. The fabrication is following the schedule shown in Figure \ref{fig:schedule}, which shows the completed tasks in gray, the current tasks in green, orange, or red depending on status, and future tasks in white. The frame pieces were machined at the Texas A\&M Fischer Engineering Design Center (FEDC). An image of the brace after being cut out on the water jet is shown in Figure \ref{fig:fab-brace-jet}. The pallet of finished frame parts is shown in Figure \ref{fig:fab-frame-parts}.
 
 \begin{figure}[ht!]
     \centering
@@ -393,11 +413,11 @@ The rest of the parts were machined at the Texas A\&M Bush Combat Development Co
 
 \subsection{Pressure Test}
 
-The hydro-pressure test will be performed at Machine Works prior to sending the nozzles and sidewalls to be polished. The base tunnel will be assembled with steel bars to simulate the actuators. The tunnel will be filled with water and pressurized to 200 psia for one hour, and the pressure will be monitored throughout. The primary goal of the pressure test is to ensure structural integrity at maximum pressure, but any major leaks will be addressed.
+The hydro-pressure test will be performed at Machine Works prior to sending the nozzles and sidewalls to be polished. The base tunnel will be assembled with steel bars to simulate the actuators. The tunnel will be filled with water and pressurized to 200 psia for one hour, and the pressure will be monitored throughout. The primary goal of the pressure test is to ensure structural integrity at maximum pressure. Any major leaks will also be addressed.
 
 \subsection{Polishing}
 
-Following the completion of the pressure test, the nozzles and sidewalls will be shipped to Astro Pak for polishing. All interior surfaces will be mechanically polished to a 1 Ra finish, and electropolishing will be used if necessary. In order to safely ship these pieces, the nozzle blocks will be assembled as shown in Figure \ref{fig:polish-assembly} and custom wooden crates will be built.
+Following the completion of the pressure test, the nozzles and sidewalls will be shipped to Astro Pak for polishing. All interior surfaces will be mechanically polished to a 1 Ra\footnote{Surface roughness average of 1 microinch} finish, and electropolishing will be used if necessary. In order to safely ship these pieces, the nozzle blocks will be assembled as shown in Figure \ref{fig:polish-assembly} and custom wooden crates will be built.
 
 \begin{figure}[ht!]
     \centering
@@ -412,13 +432,13 @@ The final assembly will occur at the NAHL once the nozzle and sidewalls are deli
 
 \textcolor{red}{How to show assembly process? Discuss when we meet}
 
-\subsubsection{Nozzle Alignment and Actuation Homing}
+% \subsection{Nozzle Alignment and Actuation Homing}
 
-\textcolor{red}{How to properly align and level nozzle?}
+% \textcolor{red}{How to properly align and level nozzle?}
 
-Before the sidewalls are installed, the nozzles will be aligned and leveled and then actuated for homing the servo motors with the limit switches. At this point shims will be used to make fine adjustments to limit switch positions to ensure a minimum Mach number of \textcolor{red}{4.9?} and a maximum Mach number of \textcolor{red}{8.5?}.
+% Before the sidewalls are installed, the nozzles will be aligned and leveled and then actuated for homing the servo motors with the limit switches. At this point shims will be used to make fine adjustments to limit switch positions to ensure a minimum Mach number of \textcolor{red}{4.9?} and a maximum Mach number of \textcolor{red}{8.5?}.
 
-\subsection{Shakedown and Calibration}
+% \subsection{Shakedown and Calibration}
 
-\textcolor{red}{Decide what the first runs and measurements should be to properly calibrate following relevant literature.}
+% \textcolor{red}{Decide what the first runs and measurements should be to properly calibrate following relevant literature.}
 

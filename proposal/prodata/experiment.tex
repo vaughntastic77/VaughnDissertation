@@ -122,13 +122,13 @@ At the very least, this model will be fully developed and simulated to ensure mi
 
 In order to establish a baseline of performance characteristics for future work within the ACE2.0 facility, a pitot and hot-wire survey will be performed to measure and characterize the freestream flow uniformity and disturbance levels (noise) throughout the nozzle. The survey will utilize both a pitot rake and a single pitot probe with Kulite pressure transducers mounted on a traverse to characterize the pressure fluctuations and uniformity and a hot-wire anemometer to measure mass flux fluctuation levels.
 
-A final noise survey was performed in ACE to establish a control for comparison with ACE2.0 as well as provide a preliminary exploration of noise hysteresis. The survey utilized a single pitot probe to measure the noise along the centerline at 6 and 24 inches upstream of the nozzle exit as shown in Figure \ref{fig:pitot17}. For each run, the Reynolds number was increased above the transition value $\left(Re' = 3 \times 10^6/\mathrm{m}\right)$ discussed in the previous chapter and then decreased back down to the initial value below the transition value. These measurements provided baseline data for pressure fluctuation hysteresis. The results are shown in Figure \ref{fig:ace-survey}. As seen, there is no discernible hysteresis in the freestream pressure fluctuation levels as the Reynolds number is swept up and back down. This survey will be repeated using a hot-wire anemometer to measure mass flux fluctuation levels if the remaining schedule for ACE permits.
+A final noise survey was performed in ACE to establish a control for comparison with ACE2.0 as well as provide a preliminary exploration of noise hysteresis. The survey utilized a single pitot probe to measure the noise along the centerline at 6 and 24 inches upstream of the nozzle exit as shown in Figure \ref{fig:pitot17}. For each run, the Reynolds number was increased above the transition value $\left(Re' = 3 \times 10^6/\mathrm{m}\right)$ discussed in the previous chapter and then decreased back down to the initial value below the transition value. These measurements provided baseline data for pressure fluctuation hysteresis. The results are shown in Figure \ref{fig:ace-hysteresis}. As seen, there is no significant discernible hysteresis in the freestream pressure fluctuation levels as the Reynolds number is swept up and back down. This survey will be repeated using a hot-wire anemometer to measure mass flux fluctuation levels if the remaining schedule for ACE permits.
 
 \begin{figure}[ht!]
     \centering
-    \includegraphics[width=6in]{ace-noise-2024}
-    \caption{ACE freestream pressure fluctuations...}
-    \label{fig:ace-survey}
+    \includegraphics[width=6in]{ace-hysteresis}
+    \caption{ACE freestream pressure fluctuations at 6 inches and 24 inches upstream of nozzle exit}
+    \label{fig:ace-hysteresis}
 \end{figure}
 
 The anticipated characterization test matrix for ACE2.0 is shown in Table \ref{tab:ace2-survey}. The pitot rake will be used to characterize the freestream flow uniformity in the nozzle exit plane and a plane 6 inches upstream. The single pitot probe and hot-wire anemometer will be used to measure the freestream pressure fluctuation and mass flux fluctuation levels, respectively, along the centerline up to 24 inches upstream of the nozzle exit. The runs in each test matrix are divided into a few distinct objectives: (1) uniformity, (2) uncertainty quantification, (3) disturbance levels transition, and (4) hysteresis. The last five runs will be replicates of the first five to better quantify the uncertainty in Mach number, Reynolds number, and flow uniformity. This entire process will be documented so that flow-quality verification tests can be repeated as part of ongoing lab operations.
@@ -139,59 +139,6 @@ The anticipated characterization test matrix for ACE2.0 is shown in Table \ref{t
     \caption{Pitot probe measuring 24 inches upstream of nozzle exit.}
     \label{fig:pitot17}
 \end{figure}
-
-% \begin{table}[ht!]
-%     \centering
-%     \begin{tabular}{|c|c|c|c|c|}
-%         \hline
-%     \textbf{Run} & \textbf{X (in.)} & \textbf{Y (in.)} & \textbf{Z (in.)} & \textbf{$Re'$ ($\times10^6$)} \\ \hline
-%         1 & 0 & 0 & 0 & 2$\to$7$\to$2 \\ \hline
-%         2 & -6 & 0 & 0 & 2$\to$7$\to$2 \\ \hline
-%         3 & -17 & 0 & 0 & 2$\to$7$\to$2 \\ \hline
-%         4 & -24 & 0 & 0 & 2$\to$7$\to$2 \\ \hline
-%     \end{tabular}
-%     \caption{Test matrix for preliminary noise hysteresis in ACE.}
-%     \label{tab:ace-survey}
-% \end{table}
-
-% \setcounter{rownum}{0}
-% \begin{table}[ht!]
-%     \centering
-%     \begin{tabular}{|>{\stepcounter{rownum}\therownum}c|c|c|c|c|c|}
-%         \hline
-%         \multicolumn{1}{|c|}{\textbf{Run}} & \textbf{X (in.)} & \textbf{Y (in.)} & \textbf{Z (in.)} & \textbf{Mach} & \textbf{$Re'$ ($10^6$)} \\ \hline
-%         & 0 & 0 & 0 & 6$^*$ & 3$^*$ \\ \hline
-%         & 0 & 0 & 0 & 6 & 2$\to$7$\to$2 \\ \hline
-%         & 0 & 0 & 0 & 5$\to$8$\to$5 & 3 \\ \hline
-%         & 0 & 0 & -3:1:3 & 6 & 3 \\ \hline
-%         & 0 & -3 & -3:1:3 & 6 & 3 \\ \hline
-%         & 0 & -1.5 & -3:1:3 & 6 & 3 \\ \hline
-%         & 0 & 1.5 & -3:1:3 & 6 & 3 \\ \hline
-%         & 0 & 3 & -3:1:3 & 6 & 3 \\ \hline
-%         & -6 & 0 & 0 & 8 & 2$\to$7$\to$2 \\ \hline
-%         & -6 & 0 & 0 & 7 & 2$\to$7$\to$2 \\ \hline
-%         & -6 & 0 & 0 & 6 & 2$\to$7$\to$2 \\ \hline
-%         & -6 & 0 & 0 & 5 & 2$\to$7$\to$2 \\ \hline
-%         & -6 & 0 & 0 & 5$\to$8$\to$5 & 3 \\ \hline
-%         & -6 & 0 & -3:1:3 & 6 & 3 \\ \hline
-%         & -6 & -3 & -3:1:3 & 6 & 3 \\ \hline
-%         & -6 & -1.5 & -3:1:3 & 6 & 3 \\ \hline
-%         & -6 & 1.5 & -3:1:3 & 6 & 3 \\ \hline
-%         & -6 & 3 & -3:1:3 & 6 & 3 \\ \hline
-%         & -17 & 0 & 0 & 6 & 2$\to$7$\to$2 \\ \hline
-%         & -17 & 0 & 0 & 5$\to$8$\to$5 & 3 \\ \hline
-%         & -24 & 0 & 0 & 6 & 2$\to$7$\to$2 \\ \hline
-%         & -24 & 0 & 0 & 5$\to$8$\to$5 & 3 \\ \hline
-%         (1) & 0 & 0 & 0 & 6$^*$ & 3$^*$ \\ \hline
-%         (4) & 0 & 0 & -3:1:3 & 6 & 3 \\ \hline
-%         (5) & 0 & -3 & -3:1:3 & 6 & 3 \\ \hline
-%         (6) & 0 & -1.5 & -3:1:3 & 6 & 3 \\ \hline
-%         (7) & 0 & 1.5 & -3:1:3 & 6 & 3 \\ \hline
-%         (8) & 0 & 3 & -3:1:3 & 6 & 3 \\ \hline
-%     \end{tabular}
-%     \caption{Test matrix for ACE2.0 characterization with only single pitot.}
-%     \label{tab:ace2-survey-norake}
-% \end{table}
 
 \setcounter{rownum}{0}
 \begin{table}[ht!]
