@@ -64,7 +64,7 @@ The following derivation provides a starting point for the mathematical model.
     \frac{T_0}{T} = (1+\frac{\gamma-1}{2}M^2) = F
 \end{equation}
 \begin{equation}
-    \frac{P_0}{P} = (1+\frac{\gamma-1}{2}M^2)^{\frac{\gamma}{\gamma+1}} = F^{\frac{\gamma}{\gamma+1}}
+    \frac{P_0}{P} = (1+\frac{\gamma-1}{2}M^2)^{\frac{\gamma}{\gamma-1}} = F^{\frac{\gamma}{\gamma-1}}
 \end{equation}
 \begin{equation}
     \rho = \frac{P}{R T} = \frac{P_0 F^{\frac{-\gamma}{\gamma-1}}}{R T_0 F^{-1}} = \frac{P_0}{R T_0 F^{\frac{1}{\gamma-1}}}
@@ -76,7 +76,10 @@ The following derivation provides a starting point for the mathematical model.
     Re' = \frac{\rho U}{\mu} = \frac{1}{\mu} \frac{P_0}{R T_0 F^{\frac{1}{\gamma-1}}} M F^{-\frac{1}{2}} \sqrt{\gamma R T_0}
 \end{equation*}
 \begin{equation}
-    Re' = \sqrt{\frac{\gamma}{R T_0}} \frac{M P_0}{\mu} F^{-\frac{\gamma+1}{2(\gamma -1}}
+    Re' = \sqrt{\frac{\gamma}{R T_0}} \frac{M P_0}{\mu} F^{-\frac{\gamma+1}{2(\gamma -1)}}
+\end{equation}
+\begin{equation}
+    Re' = \sqrt{\frac{\gamma}{R T_0}} \frac{M P_0}{\mu} \left(1+\frac{\gamma-1}{2}M^2\right)^{-\frac{\gamma+1}{2(\gamma -1)}}
 \end{equation}
 
 
@@ -136,32 +139,33 @@ The anticipated characterization test matrix for ACE2.0 is shown in Table \ref{t
     \centering
     \begin{tabular}{|>{\stepcounter{rownum}\therownum}c|c|c|c|c|c|c|c|}
         \hline
-        \multicolumn{1}{|c|}{\textbf{Run}} & \textbf{X (in.)} & \textbf{Y (in.)} & \textbf{Z (in.)} & \textbf{Mach} & \textbf{$Re'$ ($10^6$)} & \textbf{ Instrument} & \textbf{Purpose} \\ \hline
-        & 0 & -3:1:3 & 0 & 6$^*$ & 3$^*$ & Rake & Uniformity\\ \hline
-        & 0 & -3:1:3 & -3:1:3 & 8 & 3 & Rake & Uniformity\\ \hline
-        & 0 & -3:1:3 & -3:1:3 & 7 & 3 & Rake & Uniformity\\ \hline
-        & 0 & -3:1:3 & -3:1:3 & 6 & 3 & Rake & Uniformity\\ \hline
-        & 0 & -3:1:3 & -3:1:3 & 5 & 3 & Rake & Uniformity\\ \hline
-        & -6 & -3:1:3 & -3:1:3 & 5 & 3 & Rake & Uniformity\\ \hline
-        & -6 & -3:1:3 & -3:1:3 & 6 & 3 & Rake & Uniformity\\ \hline
-        & -6 & -3:1:3 & -3:1:3 & 7 & 3 & Rake & Uniformity\\ \hline
-        & -6 & -3:1:3 & -3:1:3 & 8 & 3 & Rake & Uniformity\\ \hline
-        & 0 & 0 & 0 & 8 & 2$\to$7$\to$2 & Pitot & Noise\\ \hline
-        & 0 & 0 & 0 & 7 & 2$\to$7$\to$2 & Pitot & Noise\\ \hline
-        & 0 & 0 & 0 & 6 & 2$\to$7$\to$2 & Pitot & Noise\\ \hline
-        & 0 & 0 & 0 & 5 & 2$\to$7$\to$2 & Pitot & Noise\\ \hline
-        & 0 & 0 & 0 & 5$\to$8$\to$5 & 3 & Pitot & Noise\\ \hline
-        & -6 & 0 & 0 & 5$\to$8$\to$5 & 3 & Pitot & Noise\\ \hline
-        & -6 & 0 & 0 & 5 & 2$\to$7$\to$2 & Pitot & Noise\\ \hline
-        & -6 & 0 & 0 & 6 & 2$\to$7$\to$2 & Pitot & Noise\\ \hline
-        & -6 & 0 & 0 & 7 & 2$\to$7$\to$2 & Pitot & Noise\\ \hline
-        & -6 & 0 & 0 & 8 & 2$\to$7$\to$2 & Pitot & Noise\\ \hline
-        & -17 & 0 & 0 & 6 & 2$\to$7$\to$2 & Pitot & Noise\\ \hline
-        & -17 & 0 & 0 & 5$\to$8$\to$5 & 3 & Pitot & Noise\\ \hline
-        & -24 & 0 & 0 & 5$\to$8$\to$5 & 3 & Pitot & Noise\\ \hline
-        & -24 & 0 & 0 & 6 & 2$\to$7$\to$2 & Pitot & Noise\\ \hline
-        -\stepcounter{rownum}\stepcounter{rownum}\stepcounter{rownum}\stepcounter{rownum}\stepcounter{rownum}\stepcounter{rownum}\stepcounter{rownum}\stepcounter{rownum}\stepcounter{rownum}\stepcounter{rownum}\stepcounter{rownum}\stepcounter{rownum}\stepcounter{rownum}\therownum & \multicolumn{6}{|c|}{\textbf{Repeat runs 10-23 with Hot-wire}} & Noise\\ \hline
-        -\stepcounter{rownum}\stepcounter{rownum}\stepcounter{rownum}\stepcounter{rownum}\therownum & \multicolumn{6}{|c|}{\textbf{Replicate runs 1-5}} & Uncertainty\\ \hline
+        \multicolumn{1}{|c|}{\textbf{Run}} & \textbf{X (in.)} & \textbf{Y (in.)} & \textbf{Z (in.)} & \textbf{Mach} & $\boldsymbol{Re' \, (10^6)}$ & \textbf{ Instrument} & \textbf{Purpose} \\ \hline
+        & 0 & -3:1:3 & 0 & 6 & 2$\to$10$\to$2 & Rake & Baseline\\ \hline
+        & 0 & -3:1:3 & 0 & 5$\to$8$\to$5 & TBD & Rake & Baseline\\ \hline
+        & 0 & -3:1:3 & -3:1:3 & 8 & TBD & Rake & Uniformity\\ \hline
+        & 0 & -3:1:3 & -3:1:3 & 7 & TBD & Rake & Uniformity\\ \hline
+        & 0 & -3:1:3 & -3:1:3 & 6 & TBD & Rake & Uniformity\\ \hline
+        & 0 & -3:1:3 & -3:1:3 & 5 & TBD & Rake & Uniformity\\ \hline
+        & -6 & -3:1:3 & -3:1:3 & 5 & TBD & Rake & Uniformity\\ \hline
+        & -6 & -3:1:3 & -3:1:3 & 6 & TBD & Rake & Uniformity\\ \hline
+        & -6 & -3:1:3 & -3:1:3 & 7 & TBD & Rake & Uniformity\\ \hline
+        & -6 & -3:1:3 & -3:1:3 & 8 & TBD & Rake & Uniformity\\ \hline
+        & 0 & 0 & 0 & 8 & 2$\to$TBD$\to$2 & Pitot & Noise\\ \hline
+        & 0 & 0 & 0 & 7 & 2$\to$TBD$\to$2 & Pitot & Noise\\ \hline
+        & 0 & 0 & 0 & 6 & 2$\to$TBD$\to$2 & Pitot & Noise\\ \hline
+        & 0 & 0 & 0 & 5 & 2$\to$TBD$\to$2 & Pitot & Noise\\ \hline
+        & 0 & 0 & 0 & 5$\to$8$\to$5 & TBD & Pitot & Noise\\ \hline
+        & -6 & 0 & 0 & 5$\to$8$\to$5 & TBD & Pitot & Noise\\ \hline
+        & -6 & 0 & 0 & 5 & 2$\to$TBD$\to$2 & Pitot & Noise\\ \hline
+        & -6 & 0 & 0 & 6 & 2$\to$TBD$\to$2 & Pitot & Noise\\ \hline
+        & -6 & 0 & 0 & 7 & 2$\to$TBD$\to$2 & Pitot & Noise\\ \hline
+        & -6 & 0 & 0 & 8 & 2$\to$TBD$\to$2 & Pitot & Noise\\ \hline
+        & -17 & 0 & 0 & 6 & 2$\to$TBD$\to$2 & Pitot & Noise\\ \hline
+        & -17 & 0 & 0 & 5$\to$8$\to$5 & TBD & Pitot & Noise\\ \hline
+        & -24 & 0 & 0 & 5$\to$8$\to$5 & TBD & Pitot & Noise\\ \hline
+        & -24 & 0 & 0 & 6 & 2$\to$TBD$\to$2 & Pitot & Noise\\ \hline
+        -\stepcounter{rownum}\stepcounter{rownum}\stepcounter{rownum}\stepcounter{rownum}\stepcounter{rownum}\stepcounter{rownum}\stepcounter{rownum}\therownum & \multicolumn{6}{|c|}{\textbf{Repeat a few key runs from 11-24 with Hot-wire}} & Noise\\ \hline
+        -\stepcounter{rownum}\stepcounter{rownum}\stepcounter{rownum}\stepcounter{rownum}\stepcounter{rownum}\therownum & \multicolumn{6}{|c|}{\textbf{Replicate runs 1-6}} & Uncertainty\\ \hline
     \end{tabular}
     \caption{Test matrix for ACE2.0 freestream characterization.}
     \label{tab:ace2-survey}

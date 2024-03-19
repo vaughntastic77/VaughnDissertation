@@ -17,19 +17,20 @@
 
 As described above, the existing ACE tunnel was designed and manufactured between 2009 and 2010 and began operating in 2010 \cite{ace09,ace10-calibrate,tichenor-dis}. The variable Mach number capability is provided by a thin flexure portion near the end of the nozzle that allows the throat height to be varied from approximately 0.04 to 0.36 inches, which enables the test-section Mach number to be varied from Mach 5 to 8. Schematic of the full tunnel and the nozzle and settling chamber are shown in Figures \ref{fig:ace-full-tunnel} and \ref{fig:ace-nozzle}.
 
-% \textcolor{red}{The ranges of flow conditions are given in Table \ref{tab:flow}.}
-% \begin{table}[ht!]
-%     \centering
-%     \begin{tabular}{ccccc}
-%         \hline
-%         \hline
-%     \textbf{Mach} & \textbf{Total Pressure} & \textbf{Total Temperature} & \textbf{Run Time} & \textbf{Test Section} \\ 
-%     \textbf{Number} & \textbf{(psia)} & \textbf{(K)} & \textbf{(sec)} & \textbf{(sq-in.)} \\ \hline
-%         5-8 & 30-200 & 300-530 & 50 & 9 $\times$ 14\\ \hline \hline
-%     \end{tabular}
-%     \caption{ACE operating conditions.}
-%     \label{tab:flow}
-% \end{table}
+\textcolor{red}{The ranges of flow conditions are given in Table \ref{tab:flow}.}
+\begin{table}[ht!]
+    \centering
+    \small
+    \begin{tabular}{cccccc}
+        \hline
+        \hline
+        \textbf{Mach} & \textbf{Total Pressure} & \textbf{Total Temperature} & \textbf{Reynolds Number} & \textbf{Run Time} & \textbf{Test Section} \\ 
+        \textbf{Number} & \textbf{(psia)} & \textbf{(K)} & $\boldsymbol{(\times 10^6/\mathrm{m})}$ & \textbf{(sec)} & \textbf{(sq-in.)} \\ \hline
+        $5-8$ & $30-200$ & $300-530$ & $0.3-10$ & $40$ & $9 \times 14$ \\ \hline \hline
+    \end{tabular}
+    \caption{ACE operating conditions.}
+    \label{tab:flow}
+\end{table}
 
 \begin{figure}[ht!]
     \centering
@@ -198,7 +199,7 @@ In order to verify the above nozzle contour performance compared to the original
 \begin{figure}[ht!]
     \centering
     \includegraphics[width=6in]{ace-mesh}
-    \includegraphics[width=6in]{qace-mesh}
+    \includegraphics[width=6in]{ace2-mesh}
     \caption{Mesh in Pointwise for ACE (top) and ACE2.0 (bottom) nozzle contours}
     \label{fig:mesh}
 \end{figure}
@@ -384,7 +385,7 @@ From all of these simulations, the minimum FOS for any component was 1.8. The di
 
 \begin{figure}[ht!]
     \centering
-    \includegraphics[trim={110 200 180 200},clip,width=4.5in]{fea-flexure.pdf}
+    \includegraphics[trim={110 200 170 200},clip,width=4.5in]{fea-flexure.pdf}
     \caption{Flexure stress at maximum deflection of 0.25 inches}
     \label{fig:fea-flexure}
 \end{figure}
